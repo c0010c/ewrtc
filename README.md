@@ -1,5 +1,7 @@
 # ewrtc
 
+**简体中文** | [English](README.en.md)
+
 面向嵌入式设备的模块化 C11 WebRTC SDK。将设备已经编码的 H.264 / Opus 音视频通过 WebRTC 发送到浏览器，也支持接收媒体和设备主动发起连接。
 
 设备侧不依赖 Google WebRTC 的 C++ 库。平台能力通过 PAL 注入，信令传输由应用实现。默认使用 native ICE + OpenSSL；可选 libjuice 和 Mbed TLS 后端。
