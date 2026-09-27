@@ -1,0 +1,219 @@
+[  5%] Built target ewrtc_pal_objects
+[  5%] Built target ewrtc_stun_objects
+[  5%] Built target ewrtc_crypto_objects
+[  6%] Built target ewrtc_pal_linux_objects
+[  8%] Built target ewrtc_common_objects
+[ 10%] Built target ewrtc_sdp_objects
+[ 15%] Built target ewrtc_dtls_objects
+[ 52%] Built target juice-static
+[ 55%] Built target ewrtc_common
+[ 57%] Built target ewrtc_srtp_objects
+[ 57%] Built target ewrtc_rtp_objects
+[ 61%] Built target ewrtc_media_objects
+[ 61%] Built target ewrtc_session_objects
+[ 66%] Built target ewrtc_ice_objects
+[ 69%] Built target ewrtc_rtp
+[ 69%] Built target ewrtc_pal
+[ 71%] Built target ewrtc_crypto
+[ 72%] Built target ewrtc
+[ 76%] Built target ewrtc_pal_linux
+[ 76%] Built target ewrtc_dtls
+[ 77%] Built target ewrtc_stun
+[ 81%] Built target ewrtc_srtp
+[ 81%] Built target ewrtc_sdp
+[ 83%] Built target ewrtc_media
+[ 86%] Built target ewrtc_tests
+[ 89%] Built target ewrtc_runtime_tests
+[ 91%] Built target ewrtc_ice
+[ 94%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 96%] Built target ewrtc_demo
+[ 98%] Built target ewrtc_session
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-modular-asan
+    Start 1: architecture
+1/4 Test #1: architecture .....................   Passed    0.04 sec
+    Start 2: components
+2/4 Test #2: components .......................   Passed    0.08 sec
+    Start 3: protocol
+3/4 Test #3: protocol .........................   Passed    0.06 sec
+    Start 4: runtime
+4/4 Test #4: runtime ..........................   Passed    0.05 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.24 sec
+[  5%] Built target ewrtc_sdp_objects
+[  5%] Built target ewrtc_common_objects
+[  8%] Built target ewrtc_stun_objects
+[ 11%] Built target ewrtc_crypto_objects
+[ 14%] Built target ewrtc_pal_linux_objects
+[ 17%] Built target ewrtc_pal_objects
+[ 22%] Built target ewrtc_ice_objects
+[ 28%] Built target ewrtc_dtls_objects
+[ 40%] Built target ewrtc_common
+[ 40%] Built target ewrtc_rtp_objects
+[ 40%] Built target ewrtc_media_objects
+[ 40%] Built target ewrtc_session_objects
+[ 42%] Built target ewrtc_srtp_objects
+[ 45%] Built target ewrtc
+[ 48%] Built target ewrtc_crypto
+[ 51%] Built target ewrtc_rtp
+[ 54%] Built target ewrtc_pal
+[ 62%] Built target ewrtc_pal_linux
+[ 62%] Built target ewrtc_stun
+[ 68%] Built target ewrtc_demo
+[ 68%] Built target ewrtc_sdp
+[ 82%] Built target ewrtc_tests
+[ 82%] Built target ewrtc_dtls
+[ 82%] Built target ewrtc_runtime_tests
+[ 85%] Built target ewrtc_srtp
+[ 88%] Built target ewrtc_ice
+[ 91%] Built target ewrtc_media
+[ 94%] Built target ewrtc_session
+[ 97%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-native-openssl
+    Start 1: architecture
+1/4 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/4 Test #2: components .......................   Passed    0.02 sec
+    Start 3: protocol
+3/4 Test #3: protocol .........................   Passed    0.02 sec
+    Start 4: runtime
+4/4 Test #4: runtime ..........................   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.08 sec
+[  5%] Built target ewrtc_pal_objects
+[  5%] Built target ewrtc_common_objects
+[  8%] Built target ewrtc_stun_objects
+[ 11%] Built target ewrtc_crypto_objects
+[ 17%] Built target ewrtc_ice_objects
+[ 22%] Built target ewrtc_dtls_objects
+[ 28%] Built target ewrtc_pal_linux_objects
+[ 28%] Built target ewrtc_sdp_objects
+[ 40%] Built target ewrtc_srtp_objects
+[ 40%] Built target ewrtc_session_objects
+[ 40%] Built target ewrtc_rtp_objects
+[ 40%] Built target ewrtc_common
+[ 42%] Built target ewrtc_media_objects
+[ 48%] Built target ewrtc_crypto
+[ 48%] Built target ewrtc_pal
+[ 51%] Built target ewrtc_rtp
+[ 54%] Built target ewrtc
+[ 62%] Built target ewrtc_dtls
+[ 62%] Built target ewrtc_pal_linux
+[ 62%] Built target ewrtc_srtp
+[ 65%] Built target ewrtc_stun
+[ 71%] Built target ewrtc_tests
+[ 74%] Built target ewrtc_sdp
+[ 77%] Built target ewrtc_media
+[ 82%] Built target ewrtc_runtime_tests
+[ 85%] Built target ewrtc_ice
+[ 91%] Built target ewrtc_demo
+[ 94%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 97%] Built target ewrtc_session
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-native-mbedtls
+    Start 1: architecture
+1/4 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/4 Test #2: components .......................   Passed    0.02 sec
+    Start 3: protocol
+3/4 Test #3: protocol .........................   Passed    0.02 sec
+    Start 4: runtime
+4/4 Test #4: runtime ..........................   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.08 sec
+[  5%] Built target ewrtc_pal_objects
+[  5%] Built target ewrtc_srtp_objects
+[  5%] Built target ewrtc_crypto_objects
+[  7%] Built target ewrtc_sdp_objects
+[  9%] Built target ewrtc_common_objects
+[ 10%] Built target ewrtc_pal_linux_objects
+[ 50%] Built target juice-static
+[ 54%] Built target ewrtc_dtls_objects
+[ 58%] Built target ewrtc_rtp_objects
+[ 60%] Built target ewrtc_common
+[ 60%] Built target ewrtc_session_objects
+[ 61%] Built target ewrtc_media_objects
+[ 65%] Built target ewrtc_ice_objects
+[ 69%] Built target ewrtc_crypto
+[ 69%] Built target ewrtc_pal
+[ 70%] Built target ewrtc_rtp
+[ 72%] Built target ewrtc
+[ 76%] Built target ewrtc_sdp
+[ 76%] Built target ewrtc_media
+[ 78%] Built target ewrtc_dtls
+[ 80%] Built target ewrtc_ice
+[ 81%] Built target ewrtc_srtp
+[ 83%] Built target ewrtc_pal_linux
+[ 89%] Built target ewrtc_runtime_tests
+[ 90%] Built target ewrtc_tests
+[ 94%] Built target ewrtc_session
+[ 94%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 98%] Built target ewrtc_demo
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-juice-openssl
+    Start 1: architecture
+1/4 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/4 Test #2: components .......................   Passed    0.02 sec
+    Start 3: protocol
+3/4 Test #3: protocol .........................   Passed    0.02 sec
+    Start 4: runtime
+4/4 Test #4: runtime ..........................   Passed    0.03 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.09 sec
+[  7%] Built target ewrtc_sdp_objects
+[  7%] Built target ewrtc_common_objects
+[  7%] Built target ewrtc_crypto_objects
+[  7%] Built target ewrtc_pal_objects
+[  9%] Built target ewrtc_srtp_objects
+[ 12%] Built target ewrtc_dtls_objects
+[ 52%] Built target juice-static
+[ 54%] Built target ewrtc_pal_linux_objects
+[ 61%] Built target ewrtc_session_objects
+[ 61%] Built target ewrtc_media_objects
+[ 61%] Built target ewrtc_common
+[ 61%] Built target ewrtc_rtp_objects
+[ 65%] Built target ewrtc_ice_objects
+[ 72%] Built target ewrtc_rtp
+[ 72%] Built target ewrtc_crypto
+[ 72%] Built target ewrtc_pal
+[ 72%] Built target ewrtc
+[ 78%] Built target ewrtc_dtls
+[ 78%] Built target ewrtc_sdp
+[ 78%] Built target ewrtc_pal_linux
+[ 81%] Built target ewrtc_tests
+[ 83%] Built target ewrtc_media
+[ 85%] Built target ewrtc_ice
+[ 87%] Built target ewrtc_srtp
+[ 90%] Built target ewrtc_runtime_tests
+[ 96%] Built target ewrtc_demo
+[ 98%] Built target ewrtc_session
+[ 98%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-juice-mbedtls
+    Start 1: architecture
+1/4 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/4 Test #2: components .......................   Passed    0.01 sec
+    Start 3: protocol
+3/4 Test #3: protocol .........................   Passed    0.01 sec
+    Start 4: runtime
+4/4 Test #4: runtime ..........................   Passed    0.03 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.09 sec

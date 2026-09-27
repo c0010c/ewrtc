@@ -1,0 +1,210 @@
+[
+  {
+    "case": "native-openssl-sdk",
+    "passed": true,
+    "state": {
+      "errors": [],
+      "sdkState": "3",
+      "state": "connected",
+      "inbound": [
+        {
+          "kind": "audio",
+          "packetsReceived": 154
+        },
+        {
+          "kind": "video",
+          "framesDecoded": 93,
+          "packetsReceived": 543
+        }
+      ],
+      "sdkStats": "state=3 sent_video=543 sent_audio=154 recv_audio=154 recv_video=33 recv_frames=29 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=311430 local=host 192.168.31.39:58200 remote=192.168.31.39:38900"
+    },
+    "decoded": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "31"
+    }
+  },
+  {
+    "case": "native-openssl-browser",
+    "passed": true,
+    "state": {
+      "errors": [],
+      "sdkState": "3",
+      "state": "connected",
+      "sdkStats": "state=3 sent_video=543 sent_audio=154 recv_audio=154 recv_video=33 recv_frames=29 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=311430 local=host 192.168.31.39:57483 remote=192.168.31.39:52769",
+      "inbound": [
+        {
+          "kind": "audio",
+          "packetsReceived": 154
+        },
+        {
+          "kind": "video",
+          "framesDecoded": 93,
+          "packetsReceived": 543
+        }
+      ]
+    },
+    "decoded": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "31"
+    }
+  },
+  {
+    "case": "native-mbedtls-sdk",
+    "passed": true,
+    "state": {
+      "errors": [],
+      "sdkState": "3",
+      "state": "connected",
+      "inbound": [
+        {
+          "kind": "audio",
+          "packetsReceived": 154
+        },
+        {
+          "kind": "video",
+          "framesDecoded": 92,
+          "packetsReceived": 537
+        }
+      ],
+      "sdkStats": "state=3 sent_video=537 sent_audio=154 recv_audio=154 recv_video=34 recv_frames=29 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=310944 local=host 192.168.31.39:36467 remote=192.168.31.39:51841"
+    },
+    "decoded": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "31"
+    }
+  },
+  {
+    "case": "native-mbedtls-browser",
+    "passed": true,
+    "state": {
+      "errors": [],
+      "sdkState": "3",
+      "state": "connected",
+      "inbound": [
+        {
+          "kind": "audio",
+          "packetsReceived": 154
+        },
+        {
+          "kind": "video",
+          "framesDecoded": 92,
+          "packetsReceived": 543
+        }
+      ],
+      "sdkStats": "state=3 sent_video=543 sent_audio=154 recv_audio=154 recv_video=35 recv_frames=30 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=311430 local=host 192.168.31.39:35172 remote=192.168.31.39:47342"
+    },
+    "decoded": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "32"
+    }
+  },
+  {
+    "case": "juice-openssl-sdk",
+    "passed": true,
+    "state": {
+      "errors": [],
+      "sdkState": "3",
+      "state": "connected",
+      "inbound": [
+        {
+          "kind": "audio",
+          "packetsReceived": 151
+        },
+        {
+          "kind": "video",
+          "framesDecoded": 91,
+          "packetsReceived": 532
+        }
+      ],
+      "sdkStats": "state=3 sent_video=532 sent_audio=151 recv_audio=151 recv_video=30 recv_frames=27 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=311179 local=a=candidate:1 1 UDP 2114977791 192.168.31.39 59263 typ host remote=a=candidate:1 1 UDP 1845501695 192.168.31.39 43419 typ prflx"
+    },
+    "decoded": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "29"
+    }
+  },
+  {
+    "case": "juice-openssl-browser",
+    "passed": true,
+    "state": {
+      "errors": [],
+      "sdkState": "3",
+      "state": "connected",
+      "sdkStats": "state=3 sent_video=532 sent_audio=151 recv_audio=152 recv_video=33 recv_frames=29 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=311179 local=a=candidate:1 1 UDP 2114977791 192.168.31.39 41035 typ host remote=a=candidate:1 1 UDP 1845501695 192.168.31.39 54282 typ prflx",
+      "inbound": [
+        {
+          "kind": "audio",
+          "packetsReceived": 151
+        },
+        {
+          "kind": "video",
+          "framesDecoded": 91,
+          "packetsReceived": 532
+        }
+      ]
+    },
+    "decoded": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "31"
+    }
+  },
+  {
+    "case": "juice-mbedtls-sdk",
+    "passed": true,
+    "state": {
+      "errors": [],
+      "sdkState": "3",
+      "state": "connected",
+      "inbound": [
+        {
+          "kind": "audio",
+          "packetsReceived": 151
+        },
+        {
+          "kind": "video",
+          "framesDecoded": 91,
+          "packetsReceived": 532
+        }
+      ],
+      "sdkStats": "state=3 sent_video=532 sent_audio=151 recv_audio=152 recv_video=34 recv_frames=29 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=311179 local=a=candidate:1 1 UDP 2114977791 192.168.31.39 44643 typ host remote=a=candidate:1 1 UDP 1845501695 192.168.31.39 44425 typ prflx"
+    },
+    "decoded": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "31"
+    }
+  },
+  {
+    "case": "juice-mbedtls-browser",
+    "passed": true,
+    "state": {
+      "errors": [],
+      "sdkState": "3",
+      "state": "connected",
+      "inbound": [
+        {
+          "kind": "audio",
+          "packetsReceived": 152
+        },
+        {
+          "kind": "video",
+          "framesDecoded": 91,
+          "packetsReceived": 532
+        }
+      ],
+      "sdkStats": "state=3 sent_video=532 sent_audio=152 recv_audio=152 recv_video=31 recv_frames=27 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=311179 local=a=candidate:1 1 UDP 2114977791 192.168.31.39 44948 typ host remote=a=candidate:1 1 UDP 1845501695 192.168.31.39 57619 typ prflx"
+    },
+    "decoded": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "29"
+    }
+  }
+]

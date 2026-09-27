@@ -1,0 +1,1083 @@
+-- ewrtc enabled components: session;pal_linux;pal;crypto;sdp;ice;dtls;srtp;media;common;stun;turn;rtp
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-native-openssl
+[  8%] Built target ewrtc_ice_objects
+[  4%] Built target ewrtc_sdp_objects
+[  8%] Built target ewrtc_pal_objects
+[ 10%] Built target ewrtc_turn_objects
+[ 14%] Built target ewrtc_crypto_objects
+[ 16%] Built target ewrtc_pal_linux_objects
+[ 18%] Built target ewrtc_common_objects
+[ 20%] Built target ewrtc_stun_objects
+[ 24%] Built target ewrtc_rtp_objects
+[ 26%] Built target ewrtc_srtp_objects
+[ 42%] Built target ewrtc_session_objects
+[ 46%] Built target ewrtc_common
+[ 46%] Built target ewrtc_media_objects
+[ 50%] Built target ewrtc_dtls_objects
+[ 58%] Built target ewrtc_pal
+[ 58%] Built target ewrtc_rtp
+[ 58%] Built target ewrtc_crypto
+[ 58%] Built target ewrtc
+[ 62%] Built target ewrtc_srtp
+[ 62%] Built target ewrtc_media
+[ 66%] Built target ewrtc_sdp
+[ 66%] Built target ewrtc_pal_linux
+[ 68%] Built target ewrtc_stun
+[ 70%] Built target ewrtc_dtls
+[ 80%] Built target ewrtc_turn
+[ 80%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 82%] Built target ewrtc_tests
+[ 82%] Built target ewrtc_demo
+[ 86%] Built target ewrtc_runtime_tests
+[ 88%] Built target ewrtc_ice
+[ 92%] Built target ewrtc_turn_tests
+[ 94%] Built target ewrtc_session
+[ 98%] Built target ewrtc_custom_pal_tests
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-native-openssl
+    Start 1: architecture
+1/6 Test #1: architecture .....................   Passed    0.04 sec
+    Start 2: components
+2/6 Test #2: components .......................   Passed    0.02 sec
+    Start 3: custom_pal
+3/6 Test #3: custom_pal .......................   Passed    0.01 sec
+    Start 4: turn
+4/6 Test #4: turn .............................   Passed    0.00 sec
+    Start 5: protocol
+5/6 Test #5: protocol .........................   Passed    0.02 sec
+    Start 6: runtime
+6/6 Test #6: runtime ..........................   Passed    0.03 sec
+
+100% tests passed, 0 tests failed out of 6
+
+Total Test time (real) =   0.11 sec
+-- ewrtc enabled components: session;pal_linux;pal;crypto;sdp;ice;dtls;srtp;media;common;stun;turn;rtp
+-- Configuring done (0.1s)
+-- Generating done (0.1s)
+-- Build files have been written to: /workspace/ewrtc/build-native-mbedtls
+[  8%] Built target ewrtc_pal_linux_objects
+[  8%] Built target ewrtc_sdp_objects
+[  8%] Built target ewrtc_crypto_objects
+[ 10%] Built target ewrtc_turn_objects
+[ 14%] Built target ewrtc_pal_objects
+[ 14%] Built target ewrtc_common_objects
+[ 18%] Built target ewrtc_ice_objects
+[ 20%] Built target ewrtc_stun_objects
+[ 26%] Built target ewrtc_common
+[ 26%] Built target ewrtc_srtp_objects
+[ 26%] Built target ewrtc_rtp_objects
+[ 30%] Built target ewrtc_dtls_objects
+[ 38%] Built target ewrtc_session_objects
+[ 50%] Built target ewrtc_media_objects
+[ 56%] Built target ewrtc_crypto
+[ 56%] Built target ewrtc_pal
+[ 56%] Built target ewrtc_rtp
+[ 58%] Built target ewrtc
+[ 66%] Built target ewrtc_media
+[ 66%] Built target ewrtc_pal_linux
+[ 66%] Built target ewrtc_sdp
+[ 66%] Built target ewrtc_srtp
+[ 68%] Built target ewrtc_stun
+[ 70%] Built target ewrtc_dtls
+[ 72%] Built target ewrtc_turn
+[ 76%] Built target ewrtc_tests
+[ 78%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 82%] Built target ewrtc_runtime_tests
+[ 86%] Built target ewrtc_demo
+[ 88%] Built target ewrtc_ice
+[ 92%] Built target ewrtc_turn_tests
+[ 94%] Built target ewrtc_session
+[ 98%] Built target ewrtc_custom_pal_tests
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-native-mbedtls
+    Start 1: architecture
+1/6 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/6 Test #2: components .......................   Passed    0.02 sec
+    Start 3: custom_pal
+3/6 Test #3: custom_pal .......................   Passed    0.00 sec
+    Start 4: turn
+4/6 Test #4: turn .............................   Passed    0.00 sec
+    Start 5: protocol
+5/6 Test #5: protocol .........................   Passed    0.02 sec
+    Start 6: runtime
+6/6 Test #6: runtime ..........................   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 6
+
+Total Test time (real) =   0.10 sec
+-- ewrtc enabled components: session;pal_linux;pal;crypto;sdp;ice;dtls;srtp;media;common;rtp
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-juice-openssl
+[  1%] Built target ewrtc_pal_objects
+[  3%] Built target ewrtc_sdp_objects
+[  4%] Built target ewrtc_common_objects
+[  7%] Built target ewrtc_pal_linux_objects
+[  7%] Built target ewrtc_srtp_objects
+[ 14%] Built target ewrtc_crypto_objects
+[ 14%] Built target ewrtc_dtls_objects
+[ 48%] Built target juice-static
+[ 51%] Built target ewrtc_common
+[ 51%] Built target ewrtc_rtp_objects
+[ 57%] Built target ewrtc_session_objects
+[ 67%] Built target ewrtc_media_objects
+[ 70%] Built target ewrtc_rtp
+[ 70%] Built target ewrtc_crypto
+[ 73%] Built target ewrtc_ice_objects
+[ 75%] Built target ewrtc_pal
+[ 82%] Built target ewrtc
+[ 82%] Built target ewrtc_dtls
+[ 82%] Built target ewrtc_srtp
+[ 82%] Built target ewrtc_ice
+[ 82%] Built target ewrtc_media
+[ 84%] Built target ewrtc_sdp
+[ 85%] Built target ewrtc_pal_linux
+[ 98%] Built target ewrtc_runtime_tests
+[ 98%] Built target ewrtc_session
+[ 98%] Built target ewrtc_tests
+[ 98%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 98%] Built target ewrtc_demo
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-juice-openssl
+    Start 1: architecture
+1/4 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/4 Test #2: components .......................   Passed    0.02 sec
+    Start 3: protocol
+3/4 Test #3: protocol .........................   Passed    0.02 sec
+    Start 4: runtime
+4/4 Test #4: runtime ..........................   Passed    0.04 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.11 sec
+-- ewrtc enabled components: session;pal_linux;pal;crypto;sdp;ice;dtls;srtp;media;common;rtp
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-juice-mbedtls
+[  3%] Built target ewrtc_common_objects
+[  3%] Built target ewrtc_pal_linux_objects
+[  4%] Built target ewrtc_pal_objects
+[  6%] Built target ewrtc_sdp_objects
+[  9%] Built target ewrtc_crypto_objects
+[ 10%] Built target ewrtc_srtp_objects
+[ 14%] Built target ewrtc_dtls_objects
+[ 48%] Built target juice-static
+[ 51%] Built target ewrtc_common
+[ 51%] Built target ewrtc_rtp_objects
+[ 57%] Built target ewrtc_session_objects
+[ 67%] Built target ewrtc_media_objects
+[ 71%] Built target ewrtc_rtp
+[ 71%] Built target ewrtc_crypto
+[ 71%] Built target ewrtc_pal
+[ 75%] Built target ewrtc_ice_objects
+[ 82%] Built target ewrtc_pal_linux
+[ 82%] Built target ewrtc_ice
+[ 82%] Built target ewrtc_media
+[ 82%] Built target ewrtc_dtls
+[ 82%] Built target ewrtc_sdp
+[ 84%] Built target ewrtc_srtp
+[ 85%] Built target ewrtc
+[ 95%] Built target ewrtc_demo
+[ 95%] Built target ewrtc_session
+[ 95%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 95%] Built target ewrtc_tests
+[ 98%] Built target ewrtc_runtime_tests
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-juice-mbedtls
+    Start 1: architecture
+1/4 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/4 Test #2: components .......................   Passed    0.02 sec
+    Start 3: protocol
+3/4 Test #3: protocol .........................   Passed    0.02 sec
+    Start 4: runtime
+4/4 Test #4: runtime ..........................   Passed    0.04 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.10 sec
+-- ewrtc enabled components: common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/common
+[ 25%] Built target ewrtc_common_objects
+[ 50%] Built target ewrtc_common
+[ 75%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-refactor-matrix/common
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.04 sec
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/lib/libewrtc_common.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/turn.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/media.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/ice.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/sdp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/pal.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/rtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/common.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/pal
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/pal/network.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/pal/threads.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/pal/random.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/pal/clock.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/pal/memory.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/pal/log.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/stun.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/srtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/platform
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/platform/linux.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/common/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/consumer/common
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: pal;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/pal
+[ 16%] Built target ewrtc_pal_objects
+[ 33%] Built target ewrtc_common_objects
+[ 50%] Built target ewrtc_common
+[ 66%] Built target ewrtc_pal
+[ 83%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-refactor-matrix/pal
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.04 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.04 sec
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/lib/libewrtc_common.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/lib/libewrtc_pal.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/turn.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/media.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/ice.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/sdp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/pal.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/rtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/common.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/pal
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/pal/network.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/pal/threads.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/pal/random.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/pal/clock.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/pal/memory.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/pal/log.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/stun.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/srtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/platform
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/platform/linux.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/consumer/pal
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: pal_linux;pal;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/pal_linux
+[ 12%] Built target ewrtc_pal_objects
+[ 25%] Built target ewrtc_common_objects
+[ 37%] Built target ewrtc_pal_linux_objects
+[ 50%] Built target ewrtc_common
+[ 62%] Built target ewrtc_pal
+[ 75%] Built target ewrtc_pal_linux
+[ 87%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-refactor-matrix/pal_linux
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.04 sec
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/lib/libewrtc_common.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/lib/libewrtc_pal.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/lib/libewrtc_pal_linux.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/turn.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/media.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/ice.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/sdp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/pal.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/rtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/common.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/pal
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/pal/network.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/pal/threads.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/pal/random.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/pal/clock.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/pal/memory.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/pal/log.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/stun.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/srtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/platform
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/platform/linux.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/pal_linux/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/consumer/pal_linux
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: crypto;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/crypto
+[ 28%] Built target ewrtc_crypto_objects
+[ 42%] Built target ewrtc_common_objects
+[ 57%] Built target ewrtc_common
+[ 71%] Built target ewrtc_crypto
+[ 85%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-refactor-matrix/crypto
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.04 sec
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/lib/libewrtc_common.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/lib/libewrtc_crypto.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/turn.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/media.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/ice.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/sdp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/pal.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/rtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/common.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/pal
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/pal/network.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/pal/threads.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/pal/random.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/pal/clock.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/pal/memory.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/pal/log.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/stun.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/srtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/platform
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/platform/linux.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/crypto/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/consumer/crypto
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: sdp;pal;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/sdp
+[ 37%] Built target ewrtc_common_objects
+[ 37%] Built target ewrtc_pal_objects
+[ 37%] Built target ewrtc_sdp_objects
+[ 50%] Built target ewrtc_common
+[ 62%] Built target ewrtc_pal
+[ 75%] Built target ewrtc_sdp
+[ 87%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-refactor-matrix/sdp
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.04 sec
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/lib/libewrtc_common.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/lib/libewrtc_pal.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/lib/libewrtc_sdp.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/turn.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/media.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/ice.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/sdp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/pal.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/rtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/common.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/pal
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/pal/network.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/pal/threads.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/pal/random.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/pal/clock.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/pal/memory.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/pal/log.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/stun.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/srtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/platform
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/platform/linux.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/sdp/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/consumer/sdp
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: stun;pal;crypto;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/stun
+[ 27%] Built target ewrtc_pal_objects
+[ 27%] Built target ewrtc_stun_objects
+[ 27%] Built target ewrtc_common_objects
+[ 45%] Built target ewrtc_crypto_objects
+[ 54%] Built target ewrtc_common
+[ 72%] Built target ewrtc_pal
+[ 72%] Built target ewrtc_crypto
+[ 81%] Built target ewrtc_stun
+[ 90%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-refactor-matrix/stun
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.04 sec
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/lib/libewrtc_common.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/lib/libewrtc_pal.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/lib/libewrtc_crypto.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/lib/libewrtc_stun.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/turn.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/media.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/ice.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/sdp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/pal.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/rtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/common.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/pal
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/pal/network.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/pal/threads.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/pal/random.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/pal/clock.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/pal/memory.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/pal/log.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/stun.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/srtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/platform
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/platform/linux.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/stun/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/consumer/stun
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: turn;pal;stun;crypto;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/turn
+[ 20%] Built target ewrtc_pal_objects
+[ 20%] Built target ewrtc_common_objects
+[ 20%] Built target ewrtc_stun_objects
+[ 33%] Built target ewrtc_crypto_objects
+[ 40%] Built target ewrtc_turn_objects
+[ 46%] Built target ewrtc_common
+[ 53%] Built target ewrtc_crypto
+[ 60%] Built target ewrtc_pal
+[ 66%] Built target ewrtc_stun
+[ 80%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 80%] Built target ewrtc_turn
+[ 93%] Built target ewrtc_turn_tests
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-refactor-matrix/turn
+    Start 1: architecture
+1/3 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/3 Test #2: components .......................   Passed    0.00 sec
+    Start 3: turn
+3/3 Test #3: turn .............................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 3
+
+Total Test time (real) =   0.04 sec
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/lib/libewrtc_common.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/lib/libewrtc_pal.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/lib/libewrtc_crypto.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/lib/libewrtc_stun.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/lib/libewrtc_turn.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/turn.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/media.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/ice.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/sdp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/pal.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/rtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/common.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/pal
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/pal/network.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/pal/threads.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/pal/random.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/pal/clock.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/pal/memory.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/pal/log.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/stun.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/srtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/platform
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/platform/linux.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/turn/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/consumer/turn
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: ice;pal;stun;turn;common;crypto
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/ice
+[ 27%] Built target ewrtc_stun_objects
+[ 27%] Built target ewrtc_pal_objects
+[ 27%] Built target ewrtc_common_objects
+[ 27%] Built target ewrtc_ice_objects
+[ 38%] Built target ewrtc_crypto_objects
+[ 44%] Built target ewrtc_turn_objects
+[ 50%] Built target ewrtc_common
+[ 61%] Built target ewrtc_crypto
+[ 61%] Built target ewrtc_pal
+[ 66%] Built target ewrtc_stun
+[ 72%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 77%] Built target ewrtc_turn
+[ 94%] Built target ewrtc_ice
+[ 94%] Built target ewrtc_turn_tests
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-refactor-matrix/ice
+    Start 1: architecture
+1/3 Test #1: architecture .....................   Passed    0.04 sec
+    Start 2: components
+2/3 Test #2: components .......................   Passed    0.00 sec
+    Start 3: turn
+3/3 Test #3: turn .............................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 3
+
+Total Test time (real) =   0.04 sec
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/lib/libewrtc_common.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/lib/libewrtc_pal.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/lib/libewrtc_crypto.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/lib/libewrtc_stun.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/lib/libewrtc_turn.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/lib/libewrtc_ice.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/turn.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/media.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/ice.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/sdp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/pal.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/rtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/common.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/pal
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/pal/network.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/pal/threads.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/pal/random.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/pal/clock.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/pal/memory.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/pal/log.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/stun.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/srtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/platform
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/platform/linux.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/ice/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/consumer/ice
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: dtls;pal;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/dtls
+[ 33%] Built target ewrtc_common_objects
+[ 33%] Built target ewrtc_pal_objects
+[ 44%] Built target ewrtc_dtls_objects
+[ 55%] Built target ewrtc_common
+[ 66%] Built target ewrtc_pal
+[ 77%] Built target ewrtc_dtls
+[ 88%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-refactor-matrix/dtls
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.04 sec
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/lib/libewrtc_common.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/lib/libewrtc_pal.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/lib/libewrtc_dtls.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/turn.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/media.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/ice.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/sdp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/pal.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/rtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/common.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/pal
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/pal/network.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/pal/threads.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/pal/random.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/pal/clock.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/pal/memory.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/pal/log.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/stun.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/srtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/platform
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/platform/linux.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/dtls/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/consumer/dtls
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: srtp;pal;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/srtp
+[ 37%] Built target ewrtc_pal_objects
+[ 37%] Built target ewrtc_srtp_objects
+[ 37%] Built target ewrtc_common_objects
+[ 50%] Built target ewrtc_common
+[ 62%] Built target ewrtc_pal
+[ 75%] Built target ewrtc_srtp
+[ 87%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-refactor-matrix/srtp
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.05 sec
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/lib/libewrtc_common.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/lib/libewrtc_pal.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/lib/libewrtc_srtp.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/turn.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/media.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/ice.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/sdp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/pal.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/rtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/common.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/pal
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/pal/network.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/pal/threads.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/pal/random.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/pal/clock.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/pal/memory.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/pal/log.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/stun.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/srtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/platform
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/platform/linux.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/srtp/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/consumer/srtp
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: rtp;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/rtp
+[ 33%] Built target ewrtc_common_objects
+[ 33%] Built target ewrtc_rtp_objects
+[ 50%] Built target ewrtc_common
+[ 66%] Built target ewrtc_rtp
+[ 83%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-refactor-matrix/rtp
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.04 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.04 sec
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/lib/libewrtc_common.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/lib/libewrtc_rtp.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/turn.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/media.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/ice.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/sdp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/pal.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/rtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/common.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/pal
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/pal/network.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/pal/threads.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/pal/random.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/pal/clock.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/pal/memory.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/pal/log.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/stun.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/srtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/platform
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/platform/linux.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/rtp/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/consumer/rtp
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: media;pal;rtp;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/media
+[ 33%] Built target ewrtc_rtp_objects
+[ 33%] Built target ewrtc_common_objects
+[ 33%] Built target ewrtc_pal_objects
+[ 60%] Built target ewrtc_media_objects
+[ 66%] Built target ewrtc_common
+[ 80%] Built target ewrtc_rtp
+[ 80%] Built target ewrtc_pal
+[ 86%] Built target ewrtc_media
+[ 93%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-refactor-matrix/media
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.04 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.04 sec
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/lib/libewrtc_common.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/lib/libewrtc_pal.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/lib/libewrtc_rtp.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/lib/libewrtc_media.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/turn.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/media.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/ice.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/sdp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/pal.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/rtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/common.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/pal
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/pal/network.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/pal/threads.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/pal/random.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/pal/clock.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/pal/memory.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/pal/log.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/stun.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/srtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/platform
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/platform/linux.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/media/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/consumer/media
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: session;pal_linux;pal;crypto;sdp;ice;dtls;srtp;media;common;stun;turn;rtp
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/session
+[  6%] Built target ewrtc_pal_objects
+[  6%] Built target ewrtc_turn_objects
+[  6%] Built target ewrtc_pal_linux_objects
+[  8%] Built target ewrtc_stun_objects
+[ 10%] Built target ewrtc_common_objects
+[ 16%] Built target ewrtc_sdp_objects
+[ 16%] Built target ewrtc_ice_objects
+[ 20%] Built target ewrtc_crypto_objects
+[ 25%] Built target ewrtc_rtp_objects
+[ 25%] Built target ewrtc_common
+[ 27%] Built target ewrtc_srtp_objects
+[ 39%] Built target ewrtc_media_objects
+[ 43%] Built target ewrtc_dtls_objects
+[ 52%] Built target ewrtc_session_objects
+[ 60%] Built target ewrtc
+[ 60%] Built target ewrtc_crypto
+[ 60%] Built target ewrtc_rtp
+[ 60%] Built target ewrtc_pal
+[ 66%] Built target ewrtc_srtp
+[ 66%] Built target ewrtc_media
+[ 66%] Built target ewrtc_sdp
+[ 70%] Built target ewrtc_pal_linux
+[ 70%] Built target ewrtc_stun
+[ 72%] Built target ewrtc_dtls
+[ 75%] Built target ewrtc_turn
+[ 79%] Built target ewrtc_tests
+[ 83%] Built target ewrtc_runtime_tests
+[ 85%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 87%] Built target ewrtc_ice
+[ 91%] Built target ewrtc_turn_tests
+[ 93%] Built target ewrtc_session
+[ 97%] Built target ewrtc_custom_pal_tests
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-refactor-matrix/session
+    Start 1: architecture
+1/6 Test #1: architecture .....................   Passed    0.04 sec
+    Start 2: components
+2/6 Test #2: components .......................   Passed    0.02 sec
+    Start 3: custom_pal
+3/6 Test #3: custom_pal .......................   Passed    0.01 sec
+    Start 4: turn
+4/6 Test #4: turn .............................   Passed    0.00 sec
+    Start 5: protocol
+5/6 Test #5: protocol .........................   Passed    0.02 sec
+    Start 6: runtime
+6/6 Test #6: runtime ..........................   Passed    0.03 sec
+
+100% tests passed, 0 tests failed out of 6
+
+Total Test time (real) =   0.11 sec
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/libewrtc_common.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/libewrtc_pal.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/libewrtc_pal_linux.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/libewrtc_crypto.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/libewrtc_sdp.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/libewrtc_stun.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/libewrtc_turn.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/libewrtc_ice.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/libewrtc_dtls.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/libewrtc_srtp.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/libewrtc_rtp.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/libewrtc_media.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/libewrtc_session.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/libewrtc.a
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/turn.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/media.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/ice.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/sdp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/pal.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/rtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/common.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/pal
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/pal/network.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/pal/threads.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/pal/random.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/pal/clock.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/pal/memory.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/pal/log.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/stun.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/srtp.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/platform
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/platform/linux.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-refactor-matrix/installed/session/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/consumer/session
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: session;pal;crypto;sdp;ice;dtls;srtp;media;common;stun;turn;rtp
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/custom-pal
+[  7%] Built target ewrtc_pal_objects
+[  7%] Built target ewrtc_common_objects
+[  9%] Built target ewrtc_ice_objects
+[ 14%] Built target ewrtc_crypto_objects
+[ 16%] Built target ewrtc_turn_objects
+[ 19%] Built target ewrtc_sdp_objects
+[ 21%] Built target ewrtc_stun_objects
+[ 26%] Built target ewrtc_dtls_objects
+[ 33%] Built target ewrtc_srtp_objects
+[ 33%] Built target ewrtc_common
+[ 33%] Built target ewrtc_rtp_objects
+[ 47%] Built target ewrtc_media_objects
+[ 57%] Built target ewrtc_session_objects
+[ 66%] Built target ewrtc_pal
+[ 66%] Built target ewrtc
+[ 66%] Built target ewrtc_rtp
+[ 66%] Built target ewrtc_crypto
+[ 71%] Built target ewrtc_media
+[ 71%] Built target ewrtc_srtp
+[ 73%] Built target ewrtc_sdp
+[ 76%] Built target ewrtc_dtls
+[ 78%] Built target ewrtc_stun
+[ 80%] Built target ewrtc_turn
+[ 83%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 85%] Built target ewrtc_ice
+[ 90%] Built target ewrtc_turn_tests
+[ 92%] Built target ewrtc_session
+[ 97%] Built target ewrtc_custom_pal_tests
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-refactor-matrix/custom-pal
+    Start 1: architecture
+1/4 Test #1: architecture .....................   Passed    0.04 sec
+    Start 2: components
+2/4 Test #2: components .......................   Passed    0.02 sec
+    Start 3: custom_pal
+3/4 Test #3: custom_pal .......................   Passed    0.01 sec
+    Start 4: turn
+4/4 Test #4: turn .............................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.07 sec
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-refactor-matrix/consumer/ewrtc
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+All backend, component install/consumer, aggregate and custom PAL checks passed

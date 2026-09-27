@@ -1,0 +1,3 @@
+Installed turn_example linked ewrtc::turn + ewrtc::pal_linux.
+Local coturn UDP 3489, separate UDP echo peer.
+Relay allocated; 16-byte probe echoed successfully; process exit 0.

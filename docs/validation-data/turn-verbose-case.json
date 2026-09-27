@@ -1,0 +1,22 @@
+[
+  {
+    "case": "1280x720-native-openssl-relay",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=147 sent_audio=41 recv_audio=41 nack=0 rtx=0 pli=0 local=relay 127.0.0.1:49322 remote=127.0.0.1:49368",
+      "sdkState": 3,
+      "connectionMs": 224,
+      "firstFrameMs": 261,
+      "remoteAudioRms": 0.14566401418320468,
+      "remoteAudioHz": 609.375
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "resource": null,
+    "error": "",
+    "audio_verification": "Opus packets=145, decoded RMS=23173.4, tone=440.0 Hz"
+  }
+]

@@ -1,0 +1,154 @@
+Start testing: Sep 25 23:21 CST
+----------------------------------------------------------
+1/8 Testing: architecture
+1/8 Test: architecture
+Command: "/usr/bin/python3" "/workspace/ewrtc/tests/check_architecture.py"
+Directory: /workspace/ewrtc/build-juice-openssl
+"architecture" start time: Sep 25 23:21 CST
+Output:
+----------------------------------------------------------
+Architecture boundaries passed
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"architecture" end time: Sep 25 23:21 CST
+"architecture" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/8 Testing: components
+2/8 Test: components
+Command: "/workspace/ewrtc/build-juice-openssl/ewrtc_component_tests"
+Directory: /workspace/ewrtc/build-juice-openssl
+"components" start time: Sep 25 23:21 CST
+Output:
+----------------------------------------------------------
+component isolation, protocol, allocation, clock and media tests passed
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"components" end time: Sep 25 23:21 CST
+"components" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/8 Testing: sdp_negotiation
+3/8 Test: sdp_negotiation
+Command: "/workspace/ewrtc/build-juice-openssl/ewrtc_sdp_negotiation_tests"
+Directory: /workspace/ewrtc/build-juice-openssl
+"sdp_negotiation" start time: Sep 25 23:21 CST
+Output:
+----------------------------------------------------------
+SDP offer/answer directions, roles, payloads, MID and BUNDLE validation passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"sdp_negotiation" end time: Sep 25 23:21 CST
+"sdp_negotiation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/8 Testing: receive
+4/8 Test: receive
+Command: "/workspace/ewrtc/build-juice-openssl/ewrtc_receive_tests"
+Directory: /workspace/ewrtc/build-juice-openssl
+"receive" start time: Sep 25 23:21 CST
+Output:
+----------------------------------------------------------
+H264 receive, reorder, RTX, wraparound, loss, malformed payload and allocation tests passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"receive" end time: Sep 25 23:21 CST
+"receive" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/8 Testing: protocol
+5/8 Test: protocol
+Command: "/workspace/ewrtc/build-juice-openssl/ewrtc_tests"
+Directory: /workspace/ewrtc/build-juice-openssl
+"protocol" start time: Sep 25 23:21 CST
+Output:
+----------------------------------------------------------
+protocol, STUN, and 100 lifecycle tests passed
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"protocol" end time: Sep 25 23:21 CST
+"protocol" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/8 Testing: negotiation
+6/8 Test: negotiation
+Command: "/workspace/ewrtc/build-juice-openssl/ewrtc_negotiation_tests"
+Directory: /workspace/ewrtc/build-juice-openssl
+"negotiation" start time: Sep 25 23:21 CST
+Output:
+----------------------------------------------------------
+connecting ICE/DTLS 1/0 -> 1/0 passive=0 invalid=0
+pair ICE/DTLS 1/0 -> 1/0, offer passive=0 passed
+connecting ICE/DTLS 1/0 -> 1/0 passive=1 invalid=0
+pair ICE/DTLS 1/0 -> 1/0, offer passive=1 passed
+connecting ICE/DTLS 1/0 -> 1/0 passive=0 invalid=0
+pair ICE/DTLS 1/0 -> 1/0, offer passive=0 passed
+connecting ICE/DTLS 1/0 -> 1/0 passive=0 invalid=1
+offerer error -1: SDP answer does not match local offer
+invalid answer/fingerprint case 1 rejected
+connecting ICE/DTLS 1/0 -> 1/0 passive=0 invalid=2
+offerer error -7: DTLS handshake failed
+invalid answer/fingerprint case 2 rejected
+<end of output>
+Test time =   1.54 sec
+----------------------------------------------------------
+Test Passed.
+"negotiation" end time: Sep 25 23:21 CST
+"negotiation" time elapsed: 00:00:01
+----------------------------------------------------------
+
+7/8 Testing: context
+7/8 Test: context
+Command: "/workspace/ewrtc/build-juice-openssl/ewrtc_context_tests"
+Directory: /workspace/ewrtc/build-juice-openssl
+"context" start time: Sep 25 23:21 CST
+Output:
+----------------------------------------------------------
+partial worker/waiter construction, registration failure and sticky wake passed
+destroy waits for final owner-thread CLOSED callback
+concurrent session admission and destruction passed
+idle wait, control reservation, overload drop and close passed
+streams=2 workers=1 ICE=1 peak_queue=135194 reserved=286720 drops=0 wait/timer/callback/turn_ms=1/1/0/12 rss_kib=14928 cpu_s=0.112
+streams=4 workers=2 ICE=1 peak_queue=268432 reserved=573440 drops=0 wait/timer/callback/turn_ms=1/1/0/2 rss_kib=17588 cpu_s=0.265
+streams=8 workers=1 ICE=1 peak_queue=340663 reserved=1146880 drops=0 wait/timer/callback/turn_ms=3/1/0/2 rss_kib=28584 cpu_s=1.567
+slow close: received=10/10 destroy_done=0 closed=0
+slow DNS close ICE=1 leaves existing I/O running
+candidate DNS rejection ICE=1 preserves the established stream
+sleeping libjuice worker wakes on first failed media allocation
+libjuice media pressure drops recover without closing the route
+Shared context acceptance tests passed
+<end of output>
+Test time =  14.25 sec
+----------------------------------------------------------
+Test Passed.
+"context" end time: Sep 25 23:22 CST
+"context" time elapsed: 00:00:14
+----------------------------------------------------------
+
+8/8 Testing: runtime
+8/8 Test: runtime
+Command: "/workspace/ewrtc/build-juice-openssl/ewrtc_runtime_tests"
+Directory: /workspace/ewrtc/build-juice-openssl
+"runtime" start time: Sep 25 23:22 CST
+Output:
+----------------------------------------------------------
+PAL, ICE dispatch and session failure/lifecycle tests passed
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"runtime" end time: Sep 25 23:22 CST
+"runtime" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 25 23:22 CST

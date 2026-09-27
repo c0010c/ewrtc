@@ -1,0 +1,33 @@
+[
+  {
+    "case": "1920x1080-juice-openssl-relay",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=171935 sent_audio=33155 recv_audio=33154 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=456110 local=a=candidate:4 1 UDP 1678769407 127.0.0.1 33007 typ srflx raddr 0.0.0.0 rport 0 remote=a=candidate:1799927987 1 UDP 50339839 127.0.0.1 49224 typ relay raddr 0.0.0.0 rport 0",
+      "sdkState": 3,
+      "connectionMs": 207,
+      "firstFrameMs": 233,
+      "remoteAudioRms": 0.1456843494389199,
+      "remoteAudioHz": 609.375
+    },
+    "dimensions": {
+      "videoWidth": 1920,
+      "videoHeight": 1080
+    },
+    "resource": {
+      "seconds": 660,
+      "cpu_percent_one_core_mean": 2.49,
+      "rss_bytes_peak": 17334272,
+      "threads_peak": 4,
+      "chrome_video": [
+        {
+          "framesDecoded": 19901,
+          "keyFramesDecoded": 332
+        }
+      ]
+    },
+    "error": "",
+    "audio_verification": "Opus packets=33171, decoded RMS=23178.1, tone=440.0 Hz"
+  }
+]

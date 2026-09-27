@@ -1,0 +1,22 @@
+{
+  "native-openssl": [
+    "streams=2 workers=1 ICE=0 peak_queue=132726 reserved=286720 drops=0 wait/timer/callback/turn_ms=0/0/0/13 rss_kib=14204 cpu_s=0.093",
+    "streams=4 workers=2 ICE=0 peak_queue=199811 reserved=573440 drops=0 wait/timer/callback/turn_ms=1/0/0/1 rss_kib=16844 cpu_s=0.204",
+    "streams=8 workers=1 ICE=0 peak_queue=265452 reserved=1146880 drops=0 wait/timer/callback/turn_ms=2/1/1/2 rss_kib=27076 cpu_s=1.196"
+  ],
+  "native-mbedtls": [
+    "streams=2 workers=1 ICE=0 peak_queue=132726 reserved=286720 drops=0 wait/timer/callback/turn_ms=1/0/0/15 rss_kib=8172 cpu_s=0.102",
+    "streams=4 workers=2 ICE=0 peak_queue=133448 reserved=573440 drops=0 wait/timer/callback/turn_ms=1/0/0/3 rss_kib=10272 cpu_s=0.230",
+    "streams=8 workers=1 ICE=0 peak_queue=265452 reserved=1146880 drops=0 wait/timer/callback/turn_ms=4/1/0/4 rss_kib=20344 cpu_s=1.236"
+  ],
+  "juice-openssl": [
+    "streams=2 workers=1 ICE=1 peak_queue=135194 reserved=286720 drops=0 wait/timer/callback/turn_ms=1/1/0/12 rss_kib=14928 cpu_s=0.112",
+    "streams=4 workers=2 ICE=1 peak_queue=268432 reserved=573440 drops=0 wait/timer/callback/turn_ms=1/1/0/2 rss_kib=17588 cpu_s=0.265",
+    "streams=8 workers=1 ICE=1 peak_queue=340663 reserved=1146880 drops=0 wait/timer/callback/turn_ms=3/1/0/2 rss_kib=28584 cpu_s=1.567"
+  ],
+  "juice-mbedtls": [
+    "streams=2 workers=1 ICE=1 peak_queue=133238 reserved=286720 drops=0 wait/timer/callback/turn_ms=17/1/0/20 rss_kib=8652 cpu_s=0.147",
+    "streams=4 workers=2 ICE=1 peak_queue=135194 reserved=573440 drops=0 wait/timer/callback/turn_ms=3/1/0/4 rss_kib=11444 cpu_s=0.340",
+    "streams=8 workers=1 ICE=1 peak_queue=205469 reserved=1146880 drops=0 wait/timer/callback/turn_ms=5/1/0/4 rss_kib=21648 cpu_s=1.713"
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "version": 2,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build-${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "EWRTC_BUILD_TESTS": "ON",
+        "EWRTC_BUILD_EXAMPLES": "OFF",
+        "EWRTC_ENFORCE_DEPENDENCY_LOCK": "OFF"
+      }
+    },
+    {
+      "name": "native-openssl",
+      "inherits": "base",
+      "cacheVariables": {
+        "EWRTC_WITH_NATIVE_ICE": "ON",
+        "EWRTC_WITH_LIBJUICE": "OFF",
+        "EWRTC_WITH_OPENSSL": "ON",
+        "EWRTC_WITH_MBEDTLS": "OFF"
+      }
+    },
+    {
+      "name": "native-mbedtls",
+      "inherits": "base",
+      "cacheVariables": {
+        "EWRTC_WITH_NATIVE_ICE": "ON",
+        "EWRTC_WITH_LIBJUICE": "OFF",
+        "EWRTC_WITH_OPENSSL": "OFF",
+        "EWRTC_WITH_MBEDTLS": "ON"
+      }
+    },
+    {
+      "name": "juice-openssl",
+      "inherits": "base",
+      "cacheVariables": {
+        "EWRTC_WITH_NATIVE_ICE": "OFF",
+        "EWRTC_WITH_LIBJUICE": "ON",
+        "EWRTC_WITH_OPENSSL": "ON",
+        "EWRTC_WITH_MBEDTLS": "OFF"
+      }
+    },
+    {
+      "name": "juice-mbedtls",
+      "inherits": "base",
+      "cacheVariables": {
+        "EWRTC_WITH_NATIVE_ICE": "OFF",
+        "EWRTC_WITH_LIBJUICE": "ON",
+        "EWRTC_WITH_OPENSSL": "OFF",
+        "EWRTC_WITH_MBEDTLS": "ON"
+      }
+    },
+    {
+      "name": "default",
+      "inherits": "native-openssl"
+    },
+    {
+      "name": "protocols",
+      "inherits": "native-openssl",
+      "cacheVariables": {
+        "EWRTC_COMPONENTS": "sdp;rtp"
+      }
+    },
+    {
+      "name": "asan",
+      "inherits": "native-openssl",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_FLAGS": "-fsanitize=address,undefined -fno-omit-frame-pointer",
+        "CMAKE_EXE_LINKER_FLAGS": "-fsanitize=address,undefined"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "native-openssl",
+      "configurePreset": "native-openssl"
+    },
+    {
+      "name": "native-mbedtls",
+      "configurePreset": "native-mbedtls"
+    },
+    {
+      "name": "juice-openssl",
+      "configurePreset": "juice-openssl"
+    },
+    {
+      "name": "juice-mbedtls",
+      "configurePreset": "juice-mbedtls"
+    },
+    {
+      "name": "default",
+      "configurePreset": "default"
+    },
+    {
+      "name": "protocols",
+      "configurePreset": "protocols"
+    },
+    {
+      "name": "asan",
+      "configurePreset": "asan"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "native-openssl",
+      "configurePreset": "native-openssl",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    },
+    {
+      "name": "native-mbedtls",
+      "configurePreset": "native-mbedtls",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    },
+    {
+      "name": "juice-openssl",
+      "configurePreset": "juice-openssl",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    },
+    {
+      "name": "juice-mbedtls",
+      "configurePreset": "juice-mbedtls",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    },
+    {
+      "name": "default",
+      "configurePreset": "default",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    },
+    {
+      "name": "protocols",
+      "configurePreset": "protocols",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    },
+    {
+      "name": "asan",
+      "configurePreset": "asan",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    }
+  ]
+}

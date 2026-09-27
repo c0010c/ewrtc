@@ -1,0 +1,1037 @@
+-- ewrtc enabled components: session;pal;crypto;sdp;ice;dtls;srtp;media;pal_linux;common;stun;rtp
+-- Configuring done (0.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: /workspace/ewrtc/build-native-openssl
+[  2%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[  5%] Building C object CMakeFiles/ewrtc_pal_objects.dir/src/pal/pal.c.o
+[  8%] Building C object CMakeFiles/ewrtc_sdp_objects.dir/src/sdp/sdp.c.o
+[ 11%] Building C object CMakeFiles/ewrtc_ice_objects.dir/src/ice/ice.c.o
+[ 14%] Building C object CMakeFiles/ewrtc_crypto_objects.dir/src/crypto/crypto.c.o
+[ 20%] Building C object CMakeFiles/ewrtc_dtls_objects.dir/src/dtls/dtls.c.o
+[ 20%] Building C object CMakeFiles/ewrtc_pal_linux_objects.dir/src/pal/linux.c.o
+[ 22%] Building C object CMakeFiles/ewrtc_stun_objects.dir/src/stun/stun.c.o
+[ 22%] Built target ewrtc_pal_objects
+[ 25%] Building C object CMakeFiles/ewrtc_dtls_objects.dir/src/dtls/openssl.c.o
+[ 28%] Building C object CMakeFiles/ewrtc_ice_objects.dir/src/ice/native.c.o
+[ 31%] Building C object CMakeFiles/ewrtc_srtp_objects.dir/src/srtp/srtp.c.o
+[ 31%] Built target ewrtc_crypto_objects
+[ 31%] Built target ewrtc_common_objects
+[ 34%] Building C object CMakeFiles/ewrtc_rtp_objects.dir/src/rtp/rtp.c.o
+[ 37%] Building C object CMakeFiles/ewrtc_media_objects.dir/src/media/media.c.o
+[ 37%] Built target ewrtc_pal_linux_objects
+[ 37%] Built target ewrtc_srtp_objects
+[ 40%] Building C object CMakeFiles/ewrtc_session_objects.dir/src/session/session.c.o
+[ 40%] Built target ewrtc_stun_objects
+[ 42%] Linking C static library libewrtc_common.a
+[ 42%] Built target ewrtc_sdp_objects
+[ 42%] Built target ewrtc_common
+[ 42%] Built target ewrtc_rtp_objects
+[ 45%] Linking C static library libewrtc_rtp.a
+[ 48%] Linking C static library libewrtc_pal.a
+[ 51%] Linking C static library libewrtc_crypto.a
+[ 51%] Built target ewrtc_dtls_objects
+[ 51%] Built target ewrtc_pal
+[ 51%] Built target ewrtc_rtp
+[ 51%] Built target ewrtc_crypto
+[ 57%] Linking C static library libewrtc_sdp.a
+[ 57%] Linking C static library libewrtc_pal_linux.a
+[ 60%] Linking C static library libewrtc_stun.a
+[ 62%] Linking C static library libewrtc_srtp.a
+[ 65%] Linking C static library libewrtc_dtls.a
+[ 65%] Built target ewrtc_media_objects
+[ 65%] Built target ewrtc_ice_objects
+[ 65%] Built target ewrtc_sdp
+[ 65%] Built target ewrtc_pal_linux
+[ 65%] Built target ewrtc_stun
+[ 68%] Linking C static library libewrtc_media.a
+[ 68%] Built target ewrtc_srtp
+[ 68%] Built target ewrtc_dtls
+[ 71%] Linking C static library libewrtc_ice.a
+[ 71%] Built target ewrtc_media
+[ 71%] Built target ewrtc_ice
+[ 74%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 74%] Built target ewrtc_session_objects
+[ 80%] Linking C static library libewrtc_session.a
+[ 80%] Linking C static library libewrtc.a
+[ 80%] Built target ewrtc_session
+[ 80%] Built target ewrtc
+[ 82%] Building C object CMakeFiles/ewrtc_runtime_tests.dir/tests/test_runtime.c.o
+[ 88%] Building C object CMakeFiles/ewrtc_demo.dir/examples/demo.c.o
+[ 88%] Building C object CMakeFiles/ewrtc_tests.dir/tests/test_protocol.c.o
+[ 91%] Linking C executable ewrtc_tests
+[ 94%] Linking C executable ewrtc_component_tests
+[ 97%] Linking C executable ewrtc_runtime_tests
+[100%] Linking C executable ewrtc_demo
+[100%] Built target ewrtc_tests
+[100%] Built target ewrtc_component_tests
+[100%] Built target ewrtc_runtime_tests
+[100%] Built target ewrtc_demo
+Test project /workspace/ewrtc/build-native-openssl
+    Start 1: architecture
+1/4 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/4 Test #2: components .......................   Passed    0.02 sec
+    Start 3: protocol
+3/4 Test #3: protocol .........................   Passed    0.02 sec
+    Start 4: runtime
+4/4 Test #4: runtime ..........................   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.09 sec
+-- ewrtc enabled components: session;pal;crypto;sdp;ice;dtls;srtp;media;pal_linux;common;stun;rtp
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-native-mbedtls
+[  2%] Building C object CMakeFiles/ewrtc_sdp_objects.dir/src/sdp/sdp.c.o
+[  5%] Building C object CMakeFiles/ewrtc_pal_objects.dir/src/pal/pal.c.o
+[ 11%] Building C object CMakeFiles/ewrtc_ice_objects.dir/src/ice/ice.c.o
+[ 14%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[ 14%] Building C object CMakeFiles/ewrtc_crypto_objects.dir/src/crypto/crypto.c.o
+[ 17%] Building C object CMakeFiles/ewrtc_pal_linux_objects.dir/src/pal/linux.c.o
+[ 20%] Building C object CMakeFiles/ewrtc_stun_objects.dir/src/stun/stun.c.o
+[ 22%] Building C object CMakeFiles/ewrtc_dtls_objects.dir/src/dtls/dtls.c.o
+[ 22%] Built target ewrtc_pal_objects
+[ 22%] Built target ewrtc_crypto_objects
+[ 25%] Building C object CMakeFiles/ewrtc_dtls_objects.dir/src/dtls/mbedtls.c.o
+[ 28%] Building C object CMakeFiles/ewrtc_srtp_objects.dir/src/srtp/srtp.c.o
+[ 31%] Building C object CMakeFiles/ewrtc_rtp_objects.dir/src/rtp/rtp.c.o
+[ 34%] Building C object CMakeFiles/ewrtc_ice_objects.dir/src/ice/native.c.o
+[ 34%] Built target ewrtc_common_objects
+[ 37%] Building C object CMakeFiles/ewrtc_media_objects.dir/src/media/media.c.o
+[ 37%] Built target ewrtc_srtp_objects
+[ 37%] Built target ewrtc_stun_objects
+[ 37%] Built target ewrtc_rtp_objects
+[ 40%] Building C object CMakeFiles/ewrtc_session_objects.dir/src/session/session.c.o
+[ 40%] Built target ewrtc_pal_linux_objects
+[ 42%] Linking C static library libewrtc_common.a
+[ 42%] Built target ewrtc_sdp_objects
+[ 42%] Built target ewrtc_dtls_objects
+[ 42%] Built target ewrtc_common
+[ 45%] Linking C static library libewrtc_pal.a
+[ 51%] Linking C static library libewrtc_rtp.a
+[ 51%] Linking C static library libewrtc_crypto.a
+[ 51%] Built target ewrtc_rtp
+[ 51%] Built target ewrtc_pal
+[ 51%] Built target ewrtc_crypto
+[ 60%] Linking C static library libewrtc_sdp.a
+[ 60%] Linking C static library libewrtc_dtls.a
+[ 60%] Linking C static library libewrtc_pal_linux.a
+[ 62%] Linking C static library libewrtc_srtp.a
+[ 65%] Linking C static library libewrtc_stun.a
+[ 65%] Built target ewrtc_media_objects
+[ 65%] Built target ewrtc_sdp
+[ 65%] Built target ewrtc_pal_linux
+[ 65%] Built target ewrtc_srtp
+[ 65%] Built target ewrtc_dtls
+[ 65%] Built target ewrtc_stun
+[ 68%] Linking C static library libewrtc_media.a
+[ 68%] Built target ewrtc_ice_objects
+[ 68%] Built target ewrtc_media
+[ 71%] Linking C static library libewrtc_ice.a
+[ 74%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 74%] Built target ewrtc_ice
+[ 74%] Built target ewrtc_session_objects
+[ 77%] Linking C static library libewrtc_session.a
+[ 80%] Linking C static library libewrtc.a
+[ 80%] Built target ewrtc_session
+[ 80%] Built target ewrtc
+[ 88%] Building C object CMakeFiles/ewrtc_runtime_tests.dir/tests/test_runtime.c.o
+[ 88%] Building C object CMakeFiles/ewrtc_demo.dir/examples/demo.c.o
+[ 88%] Building C object CMakeFiles/ewrtc_tests.dir/tests/test_protocol.c.o
+[ 91%] Linking C executable ewrtc_tests
+[ 94%] Linking C executable ewrtc_component_tests
+[ 97%] Linking C executable ewrtc_demo
+[ 97%] Built target ewrtc_tests
+[100%] Linking C executable ewrtc_runtime_tests
+[100%] Built target ewrtc_component_tests
+[100%] Built target ewrtc_demo
+[100%] Built target ewrtc_runtime_tests
+Test project /workspace/ewrtc/build-native-mbedtls
+    Start 1: architecture
+1/4 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/4 Test #2: components .......................   Passed    0.02 sec
+    Start 3: protocol
+3/4 Test #3: protocol .........................   Passed    0.02 sec
+    Start 4: runtime
+4/4 Test #4: runtime ..........................   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.08 sec
+-- ewrtc enabled components: session;pal;crypto;sdp;ice;dtls;srtp;media;pal_linux;common;rtp
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-juice-openssl
+[  5%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[  5%] Building C object CMakeFiles/ewrtc_sdp_objects.dir/src/sdp/sdp.c.o
+[  5%] Building C object CMakeFiles/ewrtc_pal_linux_objects.dir/src/pal/linux.c.o
+[  7%] Building C object CMakeFiles/ewrtc_dtls_objects.dir/src/dtls/dtls.c.o
+[  9%] Building C object CMakeFiles/ewrtc_srtp_objects.dir/src/srtp/srtp.c.o
+[ 10%] Building C object CMakeFiles/ewrtc_crypto_objects.dir/src/crypto/crypto.c.o
+[ 12%] Building C object CMakeFiles/ewrtc_pal_objects.dir/src/pal/pal.c.o
+[ 52%] Built target juice-static
+[ 54%] Building C object CMakeFiles/ewrtc_rtp_objects.dir/src/rtp/rtp.c.o
+[ 54%] Built target ewrtc_pal_objects
+[ 56%] Building C object CMakeFiles/ewrtc_dtls_objects.dir/src/dtls/openssl.c.o
+[ 56%] Built target ewrtc_srtp_objects
+[ 56%] Built target ewrtc_crypto_objects
+[ 56%] Built target ewrtc_common_objects
+[ 58%] Building C object CMakeFiles/ewrtc_media_objects.dir/src/media/media.c.o
+[ 60%] Building C object CMakeFiles/ewrtc_session_objects.dir/src/session/session.c.o
+[ 61%] Building C object CMakeFiles/ewrtc_ice_objects.dir/src/ice/ice.c.o
+[ 63%] Linking C static library libewrtc_common.a
+[ 63%] Built target ewrtc_rtp_objects
+[ 63%] Built target ewrtc_pal_linux_objects
+[ 65%] Building C object CMakeFiles/ewrtc_ice_objects.dir/src/ice/juice.c.o
+[ 65%] Built target ewrtc_common
+[ 69%] Linking C static library libewrtc_pal.a
+[ 69%] Linking C static library libewrtc_crypto.a
+[ 69%] Built target ewrtc_sdp_objects
+[ 70%] Linking C static library libewrtc_rtp.a
+[ 70%] Built target ewrtc_pal
+[ 70%] Built target ewrtc_crypto
+[ 74%] Linking C static library libewrtc_pal_linux.a
+[ 74%] Linking C static library libewrtc_sdp.a
+[ 74%] Built target ewrtc_rtp
+[ 76%] Linking C static library libewrtc_srtp.a
+[ 76%] Built target ewrtc_dtls_objects
+[ 76%] Built target ewrtc_ice_objects
+[ 76%] Built target ewrtc_media_objects
+[ 78%] Linking C static library libewrtc_dtls.a
+[ 78%] Built target ewrtc_srtp
+[ 78%] Built target ewrtc_sdp
+[ 78%] Built target ewrtc_pal_linux
+[ 80%] Linking C static library libewrtc_ice.a
+[ 81%] Linking C static library libewrtc_media.a
+[ 81%] Built target ewrtc_dtls
+[ 81%] Built target ewrtc_ice
+[ 81%] Built target ewrtc_media
+[ 83%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 83%] Built target ewrtc_session_objects
+[ 85%] Linking C static library libewrtc.a
+[ 87%] Linking C static library libewrtc_session.a
+[ 87%] Built target ewrtc_session
+[ 87%] Built target ewrtc
+[ 92%] Building C object CMakeFiles/ewrtc_tests.dir/tests/test_protocol.c.o
+[ 92%] Building C object CMakeFiles/ewrtc_demo.dir/examples/demo.c.o
+[ 92%] Building C object CMakeFiles/ewrtc_runtime_tests.dir/tests/test_runtime.c.o
+[ 94%] Linking C executable ewrtc_tests
+[ 96%] Linking C executable ewrtc_component_tests
+[ 98%] Linking C executable ewrtc_runtime_tests
+[100%] Linking C executable ewrtc_demo
+[100%] Built target ewrtc_tests
+[100%] Built target ewrtc_component_tests
+[100%] Built target ewrtc_runtime_tests
+[100%] Built target ewrtc_demo
+Test project /workspace/ewrtc/build-juice-openssl
+    Start 1: architecture
+1/4 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/4 Test #2: components .......................   Passed    0.02 sec
+    Start 3: protocol
+3/4 Test #3: protocol .........................   Passed    0.02 sec
+    Start 4: runtime
+4/4 Test #4: runtime ..........................   Passed    0.03 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.10 sec
+-- ewrtc enabled components: session;pal;crypto;sdp;ice;dtls;srtp;media;pal_linux;common;rtp
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-juice-mbedtls
+[  7%] Building C object CMakeFiles/ewrtc_dtls_objects.dir/src/dtls/dtls.c.o
+[  7%] Building C object CMakeFiles/ewrtc_sdp_objects.dir/src/sdp/sdp.c.o
+[  7%] Building C object CMakeFiles/ewrtc_srtp_objects.dir/src/srtp/srtp.c.o
+[  7%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[  9%] Building C object CMakeFiles/ewrtc_pal_objects.dir/src/pal/pal.c.o
+[ 10%] Building C object CMakeFiles/ewrtc_crypto_objects.dir/src/crypto/crypto.c.o
+[ 12%] Building C object CMakeFiles/ewrtc_pal_linux_objects.dir/src/pal/linux.c.o
+[ 52%] Built target juice-static
+[ 52%] Built target ewrtc_crypto_objects
+[ 52%] Built target ewrtc_pal_objects
+[ 54%] Building C object CMakeFiles/ewrtc_dtls_objects.dir/src/dtls/mbedtls.c.o
+[ 56%] Building C object CMakeFiles/ewrtc_rtp_objects.dir/src/rtp/rtp.c.o
+[ 58%] Building C object CMakeFiles/ewrtc_media_objects.dir/src/media/media.c.o
+[ 58%] Built target ewrtc_srtp_objects
+[ 60%] Building C object CMakeFiles/ewrtc_session_objects.dir/src/session/session.c.o
+[ 60%] Built target ewrtc_common_objects
+[ 61%] Building C object CMakeFiles/ewrtc_ice_objects.dir/src/ice/ice.c.o
+[ 63%] Building C object CMakeFiles/ewrtc_ice_objects.dir/src/ice/juice.c.o
+[ 63%] Built target ewrtc_rtp_objects
+[ 63%] Built target ewrtc_pal_linux_objects
+[ 65%] Linking C static library libewrtc_common.a
+[ 65%] Built target ewrtc_sdp_objects
+[ 65%] Built target ewrtc_common
+[ 65%] Built target ewrtc_dtls_objects
+[ 65%] Built target ewrtc_ice_objects
+[ 70%] Linking C static library libewrtc_rtp.a
+[ 70%] Linking C static library libewrtc_pal.a
+[ 70%] Linking C static library libewrtc_crypto.a
+[ 70%] Built target ewrtc_media_objects
+[ 70%] Built target ewrtc_rtp
+[ 70%] Built target ewrtc_crypto
+[ 70%] Built target ewrtc_pal
+[ 76%] Linking C static library libewrtc_pal_linux.a
+[ 76%] Linking C static library libewrtc_dtls.a
+[ 78%] Linking C static library libewrtc_sdp.a
+[ 78%] Linking C static library libewrtc_srtp.a
+[ 80%] Linking C static library libewrtc_media.a
+[ 81%] Linking C static library libewrtc_ice.a
+[ 81%] Built target ewrtc_sdp
+[ 81%] Built target ewrtc_dtls
+[ 81%] Built target ewrtc_media
+[ 81%] Built target ewrtc_srtp
+[ 81%] Built target ewrtc_pal_linux
+[ 81%] Built target ewrtc_ice
+[ 83%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 83%] Built target ewrtc_session_objects
+[ 87%] Linking C static library libewrtc_session.a
+[ 87%] Linking C static library libewrtc.a
+[ 87%] Built target ewrtc_session
+[ 87%] Built target ewrtc
+[ 92%] Building C object CMakeFiles/ewrtc_runtime_tests.dir/tests/test_runtime.c.o
+[ 92%] Building C object CMakeFiles/ewrtc_tests.dir/tests/test_protocol.c.o
+[ 92%] Building C object CMakeFiles/ewrtc_demo.dir/examples/demo.c.o
+[ 94%] Linking C executable ewrtc_tests
+[ 96%] Linking C executable ewrtc_component_tests
+[ 98%] Linking C executable ewrtc_runtime_tests
+[100%] Linking C executable ewrtc_demo
+[100%] Built target ewrtc_tests
+[100%] Built target ewrtc_component_tests
+[100%] Built target ewrtc_runtime_tests
+[100%] Built target ewrtc_demo
+Test project /workspace/ewrtc/build-juice-mbedtls
+    Start 1: architecture
+1/4 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/4 Test #2: components .......................   Passed    0.02 sec
+    Start 3: protocol
+3/4 Test #3: protocol .........................   Passed    0.02 sec
+    Start 4: runtime
+4/4 Test #4: runtime ..........................   Passed    0.03 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.09 sec
+-- ewrtc enabled components: common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/common
+[ 25%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[ 25%] Built target ewrtc_common_objects
+[ 50%] Linking C static library libewrtc_common.a
+[ 50%] Built target ewrtc_common
+[ 75%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-component-validation/common
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.03 sec
+-- Install configuration: "Release"
+-- Installing: /workspace/ewrtc/build-component-validation/installed/common/lib/libewrtc_common.a
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/common/include
+-- Installing: /workspace/ewrtc/build-component-validation/installed/common/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/common/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/common/include/ewrtc/media.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/common/include/ewrtc/ice.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/common/include/ewrtc/sdp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/common/include/ewrtc/pal.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/common/include/ewrtc/rtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/common/include/ewrtc/common.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/common/include/ewrtc/stun.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/common/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/common/include/ewrtc/srtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/common/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/common/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/common/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Installing: /workspace/ewrtc/build-component-validation/installed/common/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/common/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/consumer/common
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: pal;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/pal
+[ 16%] Building C object CMakeFiles/ewrtc_pal_objects.dir/src/pal/pal.c.o
+[ 33%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[ 33%] Built target ewrtc_pal_objects
+[ 33%] Built target ewrtc_common_objects
+[ 50%] Linking C static library libewrtc_common.a
+[ 50%] Built target ewrtc_common
+[ 66%] Linking C static library libewrtc_pal.a
+[ 66%] Built target ewrtc_pal
+[ 83%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-component-validation/pal
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.03 sec
+-- Install configuration: "Release"
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal/lib/libewrtc_common.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal/lib/libewrtc_pal.a
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/pal/include
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/pal/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/pal/include/ewrtc/media.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal/include/ewrtc/ice.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal/include/ewrtc/sdp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal/include/ewrtc/pal.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal/include/ewrtc/rtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal/include/ewrtc/common.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal/include/ewrtc/stun.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/pal/include/ewrtc/srtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/pal/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/pal/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/pal/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/consumer/pal
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: pal_linux;pal;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/pal_linux
+[ 25%] Building C object CMakeFiles/ewrtc_pal_objects.dir/src/pal/pal.c.o
+[ 25%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[ 37%] Building C object CMakeFiles/ewrtc_pal_linux_objects.dir/src/pal/linux.c.o
+[ 37%] Built target ewrtc_pal_objects
+[ 37%] Built target ewrtc_common_objects
+[ 50%] Linking C static library libewrtc_common.a
+[ 50%] Built target ewrtc_pal_linux_objects
+[ 50%] Built target ewrtc_common
+[ 62%] Linking C static library libewrtc_pal.a
+[ 62%] Built target ewrtc_pal
+[ 75%] Linking C static library libewrtc_pal_linux.a
+[ 87%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 87%] Built target ewrtc_pal_linux
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-component-validation/pal_linux
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.03 sec
+-- Install configuration: "Release"
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal_linux/lib/libewrtc_common.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal_linux/lib/libewrtc_pal.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal_linux/lib/libewrtc_pal_linux.a
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/pal_linux/include
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal_linux/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/pal_linux/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/pal_linux/include/ewrtc/media.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal_linux/include/ewrtc/ice.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal_linux/include/ewrtc/sdp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal_linux/include/ewrtc/pal.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal_linux/include/ewrtc/rtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal_linux/include/ewrtc/common.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal_linux/include/ewrtc/stun.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal_linux/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/pal_linux/include/ewrtc/srtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal_linux/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/pal_linux/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/pal_linux/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Installing: /workspace/ewrtc/build-component-validation/installed/pal_linux/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/pal_linux/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/consumer/pal_linux
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: crypto;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/crypto
+[ 16%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[ 33%] Building C object CMakeFiles/ewrtc_crypto_objects.dir/src/crypto/crypto.c.o
+[ 33%] Built target ewrtc_crypto_objects
+[ 33%] Built target ewrtc_common_objects
+[ 50%] Linking C static library libewrtc_common.a
+[ 50%] Built target ewrtc_common
+[ 66%] Linking C static library libewrtc_crypto.a
+[ 66%] Built target ewrtc_crypto
+[ 83%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-component-validation/crypto
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.02 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.03 sec
+-- Install configuration: "Release"
+-- Installing: /workspace/ewrtc/build-component-validation/installed/crypto/lib/libewrtc_common.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/crypto/lib/libewrtc_crypto.a
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/crypto/include
+-- Installing: /workspace/ewrtc/build-component-validation/installed/crypto/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/crypto/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/crypto/include/ewrtc/media.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/crypto/include/ewrtc/ice.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/crypto/include/ewrtc/sdp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/crypto/include/ewrtc/pal.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/crypto/include/ewrtc/rtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/crypto/include/ewrtc/common.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/crypto/include/ewrtc/stun.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/crypto/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/crypto/include/ewrtc/srtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/crypto/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/crypto/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/crypto/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Installing: /workspace/ewrtc/build-component-validation/installed/crypto/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/crypto/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/consumer/crypto
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: sdp;pal;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/sdp
+[ 25%] Building C object CMakeFiles/ewrtc_pal_objects.dir/src/pal/pal.c.o
+[ 25%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[ 37%] Building C object CMakeFiles/ewrtc_sdp_objects.dir/src/sdp/sdp.c.o
+[ 37%] Built target ewrtc_pal_objects
+[ 37%] Built target ewrtc_common_objects
+[ 50%] Linking C static library libewrtc_common.a
+[ 50%] Built target ewrtc_common
+[ 50%] Built target ewrtc_sdp_objects
+[ 62%] Linking C static library libewrtc_pal.a
+[ 62%] Built target ewrtc_pal
+[ 75%] Linking C static library libewrtc_sdp.a
+[ 75%] Built target ewrtc_sdp
+[ 87%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-component-validation/sdp
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.02 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.03 sec
+-- Install configuration: "Release"
+-- Installing: /workspace/ewrtc/build-component-validation/installed/sdp/lib/libewrtc_common.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/sdp/lib/libewrtc_pal.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/sdp/lib/libewrtc_sdp.a
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/sdp/include
+-- Installing: /workspace/ewrtc/build-component-validation/installed/sdp/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/sdp/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/sdp/include/ewrtc/media.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/sdp/include/ewrtc/ice.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/sdp/include/ewrtc/sdp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/sdp/include/ewrtc/pal.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/sdp/include/ewrtc/rtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/sdp/include/ewrtc/common.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/sdp/include/ewrtc/stun.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/sdp/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/sdp/include/ewrtc/srtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/sdp/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/sdp/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/sdp/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Installing: /workspace/ewrtc/build-component-validation/installed/sdp/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/sdp/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/consumer/sdp
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: stun;pal;crypto;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/stun
+[ 30%] Building C object CMakeFiles/ewrtc_crypto_objects.dir/src/crypto/crypto.c.o
+[ 30%] Building C object CMakeFiles/ewrtc_stun_objects.dir/src/stun/stun.c.o
+[ 30%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[ 40%] Building C object CMakeFiles/ewrtc_pal_objects.dir/src/pal/pal.c.o
+[ 40%] Built target ewrtc_pal_objects
+[ 40%] Built target ewrtc_crypto_objects
+[ 40%] Built target ewrtc_common_objects
+[ 50%] Linking C static library libewrtc_common.a
+[ 50%] Built target ewrtc_stun_objects
+[ 50%] Built target ewrtc_common
+[ 60%] Linking C static library libewrtc_crypto.a
+[ 70%] Linking C static library libewrtc_pal.a
+[ 70%] Built target ewrtc_pal
+[ 70%] Built target ewrtc_crypto
+[ 80%] Linking C static library libewrtc_stun.a
+[ 80%] Built target ewrtc_stun
+[ 90%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-component-validation/stun
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.03 sec
+-- Install configuration: "Release"
+-- Installing: /workspace/ewrtc/build-component-validation/installed/stun/lib/libewrtc_common.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/stun/lib/libewrtc_pal.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/stun/lib/libewrtc_crypto.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/stun/lib/libewrtc_stun.a
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/stun/include
+-- Installing: /workspace/ewrtc/build-component-validation/installed/stun/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/stun/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/stun/include/ewrtc/media.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/stun/include/ewrtc/ice.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/stun/include/ewrtc/sdp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/stun/include/ewrtc/pal.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/stun/include/ewrtc/rtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/stun/include/ewrtc/common.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/stun/include/ewrtc/stun.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/stun/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/stun/include/ewrtc/srtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/stun/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/stun/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/stun/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Installing: /workspace/ewrtc/build-component-validation/installed/stun/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/stun/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/consumer/stun
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: ice;pal;stun;common;crypto
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/ice
+[ 30%] Building C object CMakeFiles/ewrtc_stun_objects.dir/src/stun/stun.c.o
+[ 30%] Building C object CMakeFiles/ewrtc_ice_objects.dir/src/ice/native.c.o
+[ 30%] Building C object CMakeFiles/ewrtc_crypto_objects.dir/src/crypto/crypto.c.o
+[ 30%] Building C object CMakeFiles/ewrtc_pal_objects.dir/src/pal/pal.c.o
+[ 38%] Building C object CMakeFiles/ewrtc_ice_objects.dir/src/ice/ice.c.o
+[ 46%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[ 46%] Built target ewrtc_pal_objects
+[ 46%] Built target ewrtc_crypto_objects
+[ 46%] Built target ewrtc_common_objects
+[ 53%] Linking C static library libewrtc_common.a
+[ 53%] Built target ewrtc_stun_objects
+[ 53%] Built target ewrtc_common
+[ 69%] Linking C static library libewrtc_crypto.a
+[ 69%] Linking C static library libewrtc_pal.a
+[ 69%] Built target ewrtc_pal
+[ 69%] Built target ewrtc_crypto
+[ 76%] Linking C static library libewrtc_stun.a
+[ 76%] Built target ewrtc_ice_objects
+[ 76%] Built target ewrtc_stun
+[ 92%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 92%] Linking C static library libewrtc_ice.a
+[ 92%] Built target ewrtc_ice
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-component-validation/ice
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.03 sec
+-- Install configuration: "Release"
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/lib/libewrtc_common.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/lib/libewrtc_pal.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/lib/libewrtc_crypto.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/lib/libewrtc_stun.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/lib/libewrtc_ice.a
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/ice/include
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/ice/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/ice/include/ewrtc/media.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/include/ewrtc/ice.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/include/ewrtc/sdp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/include/ewrtc/pal.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/include/ewrtc/rtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/include/ewrtc/common.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/include/ewrtc/stun.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/ice/include/ewrtc/srtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/ice/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/ice/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Installing: /workspace/ewrtc/build-component-validation/installed/ice/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/ice/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/consumer/ice
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: dtls;pal;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/dtls
+[ 22%] Building C object CMakeFiles/ewrtc_dtls_objects.dir/src/dtls/dtls.c.o
+[ 22%] Building C object CMakeFiles/ewrtc_pal_objects.dir/src/pal/pal.c.o
+[ 33%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[ 44%] Building C object CMakeFiles/ewrtc_dtls_objects.dir/src/dtls/openssl.c.o
+[ 44%] Built target ewrtc_pal_objects
+[ 44%] Built target ewrtc_common_objects
+[ 55%] Linking C static library libewrtc_common.a
+[ 55%] Built target ewrtc_common
+[ 55%] Built target ewrtc_dtls_objects
+[ 66%] Linking C static library libewrtc_pal.a
+[ 66%] Built target ewrtc_pal
+[ 77%] Linking C static library libewrtc_dtls.a
+[ 77%] Built target ewrtc_dtls
+[ 88%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-component-validation/dtls
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.03 sec
+-- Install configuration: "Release"
+-- Installing: /workspace/ewrtc/build-component-validation/installed/dtls/lib/libewrtc_common.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/dtls/lib/libewrtc_pal.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/dtls/lib/libewrtc_dtls.a
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/dtls/include
+-- Installing: /workspace/ewrtc/build-component-validation/installed/dtls/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/dtls/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/dtls/include/ewrtc/media.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/dtls/include/ewrtc/ice.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/dtls/include/ewrtc/sdp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/dtls/include/ewrtc/pal.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/dtls/include/ewrtc/rtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/dtls/include/ewrtc/common.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/dtls/include/ewrtc/stun.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/dtls/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/dtls/include/ewrtc/srtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/dtls/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/dtls/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/dtls/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Installing: /workspace/ewrtc/build-component-validation/installed/dtls/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/dtls/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/consumer/dtls
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: srtp;pal;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/srtp
+[ 37%] Building C object CMakeFiles/ewrtc_srtp_objects.dir/src/srtp/srtp.c.o
+[ 37%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[ 37%] Building C object CMakeFiles/ewrtc_pal_objects.dir/src/pal/pal.c.o
+[ 37%] Built target ewrtc_pal_objects
+[ 37%] Built target ewrtc_srtp_objects
+[ 37%] Built target ewrtc_common_objects
+[ 50%] Linking C static library libewrtc_common.a
+[ 50%] Built target ewrtc_common
+[ 62%] Linking C static library libewrtc_pal.a
+[ 62%] Built target ewrtc_pal
+[ 75%] Linking C static library libewrtc_srtp.a
+[ 75%] Built target ewrtc_srtp
+[ 87%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-component-validation/srtp
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.04 sec
+-- Install configuration: "Release"
+-- Installing: /workspace/ewrtc/build-component-validation/installed/srtp/lib/libewrtc_common.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/srtp/lib/libewrtc_pal.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/srtp/lib/libewrtc_srtp.a
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/srtp/include
+-- Installing: /workspace/ewrtc/build-component-validation/installed/srtp/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/srtp/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/srtp/include/ewrtc/media.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/srtp/include/ewrtc/ice.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/srtp/include/ewrtc/sdp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/srtp/include/ewrtc/pal.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/srtp/include/ewrtc/rtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/srtp/include/ewrtc/common.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/srtp/include/ewrtc/stun.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/srtp/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/srtp/include/ewrtc/srtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/srtp/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/srtp/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/srtp/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Installing: /workspace/ewrtc/build-component-validation/installed/srtp/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/srtp/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/consumer/srtp
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: rtp;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/rtp
+[ 16%] Building C object CMakeFiles/ewrtc_rtp_objects.dir/src/rtp/rtp.c.o
+[ 33%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[ 33%] Built target ewrtc_rtp_objects
+[ 33%] Built target ewrtc_common_objects
+[ 50%] Linking C static library libewrtc_common.a
+[ 50%] Built target ewrtc_common
+[ 66%] Linking C static library libewrtc_rtp.a
+[ 66%] Built target ewrtc_rtp
+[ 83%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-component-validation/rtp
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.03 sec
+-- Install configuration: "Release"
+-- Installing: /workspace/ewrtc/build-component-validation/installed/rtp/lib/libewrtc_common.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/rtp/lib/libewrtc_rtp.a
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/rtp/include
+-- Installing: /workspace/ewrtc/build-component-validation/installed/rtp/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/rtp/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/rtp/include/ewrtc/media.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/rtp/include/ewrtc/ice.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/rtp/include/ewrtc/sdp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/rtp/include/ewrtc/pal.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/rtp/include/ewrtc/rtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/rtp/include/ewrtc/common.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/rtp/include/ewrtc/stun.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/rtp/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/rtp/include/ewrtc/srtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/rtp/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/rtp/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/rtp/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Installing: /workspace/ewrtc/build-component-validation/installed/rtp/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/rtp/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/consumer/rtp
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: media;pal;rtp;common
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/media
+[ 40%] Building C object CMakeFiles/ewrtc_rtp_objects.dir/src/rtp/rtp.c.o
+[ 40%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[ 40%] Building C object CMakeFiles/ewrtc_media_objects.dir/src/media/media.c.o
+[ 40%] Building C object CMakeFiles/ewrtc_pal_objects.dir/src/pal/pal.c.o
+[ 40%] Built target ewrtc_pal_objects
+[ 40%] Built target ewrtc_rtp_objects
+[ 40%] Built target ewrtc_common_objects
+[ 50%] Linking C static library libewrtc_common.a
+[ 50%] Built target ewrtc_common
+[ 50%] Built target ewrtc_media_objects
+[ 60%] Linking C static library libewrtc_pal.a
+[ 70%] Linking C static library libewrtc_rtp.a
+[ 70%] Built target ewrtc_rtp
+[ 70%] Built target ewrtc_pal
+[ 80%] Linking C static library libewrtc_media.a
+[ 80%] Built target ewrtc_media
+[ 90%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[100%] Linking C executable ewrtc_component_tests
+[100%] Built target ewrtc_component_tests
+Test project /workspace/ewrtc/build-component-validation/media
+    Start 1: architecture
+1/2 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/2 Test #2: components .......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.03 sec
+-- Install configuration: "Release"
+-- Installing: /workspace/ewrtc/build-component-validation/installed/media/lib/libewrtc_common.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/media/lib/libewrtc_pal.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/media/lib/libewrtc_rtp.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/media/lib/libewrtc_media.a
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/media/include
+-- Installing: /workspace/ewrtc/build-component-validation/installed/media/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/media/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/media/include/ewrtc/media.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/media/include/ewrtc/ice.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/media/include/ewrtc/sdp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/media/include/ewrtc/pal.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/media/include/ewrtc/rtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/media/include/ewrtc/common.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/media/include/ewrtc/stun.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/media/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/media/include/ewrtc/srtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/media/include/ewrtc/dtls.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/media/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/media/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Installing: /workspace/ewrtc/build-component-validation/installed/media/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/media/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/consumer/media
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+-- ewrtc enabled components: session;pal;crypto;sdp;ice;dtls;srtp;media;pal_linux;common;stun;rtp
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/session
+[  9%] Building C object CMakeFiles/ewrtc_crypto_objects.dir/src/crypto/crypto.c.o
+[  9%] Building C object CMakeFiles/ewrtc_ice_objects.dir/src/ice/ice.c.o
+[ 12%] Building C object CMakeFiles/ewrtc_sdp_objects.dir/src/sdp/sdp.c.o
+[ 12%] Building C object CMakeFiles/ewrtc_stun_objects.dir/src/stun/stun.c.o
+[ 15%] Building C object CMakeFiles/ewrtc_pal_objects.dir/src/pal/pal.c.o
+[ 18%] Building C object CMakeFiles/ewrtc_common_objects.dir/src/common/common.c.o
+[ 21%] Building C object CMakeFiles/ewrtc_dtls_objects.dir/src/dtls/dtls.c.o
+[ 24%] Building C object CMakeFiles/ewrtc_pal_linux_objects.dir/src/pal/linux.c.o
+[ 24%] Built target ewrtc_pal_objects
+[ 27%] Building C object CMakeFiles/ewrtc_ice_objects.dir/src/ice/native.c.o
+[ 30%] Building C object CMakeFiles/ewrtc_dtls_objects.dir/src/dtls/openssl.c.o
+[ 33%] Building C object CMakeFiles/ewrtc_srtp_objects.dir/src/srtp/srtp.c.o
+[ 33%] Built target ewrtc_crypto_objects
+[ 33%] Built target ewrtc_common_objects
+[ 36%] Building C object CMakeFiles/ewrtc_rtp_objects.dir/src/rtp/rtp.c.o
+[ 39%] Building C object CMakeFiles/ewrtc_media_objects.dir/src/media/media.c.o
+[ 39%] Built target ewrtc_srtp_objects
+[ 39%] Built target ewrtc_pal_linux_objects
+[ 42%] Building C object CMakeFiles/ewrtc_session_objects.dir/src/session/session.c.o
+[ 45%] Linking C static library libewrtc_common.a
+[ 45%] Built target ewrtc_sdp_objects
+[ 45%] Built target ewrtc_stun_objects
+[ 45%] Built target ewrtc_rtp_objects
+[ 45%] Built target ewrtc_common
+[ 48%] Linking C static library libewrtc_crypto.a
+[ 51%] Linking C static library libewrtc_rtp.a
+[ 54%] Linking C static library libewrtc_pal.a
+[ 54%] Built target ewrtc_dtls_objects
+[ 54%] Built target ewrtc_rtp
+[ 54%] Built target ewrtc_crypto
+[ 54%] Built target ewrtc_pal
+[ 66%] Linking C static library libewrtc_stun.a
+[ 66%] Linking C static library libewrtc_srtp.a
+[ 66%] Linking C static library libewrtc_sdp.a
+[ 66%] Linking C static library libewrtc_dtls.a
+[ 66%] Built target ewrtc_media_objects
+[ 69%] Linking C static library libewrtc_pal_linux.a
+[ 72%] Linking C static library libewrtc_media.a
+[ 72%] Built target ewrtc_stun
+[ 72%] Built target ewrtc_dtls
+[ 72%] Built target ewrtc_sdp
+[ 72%] Built target ewrtc_srtp
+[ 72%] Built target ewrtc_pal_linux
+[ 72%] Built target ewrtc_media
+[ 72%] Built target ewrtc_ice_objects
+[ 75%] Linking C static library libewrtc_ice.a
+[ 78%] Building C object CMakeFiles/ewrtc_component_tests.dir/tests/test_components.c.o
+[ 78%] Built target ewrtc_ice
+[ 78%] Built target ewrtc_session_objects
+[ 81%] Linking C static library libewrtc.a
+[ 84%] Linking C static library libewrtc_session.a
+[ 84%] Built target ewrtc_session
+[ 84%] Built target ewrtc
+[ 90%] Building C object CMakeFiles/ewrtc_tests.dir/tests/test_protocol.c.o
+[ 90%] Building C object CMakeFiles/ewrtc_runtime_tests.dir/tests/test_runtime.c.o
+[ 93%] Linking C executable ewrtc_component_tests
+[ 96%] Linking C executable ewrtc_tests
+[100%] Linking C executable ewrtc_runtime_tests
+[100%] Built target ewrtc_component_tests
+[100%] Built target ewrtc_tests
+[100%] Built target ewrtc_runtime_tests
+Test project /workspace/ewrtc/build-component-validation/session
+    Start 1: architecture
+1/4 Test #1: architecture .....................   Passed    0.03 sec
+    Start 2: components
+2/4 Test #2: components .......................   Passed    0.02 sec
+    Start 3: protocol
+3/4 Test #3: protocol .........................   Passed    0.02 sec
+    Start 4: runtime
+4/4 Test #4: runtime ..........................   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.09 sec
+-- Install configuration: "Release"
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/libewrtc_common.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/libewrtc_pal.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/libewrtc_pal_linux.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/libewrtc_crypto.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/libewrtc_sdp.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/libewrtc_stun.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/libewrtc_ice.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/libewrtc_dtls.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/libewrtc_srtp.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/libewrtc_rtp.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/libewrtc_media.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/libewrtc_session.a
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/libewrtc.a
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/session/include
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/include/ewrtc.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/session/include/ewrtc
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/session/include/ewrtc/media.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/include/ewrtc/ice.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/include/ewrtc/sdp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/include/ewrtc/pal.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/include/ewrtc/rtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/include/ewrtc/common.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/include/ewrtc/stun.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/include/ewrtc/crypto.h
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/session/include/ewrtc/srtp.h
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/include/ewrtc/dtls.h
+-- Old export file "/workspace/ewrtc/build-component-validation/installed/session/lib/cmake/ewrtc/ewrtcTargets.cmake" will be replaced.  Removing files [/workspace/ewrtc/build-component-validation/installed/session/lib/cmake/ewrtc/ewrtcTargets-release.cmake].
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/cmake/ewrtc/ewrtcTargets.cmake
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/cmake/ewrtc/ewrtcTargets-release.cmake
+-- Installing: /workspace/ewrtc/build-component-validation/installed/session/lib/cmake/ewrtc/ewrtcConfig.cmake
+-- Up-to-date: /workspace/ewrtc/build-component-validation/installed/session/lib/cmake/ewrtc/ewrtcConfigVersion.cmake
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ewrtc/build-component-validation/consumer/session
+[ 50%] Building C object CMakeFiles/consumer.dir/consumer.c.o
+[100%] Linking C executable consumer
+[100%] Built target consumer
+All backend and isolated component install/consumer checks passed

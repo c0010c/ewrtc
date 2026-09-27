@@ -1,0 +1,11 @@
+set(EWRTC_COMPONENTS "session" CACHE STRING "Internal build components: common;pal;pal_linux;crypto;sdp;stun;turn;ice;dtls;srtp;rtp;media;session")
+option(EWRTC_WITH_LINUX_PAL "Build the Linux PAL provider for applications" ON)
+option(EWRTC_WITH_NATIVE_ICE "Build native ICE" ON)
+option(EWRTC_WITH_LIBJUICE "Build libjuice ICE" OFF)
+option(EWRTC_WITH_OPENSSL "Build OpenSSL crypto/DTLS" ON)
+option(EWRTC_WITH_MBEDTLS "Build Mbed TLS crypto/DTLS" OFF)
+option(EWRTC_BUILD_TESTS "Build enabled component tests" ON)
+option(EWRTC_BUILD_EXAMPLES "Build demo when session is selected" OFF)
+option(EWRTC_ENFORCE_DEPENDENCY_LOCK "Require exact historical validation dependency versions" OFF)
+
+option(EWRTC_WARNINGS_AS_ERRORS "Treat SDK compiler warnings as errors" OFF)

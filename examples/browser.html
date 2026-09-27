@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Embedded WebRTC SDK Chrome test</title>
+<style>
+body{font:16px system-ui;margin:2rem;max-width:900px}video{width:100%;background:#111}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eee;padding:1rem}
+</style>
+<h1>Embedded WebRTC SDK test</h1>
+<p>Receive H.264 video and send/receive Opus audio. Start the signaling server first.</p>
+<button id="start">Connect</button> <button id="stop">Disconnect</button>
+<video id="video" autoplay playsinline controls muted></video>
+<audio id="audio" autoplay></audio>
+<pre id="log"></pre>
+<script>
+const params = new URLSearchParams(location.search);
+const logElement = document.querySelector('#log');
+const log = (...args) => { logElement.textContent += args.join(' ') + '\n'; };
+let pc, ws, audioContext, keyframeWorker;
+window.testState = {state: 'idle', stats: ''};
+async function connect() {
+  const startedAt = performance.now();
+  window.testState = {state: 'starting', stats: ''};
+  const config = {iceServers: []};
+  if (params.has('stun')) config.iceServers.push({urls: `stun:${params.get('stun')}`});
+  if (params.has('turn')) config.iceServers.push({urls: `turn:${params.get('turn')}?transport=udp`,
+    username: params.get('user') || '', credential: params.get('pass') || ''});
+  if (params.has('relay')) config.iceTransportPolicy = 'relay';
+  pc = new RTCPeerConnection(config);
+  pc.onconnectionstatechange = () => {
+    window.testState.state = pc.connectionState;
+    if (pc.connectionState === 'connected' &&
+        window.testState.connectionMs === undefined)
+      window.testState.connectionMs = Math.round(performance.now() - startedAt);
+    log('Peer connection:', pc.connectionState);
+  };
+  pc.onicecandidate = event => ws.send(JSON.stringify(event.candidate ?
+    {type:'candidate',value:event.candidate.candidate} : {type:'end'}));
+  pc.ontrack = event => {
+    log('Remote track:', event.track.kind);
+    if (event.track.kind === 'video') {
+      const video = document.querySelector('#video');
+      video.srcObject = event.streams[0];
+      video.requestVideoFrameCallback(() => {
+        window.testState.firstFrameMs = Math.round(performance.now() - startedAt);
+      });
+    }
+    if (event.track.kind === 'audio') {
+      document.querySelector('#audio').srcObject = event.streams[0];
+      const source = audioContext.createMediaStreamSource(event.streams[0]);
+      const analyser = audioContext.createAnalyser();
+      analyser.fftSize = 4096;
+      source.connect(analyser);
+      analyser.connect(audioContext.destination);
+      setInterval(() => {
+        const pcm = new Float32Array(analyser.fftSize);
+        analyser.getFloatTimeDomainData(pcm);
+        const rms = Math.sqrt(pcm.reduce((sum, value) => sum + value * value, 0) / pcm.length);
+        const crossings = pcm.reduce((sum, value, index) =>
+          index && pcm[index - 1] <= 0 && value > 0 ? sum + 1 : sum, 0);
+        window.testState.remoteAudioRms = rms;
+        window.testState.remoteAudioHz = crossings * audioContext.sampleRate / pcm.length;
+      }, 500);
+    }
+  };
+  pc.addTransceiver('video', {direction:'recvonly'});
+  audioContext = new AudioContext();
+  const oscillator = audioContext.createOscillator();
+  oscillator.frequency.value = 440;
+  const destination = audioContext.createMediaStreamDestination();
+  oscillator.connect(destination);
+  oscillator.start();
+  pc.addTransceiver(destination.stream.getAudioTracks()[0], {direction:'sendrecv'});
+  ws = new WebSocket(`ws://127.0.0.1:${params.get('ws') || '8765'}`);
+  ws.onmessage = async event => {
+    try {
+    const message = JSON.parse(event.data);
+    if (message.type === 'answer') {
+      await pc.setRemoteDescription({type:'answer',sdp:message.value});
+      log('Answer applied');
+    } else if (message.type === 'candidate') {
+      await pc.addIceCandidate({candidate:message.value,sdpMid:pc.getTransceivers()[0].mid});
+    } else if (message.type === 'done') {
+      await pc.addIceCandidate(null);
+    } else if (message.type === 'stats') {
+      window.testState.stats = message.value;
+      log(message.value);
+    } else if (message.type === 'error') {
+      log('SDK error:', message.value);
+      window.testState.error = message.value;
+    } else if (message.type === 'state') {
+      log('SDK state:', message.value);
+      window.testState.sdkState = Number(message.value);
+    }
+    } catch (error) {
+      window.testState.error = String(error);
+      log('Signaling error:', error);
+    }
+  };
+  await new Promise((resolve, reject) => {
+    ws.onopen = resolve; ws.onerror = reject;
+  });
+  const offer = await pc.createOffer();
+  await pc.setLocalDescription(offer);
+  ws.send(JSON.stringify({type:'offer',value:offer.sdp}));
+  log('Offer sent');
+}
+function disconnect() {
+  if (ws) ws.close();
+  if (pc) pc.close();
+  if (audioContext) audioContext.close();
+  if (keyframeWorker) { keyframeWorker.terminate(); keyframeWorker = null; }
+}
+document.querySelector('#start').onclick = () => connect().catch(error => {
+  window.testState.error = String(error); log('Error:', error);
+});
+document.querySelector('#stop').onclick = disconnect;
+window.requestSdkStats = () => ws?.send(JSON.stringify({type:'stats'}));
+window.requestKeyframe = () => {
+  if (!keyframeWorker) {
+    keyframeWorker = new Worker('keyframe_worker.js');
+    keyframeWorker.onmessage = event => log('Keyframe worker:', JSON.stringify(event.data));
+    const receiver = pc.getTransceivers().find(t => t.receiver.track.kind === 'video').receiver;
+    receiver.transform = new RTCRtpScriptTransform(keyframeWorker);
+  }
+  keyframeWorker.postMessage('request');
+};
+</script>
+</html>

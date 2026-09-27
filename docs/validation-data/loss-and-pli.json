@@ -1,0 +1,110 @@
+{
+  "duration_seconds_each": 20,
+  "cases": [
+    {
+      "loss_percent": 1,
+      "before": {
+        "browser_state": "connected",
+        "sdk": {
+          "state": 3,
+          "sent_video": 455,
+          "sent_audio": 144,
+          "recv_audio": 144,
+          "nack": 0,
+          "rtx": 0,
+          "pli": 0
+        },
+        "video": {
+          "framesDecoded": 99,
+          "keyFramesDecoded": 2
+        }
+      },
+      "after": {
+        "browser_state": "connected",
+        "sdk": {
+          "state": 3,
+          "sent_video": 3745,
+          "sent_audio": 1216,
+          "recv_audio": 1204,
+          "nack": 73,
+          "rtx": 73,
+          "pli": 0
+        },
+        "video": {
+          "framesDecoded": 740,
+          "keyFramesDecoded": 13
+        }
+      }
+    },
+    {
+      "loss_percent": 5,
+      "before": {
+        "browser_state": "connected",
+        "sdk": {
+          "state": 3,
+          "sent_video": 3800,
+          "sent_audio": 1236,
+          "recv_audio": 1224,
+          "nack": 73,
+          "rtx": 73,
+          "pli": 0
+        },
+        "video": {
+          "framesDecoded": 752,
+          "keyFramesDecoded": 13
+        }
+      },
+      "after": {
+        "browser_state": "connected",
+        "sdk": {
+          "state": 3,
+          "sent_video": 7083,
+          "sent_audio": 2307,
+          "recv_audio": 2195,
+          "nack": 381,
+          "rtx": 418,
+          "pli": 0
+        },
+        "video": {
+          "framesDecoded": 1382,
+          "keyFramesDecoded": 24
+        }
+      }
+    }
+  ],
+  "keyframe_request": {
+    "before": {
+      "browser_state": "connected",
+      "sdk": {
+        "state": 3,
+        "sent_video": 7143,
+        "sent_audio": 2328,
+        "recv_audio": 2215,
+        "nack": 381,
+        "rtx": 418,
+        "pli": 0
+      },
+      "video": {
+        "framesDecoded": 1394,
+        "keyFramesDecoded": 24
+      }
+    },
+    "after": {
+      "browser_state": "connected",
+      "sdk": {
+        "state": 3,
+        "sent_video": 7508,
+        "sent_audio": 2448,
+        "recv_audio": 2335,
+        "nack": 381,
+        "rtx": 418,
+        "pli": 1
+      },
+      "video": {
+        "framesDecoded": 1466,
+        "keyFramesDecoded": 26
+      }
+    }
+  },
+  "passed": true
+}

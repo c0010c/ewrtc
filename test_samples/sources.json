@@ -1,0 +1,26 @@
+[
+  {
+    "file": "h264/road_360p.mp4",
+    "source_url": "https://samplelib.com/mp4/sample-5s-360p.mp4"
+  },
+  {
+    "file": "h264/buses_720p.mp4",
+    "source_url": "https://samplelib.com/mp4/sample-10s-720p.mp4"
+  },
+  {
+    "file": "h264/traffic_1080p.mp4",
+    "source_url": "https://samplelib.com/mp4/sample-15s.mp4"
+  },
+  {
+    "file": "opus/ehren-paper_lights-96.opus",
+    "source_url": "https://opus-codec.org/static/examples/ehren-paper_lights-96.opus"
+  },
+  {
+    "file": "opus/testvector01.ogg",
+    "source_url": "https://samples.ffmpeg.org/A-codecs/opus/testvector01.ogg"
+  },
+  {
+    "file": "opus/testvector02.ogg",
+    "source_url": "https://samples.ffmpeg.org/A-codecs/opus/testvector02.ogg"
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "queue_limit_bytes": 16384,
+  "seconds": 15,
+  "state": {
+    "state": "connected",
+    "stats": "state=3 sent_video=2059 sent_audio=757 recv_audio=757 nack=0 rtx=0 pli=75 backpressure=76 queue=0 cache=239284 local=host 192.168.31.39:59160 remote=192.168.31.39:42230",
+    "sdkState": 3,
+    "connectionMs": 123,
+    "remoteAudioRms": 0.14573313384542438,
+    "remoteAudioHz": 621.09375
+  },
+  "sdk": {
+    "state": 3,
+    "sent_video": 2059,
+    "sent_audio": 757,
+    "recv_audio": 757,
+    "nack": 0,
+    "rtx": 0,
+    "pli": 75,
+    "backpressure": 76,
+    "queue": 0,
+    "cache": 239284
+  },
+  "rss_bytes_min": 16310272,
+  "rss_bytes_max": 16576512,
+  "passed": true
+}

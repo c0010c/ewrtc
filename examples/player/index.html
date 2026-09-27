@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ewrtc · 实时视频</title>
+  <link rel="stylesheet" href="player.css">
+</head>
+<body>
+  <main>
+    <header><span class="brand">ewrtc <span>EXAMPLE</span></span><span id="status" role="status">正在连接…</span></header>
+    <h1 id="stream-title">实时视频流</h1>
+    <p id="stream-description">通过 WebRTC 接收 C SDK 发送的 H.264 视频和 Opus 音频。</p>
+    <video id="video" autoplay playsinline controls muted aria-label="WebRTC 实时视频"></video>
+    <section class="toolbar">
+      <span id="stats">等待视频数据…</span>
+      <div><button id="sound">开启声音</button><button id="reconnect">重新连接</button><button id="stop">断开</button></div>
+    </section>
+    <p class="hint" id="stream-hint">720p · 30 fps · 循环播放。默认静音；音频为 SDK 生成的 600 Hz 测试音，无需摄像头或麦克风权限。</p>
+    <p id="error" role="alert" hidden></p>
+    <section class="timing-panel" aria-labelledby="timing-title">
+      <h2 id="timing-title">连接阶段耗时</h2>
+      <p class="hint">每次连接独立计时，单位为毫秒。累计时间从开始连接算起；ICE 收集、连通性检查等阶段可并行，耗时不能直接相加。DTLS 以浏览器传输状态事件计时，首帧以视频帧呈现回调计时。</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">阶段</th><th scope="col">阶段耗时</th><th scope="col">完成时累计</th><th scope="col">状态</th></tr></thead>
+          <tbody id="timings"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="app.js?v=camera-1"></script>
+</body>
+</html>

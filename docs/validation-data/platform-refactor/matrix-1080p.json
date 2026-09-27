@@ -1,0 +1,162 @@
+[
+  {
+    "case": "1920x1080-native-openssl-direct",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=353 sent_audio=47 recv_audio=46 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=365960 local=host 192.168.31.39:45205 remote=192.168.31.39:50841",
+      "sdkState": 3,
+      "connectionMs": 112,
+      "firstFrameMs": 144,
+      "remoteAudioRms": 0.14608014876438327,
+      "remoteAudioHz": 609.375
+    },
+    "dimensions": {
+      "videoWidth": 1920,
+      "videoHeight": 1080
+    },
+    "resource": null,
+    "error": "",
+    "audio_verification": "Opus packets=150, decoded RMS=23167.6, tone=440.0 Hz"
+  },
+  {
+    "case": "1920x1080-native-openssl-relay",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=335 sent_audio=41 recv_audio=41 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=351241 local=relay 127.0.0.1:49390 remote=127.0.0.1:49322",
+      "sdkState": 3,
+      "connectionMs": 169,
+      "firstFrameMs": 203,
+      "remoteAudioRms": 0.14619579419258824,
+      "remoteAudioHz": 609.375
+    },
+    "dimensions": {
+      "videoWidth": 1920,
+      "videoHeight": 1080
+    },
+    "resource": null,
+    "error": "",
+    "audio_verification": "Opus packets=145, decoded RMS=23173.4, tone=440.0 Hz"
+  },
+  {
+    "case": "1920x1080-native-mbedtls-direct",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=353 sent_audio=46 recv_audio=46 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=365960 local=host 192.168.31.39:57836 remote=192.168.31.39:44718",
+      "sdkState": 3,
+      "connectionMs": 80,
+      "firstFrameMs": 111,
+      "remoteAudioRms": 0.1457460267473938,
+      "remoteAudioHz": 597.65625
+    },
+    "dimensions": {
+      "videoWidth": 1920,
+      "videoHeight": 1080
+    },
+    "resource": null,
+    "error": "",
+    "audio_verification": "Opus packets=149, decoded RMS=23177.4, tone=440.0 Hz"
+  },
+  {
+    "case": "1920x1080-native-mbedtls-relay",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=327 sent_audio=40 recv_audio=39 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=344062 local=relay 127.0.0.1:49348 remote=127.0.0.1:49368",
+      "sdkState": 3,
+      "connectionMs": 196,
+      "firstFrameMs": 231,
+      "remoteAudioRms": 0.14575277790844857,
+      "remoteAudioHz": 597.65625
+    },
+    "dimensions": {
+      "videoWidth": 1920,
+      "videoHeight": 1080
+    },
+    "resource": null,
+    "error": "",
+    "audio_verification": "Opus packets=143, decoded RMS=23171.2, tone=440.0 Hz"
+  },
+  {
+    "case": "1920x1080-juice-openssl-direct",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=353 sent_audio=46 recv_audio=46 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=365960 local=a=candidate:1 1 UDP 2114977791 192.168.31.39 38232 typ host remote=a=candidate:1 1 UDP 1845501695 192.168.31.39 35250 typ prflx",
+      "sdkState": 3,
+      "connectionMs": 88,
+      "firstFrameMs": 124,
+      "remoteAudioRms": 0.14567660581473685,
+      "remoteAudioHz": 597.65625
+    },
+    "dimensions": {
+      "videoWidth": 1920,
+      "videoHeight": 1080
+    },
+    "resource": null,
+    "error": "",
+    "audio_verification": "Opus packets=149, decoded RMS=23168.2, tone=440.0 Hz"
+  },
+  {
+    "case": "1920x1080-juice-openssl-relay",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=335 sent_audio=41 recv_audio=41 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=351241 local=a=candidate:4 1 UDP 1678769407 127.0.0.1 38513 typ srflx raddr 0.0.0.0 rport 0 remote=a=candidate:3676892372 1 UDP 50339839 127.0.0.1 49312 typ relay raddr 0.0.0.0 rport 0",
+      "sdkState": 3,
+      "connectionMs": 179,
+      "firstFrameMs": 213,
+      "remoteAudioRms": 0.14628310393510455,
+      "remoteAudioHz": 609.375
+    },
+    "dimensions": {
+      "videoWidth": 1920,
+      "videoHeight": 1080
+    },
+    "resource": null,
+    "error": "",
+    "audio_verification": "Opus packets=144, decoded RMS=23178.1, tone=440.0 Hz"
+  },
+  {
+    "case": "1920x1080-juice-mbedtls-direct",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=347 sent_audio=44 recv_audio=44 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=360795 local=a=candidate:1 1 UDP 2114977791 192.168.31.39 58178 typ host remote=a=candidate:1 1 UDP 1845501695 192.168.31.39 34793 typ prflx",
+      "sdkState": 3,
+      "connectionMs": 114,
+      "firstFrameMs": 139,
+      "remoteAudioRms": 0.1459834364045867,
+      "remoteAudioHz": 609.375
+    },
+    "dimensions": {
+      "videoWidth": 1920,
+      "videoHeight": 1080
+    },
+    "resource": null,
+    "error": "",
+    "audio_verification": "Opus packets=148, decoded RMS=23177.9, tone=440.0 Hz"
+  },
+  {
+    "case": "1920x1080-juice-mbedtls-relay",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=327 sent_audio=40 recv_audio=40 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=344062 local=a=candidate:4 1 UDP 1678769407 127.0.0.1 59728 typ srflx raddr 0.0.0.0 rport 0 remote=a=candidate:291467953 1 UDP 50339839 127.0.0.1 49398 typ relay raddr 0.0.0.0 rport 0",
+      "sdkState": 3,
+      "connectionMs": 201,
+      "firstFrameMs": 242,
+      "remoteAudioRms": 0.1456838791937058,
+      "remoteAudioHz": 597.65625
+    },
+    "dimensions": {
+      "videoWidth": 1920,
+      "videoHeight": 1080
+    },
+    "resource": null,
+    "error": "",
+    "audio_verification": "Opus packets=142, decoded RMS=23171.2, tone=440.0 Hz"
+  }
+]

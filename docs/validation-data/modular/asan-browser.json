@@ -1,0 +1,22 @@
+[
+  {
+    "case": "1280x720-native-openssl-direct",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=155 sent_audio=45 recv_audio=46 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=135430 local=host 192.168.31.39:44942 remote=192.168.31.39:42166",
+      "sdkState": 3,
+      "connectionMs": 124,
+      "firstFrameMs": 176,
+      "remoteAudioRms": 0.1455242518898309,
+      "remoteAudioHz": 597.65625
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "resource": null,
+    "error": "",
+    "audio_verification": "Opus packets=149, decoded RMS=23170.3, tone=440.0 Hz"
+  }
+]

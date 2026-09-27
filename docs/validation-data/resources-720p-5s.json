@@ -1,0 +1,250 @@
+[
+  {
+    "case": "1280x720-native-openssl-direct",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=1238 sent_audio=399 recv_audio=399 nack=0 rtx=0 pli=0 local=host 192.168.31.39:48621 remote=192.168.31.39:51556",
+      "sdkState": 3,
+      "connectionMs": 98,
+      "firstFrameMs": 121,
+      "remoteAudioRms": 0.1458047399712959,
+      "remoteAudioHz": 609.375
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "resource": {
+      "seconds": 5,
+      "cpu_percent_one_core_mean": 2.0,
+      "rss_bytes_peak": 16515072,
+      "threads_peak": 3,
+      "chrome_video": [
+        {
+          "framesDecoded": 249,
+          "keyFramesDecoded": 5
+        }
+      ]
+    },
+    "error": "",
+    "audio_verification": "Opus packets=416, decoded RMS=23167.6, tone=440.0 Hz"
+  },
+  {
+    "case": "1280x720-native-openssl-relay",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=1218 sent_audio=393 recv_audio=393 nack=0 rtx=0 pli=0 local=relay 127.0.0.1:49184 remote=127.0.0.1:49210",
+      "sdkState": 3,
+      "connectionMs": 181,
+      "firstFrameMs": 224,
+      "remoteAudioRms": 0.14582786482727572,
+      "remoteAudioHz": 597.65625
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "resource": {
+      "seconds": 5,
+      "cpu_percent_one_core_mean": 2.2,
+      "rss_bytes_peak": 16678912,
+      "threads_peak": 3,
+      "chrome_video": [
+        {
+          "framesDecoded": 245,
+          "keyFramesDecoded": 5
+        }
+      ]
+    },
+    "error": "",
+    "audio_verification": "Opus packets=410, decoded RMS=23178.1, tone=440.0 Hz"
+  },
+  {
+    "case": "1280x720-native-mbedtls-direct",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=1233 sent_audio=398 recv_audio=398 nack=0 rtx=0 pli=0 local=host 192.168.31.39:48738 remote=192.168.31.39:49808",
+      "sdkState": 3,
+      "connectionMs": 79,
+      "firstFrameMs": 111,
+      "remoteAudioRms": 0.14599282572780647,
+      "remoteAudioHz": 609.375
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "resource": {
+      "seconds": 5,
+      "cpu_percent_one_core_mean": 2.0,
+      "rss_bytes_peak": 10309632,
+      "threads_peak": 3,
+      "chrome_video": [
+        {
+          "framesDecoded": 247,
+          "keyFramesDecoded": 5
+        }
+      ]
+    },
+    "error": "",
+    "audio_verification": "Opus packets=415, decoded RMS=23168.2, tone=440.0 Hz"
+  },
+  {
+    "case": "1280x720-native-mbedtls-relay",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=1218 sent_audio=392 recv_audio=392 nack=0 rtx=0 pli=0 local=relay 127.0.0.1:49229 remote=127.0.0.1:49257",
+      "sdkState": 3,
+      "connectionMs": 190,
+      "firstFrameMs": 226,
+      "remoteAudioRms": 0.14619152141745104,
+      "remoteAudioHz": 609.375
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "resource": {
+      "seconds": 5,
+      "cpu_percent_one_core_mean": 2.0,
+      "rss_bytes_peak": 10383360,
+      "threads_peak": 3,
+      "chrome_video": [
+        {
+          "framesDecoded": 245,
+          "keyFramesDecoded": 5
+        }
+      ]
+    },
+    "error": "",
+    "audio_verification": "Opus packets=409, decoded RMS=23174.2, tone=440.0 Hz"
+  },
+  {
+    "case": "1280x720-juice-openssl-direct",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=1233 sent_audio=398 recv_audio=399 nack=0 rtx=0 pli=0 local=a=candidate:1 1 UDP 2114977791 192.168.31.39 42696 typ host remote=a=candidate:1 1 UDP 1845501695 192.168.31.39 40329 typ prflx",
+      "sdkState": 3,
+      "connectionMs": 84,
+      "firstFrameMs": 117,
+      "remoteAudioRms": 0.14599282572780647,
+      "remoteAudioHz": 609.375
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "resource": {
+      "seconds": 5,
+      "cpu_percent_one_core_mean": 2.2,
+      "rss_bytes_peak": 16912384,
+      "threads_peak": 4,
+      "chrome_video": [
+        {
+          "framesDecoded": 248,
+          "keyFramesDecoded": 5
+        }
+      ]
+    },
+    "error": "",
+    "audio_verification": "Opus packets=415, decoded RMS=23177.4, tone=440.0 Hz"
+  },
+  {
+    "case": "1280x720-juice-openssl-relay",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=1223 sent_audio=395 recv_audio=396 nack=0 rtx=0 pli=0 local=a=candidate:4 1 UDP 1678769407 127.0.0.1 57133 typ srflx raddr 0.0.0.0 rport 0 remote=a=candidate:2058262071 1 UDP 50339839 127.0.0.1 49207 typ relay raddr 0.0.0.0 rport 0",
+      "sdkState": 3,
+      "connectionMs": 132,
+      "firstFrameMs": 160,
+      "remoteAudioRms": 0.146246238604071,
+      "remoteAudioHz": 609.375
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "resource": {
+      "seconds": 5,
+      "cpu_percent_one_core_mean": 2.6,
+      "rss_bytes_peak": 16957440,
+      "threads_peak": 4,
+      "chrome_video": [
+        {
+          "framesDecoded": 246,
+          "keyFramesDecoded": 5
+        }
+      ]
+    },
+    "error": "",
+    "audio_verification": "Opus packets=412, decoded RMS=23175.6, tone=440.0 Hz"
+  },
+  {
+    "case": "1280x720-juice-mbedtls-direct",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=1233 sent_audio=398 recv_audio=398 nack=0 rtx=0 pli=0 local=a=candidate:1 1 UDP 2114977791 192.168.31.39 41464 typ host remote=a=candidate:1 1 UDP 1845501695 192.168.31.39 40486 typ prflx",
+      "sdkState": 3,
+      "connectionMs": 81,
+      "firstFrameMs": 122,
+      "remoteAudioRms": 0.14599282572780647,
+      "remoteAudioHz": 609.375
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "resource": {
+      "seconds": 5,
+      "cpu_percent_one_core_mean": 2.2,
+      "rss_bytes_peak": 10559488,
+      "threads_peak": 4,
+      "chrome_video": [
+        {
+          "framesDecoded": 248,
+          "keyFramesDecoded": 5
+        }
+      ]
+    },
+    "error": "",
+    "audio_verification": "Opus packets=415, decoded RMS=23168.2, tone=440.0 Hz"
+  },
+  {
+    "case": "1280x720-juice-mbedtls-relay",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=1223 sent_audio=395 recv_audio=396 nack=0 rtx=0 pli=0 local=a=candidate:4 1 UDP 1678769407 127.0.0.1 41909 typ srflx raddr 0.0.0.0 rport 0 remote=a=candidate:1977279023 1 UDP 50339839 127.0.0.1 49222 typ relay raddr 0.0.0.0 rport 0",
+      "sdkState": 3,
+      "connectionMs": 138,
+      "firstFrameMs": 171,
+      "remoteAudioRms": 0.14605699513823994,
+      "remoteAudioHz": 609.375
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "resource": {
+      "seconds": 5,
+      "cpu_percent_one_core_mean": 2.0,
+      "rss_bytes_peak": 10698752,
+      "threads_peak": 4,
+      "chrome_video": [
+        {
+          "framesDecoded": 245,
+          "keyFramesDecoded": 5
+        }
+      ]
+    },
+    "error": "",
+    "audio_verification": "Opus packets=412, decoded RMS=23175.6, tone=440.0 Hz"
+  }
+]

@@ -1,0 +1,16 @@
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#10151c;color:#eef3f8}
+body{margin:0;padding:36px 24px}main{max-width:1080px;margin:auto}
+header,.toolbar,.toolbar div{display:flex;align-items:center;justify-content:space-between;gap:12px}
+header{padding-bottom:28px;border-bottom:1px solid #303b49}.brand{font-size:24px;font-weight:750}
+.brand span{font-size:11px;letter-spacing:2px;color:#84c5ab;margin-left:12px}
+#status{font-size:14px;color:#94dbba}h1{margin:28px 0 8px;font-size:30px}p{color:#aab9c9;line-height:1.7}
+video{display:block;width:100%;aspect-ratio:16/9;background:#05080c;border-radius:12px;margin-top:24px}
+.toolbar{margin-top:18px;flex-wrap:wrap}#stats{font:14px ui-monospace,monospace;color:#94dbba}
+button{border:1px solid #415365;border-radius:7px;padding:9px 14px;background:#1e2a36;color:inherit;cursor:pointer}
+button:hover{background:#2a3c4b}.hint{font-size:13px}#error{padding:14px;background:#472329;color:#ffbdc1;border-radius:8px}
+@media(max-width:600px){body{padding:20px 12px}.toolbar div{flex-wrap:wrap}h1{font-size:25px}}
+.timing-panel{margin-top:28px;border-top:1px solid #303b49;padding-top:12px}
+h2{font-size:20px}.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid #293440}th{color:#aab9c9;font-weight:500}
+td:not(:first-child){white-space:nowrap;font-variant-numeric:tabular-nums}tr[data-status=complete] td:last-child{color:#94dbba}
+tr[data-status=running] td:last-child{color:#eac77c}tr[data-stage=total]{background:#1e2a36;font-weight:650}

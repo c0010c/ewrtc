@@ -1,0 +1,45 @@
+{
+  "outage_seconds": 35,
+  "initial": {
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=159 sent_audio=47 recv_audio=47 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=138663 local=host 192.168.31.39:40621 remote=192.168.31.39:38046",
+      "sdkState": 3,
+      "connectionMs": 94,
+      "firstFrameMs": 132,
+      "remoteAudioRms": 0.14628729568409785,
+      "remoteAudioHz": 597.65625
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "log": "Offer sent\nSDK state: 1\nRemote track: video\nRemote track: audio\nAnswer applied\nPeer connection: connecting\nSDK state: 2\nPeer connection: connected\nSDK state: 3\nstate=3 sent_video=159 sent_audio=47 recv_audio=47 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=138663 local=host 192.168.31.39:40621 remote=192.168.31.39:38046\n"
+  },
+  "disconnected": {
+    "state": "failed",
+    "stats": "state=3 sent_video=159 sent_audio=47 recv_audio=47 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=138663 local=host 192.168.31.39:40621 remote=192.168.31.39:38046",
+    "sdkState": 4,
+    "connectionMs": 94,
+    "firstFrameMs": 132,
+    "remoteAudioRms": 0,
+    "remoteAudioHz": 0
+  },
+  "recovered": {
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=163 sent_audio=47 recv_audio=47 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=141954 local=host 192.168.31.39:52310 remote=192.168.31.39:34573",
+      "sdkState": 3,
+      "connectionMs": 56,
+      "firstFrameMs": 85,
+      "remoteAudioRms": 0.14630577444806964,
+      "remoteAudioHz": 597.65625
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "log": "Offer sent\nSDK state: 1\nRemote track: video\nRemote track: audio\nAnswer applied\nPeer connection: connecting\nSDK state: 2\nPeer connection: connected\nSDK state: 3\nstate=3 sent_video=163 sent_audio=47 recv_audio=47 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=141954 local=host 192.168.31.39:52310 remote=192.168.31.39:34573\n"
+  },
+  "passed": true
+}

@@ -1,0 +1,29 @@
+# Out-of-tree builds, downloaded toolchains and local installations
+/build*/
+/cmake-build*/
+/install/
+CMakeUserPresets.json
+
+# Editors and Python environments
+.idea/
+.vscode/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Local deployment configuration and credentials
+.local/
+.env
+.env.*
+!.env.example
+
+# Downloaded media: retain provenance, generate demo media locally
+/test_samples/h264/
+/test_samples/opus/
+
+# Runtime captures
+*.opuspkts
+*.frames
+.DS_Store

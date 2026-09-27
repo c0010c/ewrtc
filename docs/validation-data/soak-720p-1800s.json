@@ -1,0 +1,31 @@
+[
+  {
+    "case": "1280x720-native-openssl-direct",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=276146 sent_audio=90180 recv_audio=90179 nack=0 rtx=0 pli=0 local=host 192.168.31.39:37593 remote=192.168.31.39:44959",
+      "sdkState": 3,
+      "remoteAudioRms": 0.14550627742723893,
+      "remoteAudioHz": 609.375
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "resource": {
+      "seconds": 1800,
+      "cpu_percent_one_core_mean": 2.03,
+      "rss_bytes_peak": 16633856,
+      "threads_peak": 3,
+      "chrome_video": [
+        {
+          "framesDecoded": 54116,
+          "keyFramesDecoded": 902
+        }
+      ]
+    },
+    "error": "",
+    "audio_verification": "Opus packets=90196, decoded RMS=23179.8, tone=440.0 Hz"
+  }
+]

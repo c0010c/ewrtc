@@ -1,0 +1,45 @@
+{
+  "outage_seconds": 35,
+  "initial": {
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=163 sent_audio=47 recv_audio=47 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=141954 local=host 192.0.2.1:48283 remote=192.0.2.1:46872",
+      "sdkState": 3,
+      "connectionMs": 90,
+      "firstFrameMs": 110,
+      "remoteAudioRms": 0.14603309683284033,
+      "remoteAudioHz": 597.65625
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "log": "Offer sent\nSDK state: 1\nRemote track: video\nRemote track: audio\nAnswer applied\nPeer connection: connecting\nSDK state: 2\nPeer connection: connected\nSDK state: 3\nstate=3 sent_video=163 sent_audio=47 recv_audio=47 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=141954 local=host 192.0.2.1:48283 remote=192.0.2.1:46872\n"
+  },
+  "disconnected": {
+    "state": "failed",
+    "stats": "state=3 sent_video=163 sent_audio=47 recv_audio=47 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=141954 local=host 192.0.2.1:48283 remote=192.0.2.1:46872",
+    "sdkState": 4,
+    "connectionMs": 90,
+    "firstFrameMs": 110,
+    "remoteAudioRms": 0,
+    "remoteAudioHz": 0
+  },
+  "recovered": {
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=159 sent_audio=47 recv_audio=47 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=138663 local=host 192.0.2.1:59492 remote=192.0.2.1:59386",
+      "sdkState": 3,
+      "connectionMs": 64,
+      "firstFrameMs": 103,
+      "remoteAudioRms": 0.14601151227609294,
+      "remoteAudioHz": 597.65625
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "log": "Offer sent\nSDK state: 1\nRemote track: video\nRemote track: audio\nAnswer applied\nPeer connection: connecting\nSDK state: 2\nPeer connection: connected\nSDK state: 3\nstate=3 sent_video=159 sent_audio=47 recv_audio=47 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=138663 local=host 192.0.2.1:59492 remote=192.0.2.1:59386\n"
+  },
+  "passed": true
+}

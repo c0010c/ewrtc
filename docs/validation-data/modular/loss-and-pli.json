@@ -1,0 +1,128 @@
+{
+  "duration_seconds_each": 20,
+  "cases": [
+    {
+      "loss_percent": 1,
+      "before": {
+        "browser_state": "connected",
+        "sdk": {
+          "state": 3,
+          "sent_video": 450,
+          "sent_audio": 143,
+          "recv_audio": 142,
+          "nack": 0,
+          "rtx": 0,
+          "pli": 0,
+          "backpressure": 0,
+          "queue": 0,
+          "cache": 245411
+        },
+        "video": {
+          "framesDecoded": 98,
+          "keyFramesDecoded": 2
+        }
+      },
+      "after": {
+        "browser_state": "connected",
+        "sdk": {
+          "state": 3,
+          "sent_video": 3740,
+          "sent_audio": 1214,
+          "recv_audio": 1197,
+          "nack": 74,
+          "rtx": 77,
+          "pli": 0,
+          "backpressure": 0,
+          "queue": 0,
+          "cache": 267662
+        },
+        "video": {
+          "framesDecoded": 739,
+          "keyFramesDecoded": 13
+        }
+      }
+    },
+    {
+      "loss_percent": 5,
+      "before": {
+        "browser_state": "connected",
+        "sdk": {
+          "state": 3,
+          "sent_video": 3795,
+          "sent_audio": 1234,
+          "recv_audio": 1218,
+          "nack": 74,
+          "rtx": 77,
+          "pli": 0,
+          "backpressure": 0,
+          "queue": 0,
+          "cache": 258960
+        },
+        "video": {
+          "framesDecoded": 751,
+          "keyFramesDecoded": 13
+        }
+      },
+      "after": {
+        "browser_state": "connected",
+        "sdk": {
+          "state": 3,
+          "sent_video": 7073,
+          "sent_audio": 2305,
+          "recv_audio": 2201,
+          "nack": 369,
+          "rtx": 407,
+          "pli": 0,
+          "backpressure": 0,
+          "queue": 0,
+          "cache": 245923
+        },
+        "video": {
+          "framesDecoded": 1382,
+          "keyFramesDecoded": 24
+        }
+      }
+    }
+  ],
+  "keyframe_request": {
+    "before": {
+      "browser_state": "connected",
+      "sdk": {
+        "state": 3,
+        "sent_video": 7133,
+        "sent_audio": 2325,
+        "recv_audio": 2221,
+        "nack": 369,
+        "rtx": 407,
+        "pli": 0,
+        "backpressure": 0,
+        "queue": 0,
+        "cache": 248626
+      },
+      "video": {
+        "framesDecoded": 1394,
+        "keyFramesDecoded": 24
+      }
+    },
+    "after": {
+      "browser_state": "connected",
+      "sdk": {
+        "state": 3,
+        "sent_video": 7503,
+        "sent_audio": 2446,
+        "recv_audio": 2342,
+        "nack": 369,
+        "rtx": 407,
+        "pli": 1,
+        "backpressure": 0,
+        "queue": 0,
+        "cache": 259323
+      },
+      "video": {
+        "framesDecoded": 1466,
+        "keyFramesDecoded": 26
+      }
+    }
+  },
+  "passed": true
+}

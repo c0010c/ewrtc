@@ -1,0 +1,9 @@
+67:6: : session 000000000000000003: realm <ewrtc.local> user <test>: incoming packet ALLOCATE processed, success
+71:6: : session 000000000000000001: realm <ewrtc.local> user <test>: incoming packet ALLOCATE processed, success
+73:6: : session 000000000000000001: realm <ewrtc.local> user <test>: incoming packet CREATE_PERMISSION processed, success
+75:6: : session 000000000000000003: realm <ewrtc.local> user <test>: incoming packet CREATE_PERMISSION processed, success
+84:253: : session 000000000000000006: realm <ewrtc.local> user <test>: incoming packet ALLOCATE processed, success
+88:253: : session 000000000000000004: realm <ewrtc.local> user <test>: incoming packet ALLOCATE processed, success
+90:253: : session 000000000000000004: realm <ewrtc.local> user <test>: incoming packet CREATE_PERMISSION processed, success
+92:253: : session 000000000000000006: realm <ewrtc.local> user <test>: incoming packet CREATE_PERMISSION processed, success
+96:256: : session 000000000000000006: realm <ewrtc.local> user <test>: incoming packet REFRESH processed, success

@@ -1,0 +1,71 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>ewrtc 双向音视频验证</title>
+<style>body{font-family:sans-serif;margin:32px;background:#151b25;color:#eee}video,canvas{width:320px;height:180px;background:#000}button{padding:10px 24px}pre{white-space:pre-wrap}</style>
+<h1>双向音视频验证</h1>
+<p>浏览器发送动态图形和测试音，SDK 发送本地 H.264 素材和测试音。</p>
+<button id="start">开始</button> <button id="stop">停止</button>
+<p><canvas id="source" width="320" height="180"></canvas> <video id="remote" autoplay playsinline muted></video></p>
+<pre id="status">未连接</pre>
+<script>
+const q = new URLSearchParams(location.search);
+let pc, ws, ac, timer, stream;
+window.testState = {errors: []};
+const status = document.querySelector('#status');
+function fail(e) { testState.errors.push(String(e)); status.textContent = JSON.stringify(testState, null, 2); }
+function send(type, value='') { ws.send(JSON.stringify({type, value})); }
+function codecs(t) {
+  const list = RTCRtpSender.getCapabilities(t.receiver.track.kind).codecs;
+  t.setCodecPreferences(list.filter(c => t.receiver.track.kind === 'audio' ? c.mimeType.toLowerCase() === 'audio/opus' :
+    c.mimeType.toLowerCase() === 'video/rtx' || c.mimeType.toLowerCase() === 'video/h264' &&
+    c.sdpFmtpLine.includes('packetization-mode=1') && c.sdpFmtpLine.includes('profile-level-id=42e0')));
+}
+async function start() {
+  document.querySelector('#start').disabled = true;
+  const canvas = document.querySelector('#source'), ctx = canvas.getContext('2d');
+  let n = 0;
+  function draw() { ctx.fillStyle = `hsl(${n++ * 3 % 360} 70% 40%)`; ctx.fillRect(0,0,320,180); ctx.fillStyle='white'; ctx.font='24px sans-serif'; ctx.fillText(`ewrtc ${n}`, 40,90); }
+  draw(); timer = setInterval(draw, 100);
+  stream = canvas.captureStream(10);
+  ac = new AudioContext(); await ac.resume();
+  const osc = ac.createOscillator(), dest = ac.createMediaStreamDestination();
+  osc.frequency.value = 440; osc.connect(dest); osc.start(); stream.addTrack(dest.stream.getAudioTracks()[0]);
+  pc = new RTCPeerConnection();
+  pc.onconnectionstatechange = () => { testState.state = pc.connectionState; status.textContent = JSON.stringify(testState,null,2); };
+  pc.onicecandidate = e => send(e.candidate ? 'candidate' : 'end', e.candidate?.candidate || '');
+  const remote = new MediaStream();
+  pc.ontrack = e => { remote.addTrack(e.track); document.querySelector('#remote').srcObject = remote; };
+  ws = new WebSocket(`ws://127.0.0.1:${q.get('ws') || '8765'}`);
+  let chain = Promise.resolve(), pending = [];
+  ws.onmessage = event => { chain = chain.then(async () => {
+    const m = JSON.parse(event.data);
+    if (m.type === 'offer') {
+      await pc.setRemoteDescription({type:'offer',sdp:m.value});
+      for (const t of pc.getTransceivers()) {
+        await t.sender.replaceTrack(stream.getTracks().find(x => x.kind === t.receiver.track.kind));
+        t.direction = 'sendrecv'; codecs(t);
+      }
+      await pc.setLocalDescription(await pc.createAnswer()); send('answer',pc.localDescription.sdp);
+    } else if (m.type === 'answer') await pc.setRemoteDescription({type:'answer',sdp:m.value});
+    else if (m.type === 'candidate') pending.push({candidate:m.value,sdpMLineIndex:0});
+    else if (m.type === 'state') testState.sdkState = m.value;
+    else if (m.type === 'stats') testState.sdkStats = m.value;
+    else if (m.type === 'error') fail(m.value);
+    if (pc.remoteDescription) { for (const c of pending) await pc.addIceCandidate(c); pending=[]; }
+  }).catch(fail); };
+  await new Promise((resolve,reject) => { ws.onopen=resolve; ws.onerror=reject; });
+  if (q.get('offerer') === 'sdk') send('create_offer');
+  else {
+    for (const track of stream.getTracks()) codecs(pc.addTransceiver(track,{direction:'sendrecv',streams:[stream]}));
+    await pc.setLocalDescription(await pc.createOffer()); send('offer',pc.localDescription.sdp);
+  }
+}
+window.readStats = async () => {
+  send('stats');
+  const stats = await pc.getStats();
+  testState.inbound = [...stats.values()].filter(x => x.type === 'inbound-rtp').map(x => ({kind:x.kind,framesDecoded:x.framesDecoded,packetsReceived:x.packetsReceived}));
+  return testState;
+};
+document.querySelector('#start').onclick = () => start().catch(fail);
+document.querySelector('#stop').onclick = async () => { clearInterval(timer); stream?.getTracks().forEach(t=>t.stop()); pc?.close(); ws?.close(); await ac?.close(); };
+</script>

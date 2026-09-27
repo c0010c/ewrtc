@@ -1,0 +1,3 @@
+# Bind this board by USB serial; its firmware generates a new MAC on reboot.
+SUBSYSTEM=="net", ACTION=="add", ATTRS{idVendor}=="2207", ATTRS{idProduct}=="0019", ATTRS{serial}=="YOUR_DEVICE_SERIAL", NAME="luckfox0"
+SUBSYSTEM=="usb", ATTR{idVendor}=="2207", ATTR{idProduct}=="0019", ATTR{serial}=="YOUR_DEVICE_SERIAL", MODE="0660", GROUP="plugdev"

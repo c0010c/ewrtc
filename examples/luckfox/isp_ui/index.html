@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Luckfox · ISP 实时调节</title>
+  <link rel="stylesheet" href="isp.css">
+</head>
+<body>
+  <main>
+    <header><a href="http://127.0.0.1:8081/player/?ws=8766&source=camera">LUCKFOX <span>CAMERA</span></a><span class="device">PICO PLUS / SC3336</span></header>
+    <div class="intro"><div><p class="eyebrow">IMAGE CONTROL</p><h1>画面，边看边调。</h1><p class="subtitle">拖动滑块，直接调整摄像头 ISP。无需重启或刷新画面。</p></div><span class="live" id="stream-state">正在连接画面</span></div>
+    <div class="workspace">
+      <section class="preview" aria-label="实时预览">
+        <div class="video-wrap"><video id="video" autoplay playsinline muted controls aria-label="板载摄像头实时画面"></video></div>
+        <div class="video-footer"><span id="stats">等待视频数据…</span><button id="reconnect" class="quiet">重新连接</button></div>
+        <p id="video-error" role="alert" hidden></p>
+        <div class="note"><span>实时预览</span><p>调整会影响这台摄像头的所有观看页面。曝光与白平衡保持当前设置。</p></div>
+      </section>
+      <section class="panel" aria-labelledby="panel-title">
+        <div class="panel-heading"><h2 id="panel-title">图像调整</h2><span>0 — 100</span></div>
+        <div id="controls"></div>
+        <div class="actions"><button id="reset" disabled>恢复默认 · 50</button><button id="read">重新读取</button></div>
+        <p id="apply-status" role="status" aria-live="polite">正在读取板子参数…</p>
+        <p class="footnote">数值经板子确认后显示“已生效”。可先用默认值作对照，再逐项微调。</p>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="isp.js"></script>
+</body>
+</html>

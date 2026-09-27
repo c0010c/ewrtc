@@ -1,0 +1,84 @@
+{
+  "date": "2026-09-25",
+  "backend_builds": {
+    "native-openssl": {
+      "library_bytes": 115100,
+      "ctest_groups": 4,
+      "ctest_passed": true,
+      "contains_cpp_runtime": false
+    },
+    "native-mbedtls": {
+      "library_bytes": 117668,
+      "ctest_groups": 4,
+      "ctest_passed": true,
+      "contains_cpp_runtime": false
+    },
+    "juice-openssl": {
+      "library_bytes": 98546,
+      "ctest_groups": 4,
+      "ctest_passed": true,
+      "contains_cpp_runtime": false
+    },
+    "juice-mbedtls": {
+      "library_bytes": 101114,
+      "ctest_groups": 4,
+      "ctest_passed": true,
+      "contains_cpp_runtime": false
+    }
+  },
+  "standalone_components": [
+    "common",
+    "pal",
+    "pal_linux",
+    "crypto",
+    "sdp",
+    "stun",
+    "ice",
+    "dtls",
+    "srtp",
+    "rtp",
+    "media",
+    "session"
+  ],
+  "standalone_install_consumers_passed": true,
+  "full_package_sdp_without_external_dependency_discovery_passed": true,
+  "custom_pal_session_build_passed": true,
+  "custom_pal_direct_platform_symbols": false,
+  "asan_ubsan_ctest_passed": true,
+  "final_source_sha256": {
+    "sdk/CMakeLists.txt": "2a4545530387031d50465c65445b3e1b08b3965c5064915ebef017e84550de33",
+    "sdk/cmake/ewrtcConfig.cmake.in": "a740a658349f523f3f776e9039be784826ae24a83b183cfc0c9677f9f442f377",
+    "sdk/include/ewrtc/common.h": "8b58346bde64c640ef052422ad9d2d71eabbdf56582edfcc47fac299d74b3247",
+    "sdk/include/ewrtc/crypto.h": "fc33d72bb8c1a91a2dfee812efea740d67ee3a63218fa15f4b39355a45a742b6",
+    "sdk/include/ewrtc/dtls.h": "e236db2bebfdcdfc43e70f3788c3185005d460122e13a40725285e1b7968c91a",
+    "sdk/include/ewrtc/ice.h": "1691b985b053644a4a7eb728580b7921c8367869e741ed8eb39859930e9c158d",
+    "sdk/include/ewrtc/media.h": "c614153f3325216ff40c25589893efb7b5435101f409298e14bcc460f48abf08",
+    "sdk/include/ewrtc/pal.h": "57a82a507b2246242a6ef72910887d37d42cb587abda8d3f5033074ec204cbcc",
+    "sdk/include/ewrtc/rtp.h": "7c483b1a3f25aebf847c798f25c59806e5771ab3909331203bef5cf491276cbe",
+    "sdk/include/ewrtc/sdp.h": "bf99d2e3c0eea1dd40677484f8bf1fe7cfb245931e5d94b4142995d4ba8e360c",
+    "sdk/include/ewrtc/srtp.h": "e9ec3b09a88b5899b0946f9f0dbae735d14b80adf56cb6534b7c94cc648c7612",
+    "sdk/include/ewrtc/stun.h": "97853aace3e58df9e02fb005fa31cdbc58803fe62c56b8cf0acf4ab2ccef50c4",
+    "sdk/include/ewrtc.h": "325fd90c0c9e32f26bdec684757700e50025cbbf4b09cb5d204fabaa45a54f86",
+    "sdk/src/common/common.c": "1c5da26421dac44e368ffad79d995f7df1d95f0a76908889d6f978ee44c39e9e",
+    "sdk/src/crypto/crypto.c": "85fa79da82a4e5488e4d440019276a00a302b7ee7872cb0cf560638d922a1864",
+    "sdk/src/dtls/dtls.c": "36f1c454b073093bccd5cb6f011293cbf9bc6ed2c5f473bb1427754296683d00",
+    "sdk/src/dtls/mbedtls.c": "e29b3ac13640d1eef47ad08fc4617407f8f55031eac690b0cfada3ee764ee572",
+    "sdk/src/dtls/openssl.c": "5774293eebfd8582ca681241625d368a1c194ee43a8a90972a79a5c373f5959b",
+    "sdk/src/dtls/private.h": "267d00d318b4a3fd4bf16b29a3b531c52ffd1bcc9bd208bb72d66e6c1c9d5b7d",
+    "sdk/src/ice/ice.c": "d9b4278d60d67f8cb611ba3c5080fc0f5a99a6e9938f7a7aa88c1dbc73a253e0",
+    "sdk/src/ice/juice.c": "3969fce9efa7727edaeff961b755db5079c204d1812cd4ca99aae193190c103b",
+    "sdk/src/ice/native.c": "482accc9fd48cddb71ad6434a4a9430fd1d0f5160ce7dcf294104537c5540f02",
+    "sdk/src/ice/private.h": "188326222072e9d4f51f2d523163dcdfaa6103cf86b316ec3e8b8d42d99b1593",
+    "sdk/src/media/media.c": "80efc4d6879ba93b75ead1e8b2fa8c8cceeef6d70ab01e55c8d831e00bc678b6",
+    "sdk/src/media/private.h": "6029b15fc97a54b905d7e411484e77945fa6c51a4dec7438ad2dddfd1d330c7a",
+    "sdk/src/pal/linux.c": "42b322331d82632650a4beea2f406441127016451c0c71de437c60005d8d7df9",
+    "sdk/src/pal/pal.c": "06983c4875568ee4aa7f70d8d27f76d560816e44f125e219cd4b2ccf0283609c",
+    "sdk/src/rtp/rtp.c": "e7324c037cf05725ce53d173b58d01a7ffe8ee614bac33db26f42cef4d2a312f",
+    "sdk/src/sdp/sdp.c": "8acf1a5b10fd99bdaababc974dda7da75fe8d8926071120472b9d54459262ba7",
+    "sdk/src/session/private.h": "37b625a655010a2178b61195db9b6f9c94a4509069a4318062880ba6e12acb16",
+    "sdk/src/session/session.c": "5a1ce9c86953ddb883906fd7f97afe251f6a0142ec462610d4a8a9f13c2d6d7a",
+    "sdk/src/srtp/srtp.c": "7704ec98fbfaa2497cb6571619c9532ec2299f88f0875e4954f5c4217323177b",
+    "sdk/src/stun/stun.c": "fb8165c683e89f24b831dba3440d4c45dfe79671d52f54913fdb98d17c24d4b1"
+  },
+  "long_run_revision_note": "660s TURN soaks and 100 Chrome cycles ran after modular extraction, before final failure-state/duplicate-SRTP guards and Linux-PAL build toggle. RTP/RTCP, media, SRTP protection and normal ICE paths are unchanged. Final source re-ran four backend CTests, ASan/UBSan, 16 browser cases, backpressure, isolated loss and recovery."
+}

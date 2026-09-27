@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.20)
+project(ewrtc_minimal LANGUAGES C)
+set(CMAKE_C_STANDARD 11)
+find_package(ewrtc 0.2 CONFIG REQUIRED COMPONENTS session pal_linux)
+add_executable(ewrtc_minimal main.c)
+target_link_libraries(ewrtc_minimal PRIVATE ewrtc::session ewrtc::pal_linux)

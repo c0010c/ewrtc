@@ -1,0 +1,162 @@
+[
+  {
+    "case": "native-openssl-sdk",
+    "passed": true,
+    "decoded_received_h264": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "31"
+    },
+    "chrome_inbound": [
+      {
+        "kind": "audio",
+        "packetsReceived": 153
+      },
+      {
+        "kind": "video",
+        "framesDecoded": 92,
+        "packetsReceived": 478
+      }
+    ]
+  },
+  {
+    "case": "native-openssl-browser",
+    "passed": true,
+    "decoded_received_h264": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "31"
+    },
+    "chrome_inbound": [
+      {
+        "kind": "audio",
+        "packetsReceived": 152
+      },
+      {
+        "kind": "video",
+        "framesDecoded": 91,
+        "packetsReceived": 478
+      }
+    ]
+  },
+  {
+    "case": "native-mbedtls-sdk",
+    "passed": true,
+    "decoded_received_h264": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "31"
+    },
+    "chrome_inbound": [
+      {
+        "kind": "audio",
+        "packetsReceived": 152
+      },
+      {
+        "kind": "video",
+        "framesDecoded": 91,
+        "packetsReceived": 474
+      }
+    ]
+  },
+  {
+    "case": "native-mbedtls-browser",
+    "passed": true,
+    "decoded_received_h264": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "31"
+    },
+    "chrome_inbound": [
+      {
+        "kind": "audio",
+        "packetsReceived": 151
+      },
+      {
+        "kind": "video",
+        "framesDecoded": 91,
+        "packetsReceived": 474
+      }
+    ]
+  },
+  {
+    "case": "juice-openssl-sdk",
+    "passed": true,
+    "decoded_received_h264": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "32"
+    },
+    "chrome_inbound": [
+      {
+        "kind": "audio",
+        "packetsReceived": 150
+      },
+      {
+        "kind": "video",
+        "framesDecoded": 89,
+        "packetsReceived": 462
+      }
+    ]
+  },
+  {
+    "case": "juice-openssl-browser",
+    "passed": true,
+    "decoded_received_h264": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "32"
+    },
+    "chrome_inbound": [
+      {
+        "kind": "audio",
+        "packetsReceived": 151
+      },
+      {
+        "kind": "video",
+        "framesDecoded": 91,
+        "packetsReceived": 474
+      }
+    ]
+  },
+  {
+    "case": "juice-mbedtls-sdk",
+    "passed": true,
+    "decoded_received_h264": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "33"
+    },
+    "chrome_inbound": [
+      {
+        "kind": "audio",
+        "packetsReceived": 153
+      },
+      {
+        "kind": "video",
+        "framesDecoded": 91,
+        "packetsReceived": 478
+      }
+    ]
+  },
+  {
+    "case": "juice-mbedtls-browser",
+    "passed": true,
+    "decoded_received_h264": {
+      "width": 320,
+      "height": 180,
+      "nb_read_frames": "32"
+    },
+    "chrome_inbound": [
+      {
+        "kind": "audio",
+        "packetsReceived": 150
+      },
+      {
+        "kind": "video",
+        "framesDecoded": 90,
+        "packetsReceived": 462
+      }
+    ]
+  }
+]

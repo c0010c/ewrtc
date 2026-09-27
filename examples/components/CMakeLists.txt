@@ -1,0 +1,15 @@
+# Developer-only examples. Build from the repository root with
+# -DEWRTC_BUILD_INTERNAL_EXAMPLES=ON; these do not consume the installed SDK.
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+  message(FATAL_ERROR "Internal examples must be built from the ewrtc source tree")
+endif()
+if(TARGET ewrtc_rtp)
+  add_executable(rtp_example rtp_example.c)
+  target_include_directories(rtp_example PRIVATE ${PROJECT_SOURCE_DIR}/src)
+  target_link_libraries(rtp_example PRIVATE ewrtc_rtp)
+endif()
+if(TARGET ewrtc_turn AND TARGET ewrtc_pal_linux)
+  add_executable(turn_example turn_example.c)
+  target_include_directories(turn_example PRIVATE ${PROJECT_SOURCE_DIR}/src)
+  target_link_libraries(turn_example PRIVATE ewrtc_turn ewrtc_pal_linux)
+endif()

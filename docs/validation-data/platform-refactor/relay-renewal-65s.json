@@ -1,0 +1,33 @@
+[
+  {
+    "case": "1280x720-native-openssl-relay",
+    "passed": true,
+    "state": {
+      "state": "connected",
+      "stats": "state=3 sent_video=10409 sent_audio=3395 recv_audio=3394 nack=0 rtx=0 pli=0 backpressure=0 queue=0 cache=263598 local=relay 127.0.0.1:49377 remote=127.0.0.1:49337",
+      "sdkState": 3,
+      "connectionMs": 211,
+      "firstFrameMs": 229,
+      "remoteAudioRms": 0.14584480005982284,
+      "remoteAudioHz": 597.65625
+    },
+    "dimensions": {
+      "videoWidth": 1280,
+      "videoHeight": 720
+    },
+    "resource": {
+      "seconds": 65,
+      "cpu_percent_one_core_mean": 2.94,
+      "rss_bytes_peak": 16752640,
+      "threads_peak": 3,
+      "chrome_video": [
+        {
+          "framesDecoded": 2044,
+          "keyFramesDecoded": 35
+        }
+      ]
+    },
+    "error": "",
+    "audio_verification": "Opus packets=3411, decoded RMS=23178.1, tone=440.0 Hz"
+  }
+]

@@ -1,0 +1,25 @@
+Test project /workspace/ewrtc/build-context-asan
+      Start  1: architecture
+ 1/10 Test  #1: architecture .....................   Passed    0.04 sec
+      Start  2: components
+ 2/10 Test  #2: components .......................   Passed    0.07 sec
+      Start  3: sdp_negotiation
+ 3/10 Test  #3: sdp_negotiation ..................   Passed    0.01 sec
+      Start  4: receive
+ 4/10 Test  #4: receive ..........................   Passed    0.02 sec
+      Start  5: custom_pal
+ 5/10 Test  #5: custom_pal .......................   Passed    0.03 sec
+      Start  6: turn
+ 6/10 Test  #6: turn .............................   Passed    0.02 sec
+      Start  7: protocol
+ 7/10 Test  #7: protocol .........................   Passed    0.06 sec
+      Start  8: negotiation
+ 8/10 Test  #8: negotiation ......................   Passed   17.39 sec
+      Start  9: context
+ 9/10 Test  #9: context ..........................   Passed   23.81 sec
+      Start 10: runtime
+10/10 Test #10: runtime ..........................   Passed    0.11 sec
+
+100% tests passed, 0 tests failed out of 10
+
+Total Test time (real) =  41.57 sec
