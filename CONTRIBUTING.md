@@ -4,7 +4,7 @@
 
 ## 本地开发
 
-先按 [README](README.md) 安装依赖，再运行：
+先按 [中文 README](README.zh-CN.md) 安装依赖，再运行：
 
 ```bash
 cmake --preset default -DEWRTC_WARNINGS_AS_ERRORS=ON

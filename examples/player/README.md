@@ -2,7 +2,7 @@
 
 从仓库根目录运行：
 
-先安装 [构建依赖](../../README.md#快速开始) 及 FFmpeg（含 libx264），然后：
+先安装 [构建依赖](../../README.zh-CN.md#快速开始) 及 FFmpeg（含 libx264），然后：
 
 ```bash
 python3 -m venv .venv

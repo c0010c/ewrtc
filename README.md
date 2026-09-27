@@ -1,28 +1,28 @@
 # ewrtc
 
-**简体中文** | [English](README.en.md)
+**English** | [简体中文](README.zh-CN.md)
 
-面向嵌入式设备的模块化 C11 WebRTC SDK。将设备已经编码的 H.264 / Opus 音视频通过 WebRTC 发送到浏览器，也支持接收媒体和设备主动发起连接。
+A modular C11 WebRTC SDK for embedded devices. Stream encoded H.264 / Opus media from a device to a browser, receive media, or initiate a connection from the device.
 
-设备侧不依赖 Google WebRTC 的 C++ 库。平台能力通过 PAL 注入，信令传输由应用实现。默认使用 native ICE + OpenSSL；可选 libjuice 和 Mbed TLS 后端。
+The device SDK does not depend on Google WebRTC's C++ libraries. Platform services are injected through the Platform Abstraction Layer (PAL), and applications provide their own signaling transport. The default backends are native ICE and OpenSSL; libjuice and Mbed TLS are optional.
 
-**当前版本：0.2.0，实验阶段。** API 仍可能在次版本中变化。已记录 Linux x86_64 / Chrome 本机互通与 Luckfox RV1103 摄像头示例；公网 NAT、多浏览器及其他平台的覆盖仍需完善。详见 [支持范围](docs/support.md)。
+**Current version: 0.2.0 — experimental.** APIs may change between minor versions. Recorded validation includes local Linux x86_64 / Chrome interoperability and a Luckfox RV1103 camera example. Public Internet NAT traversal, other browsers, and additional platforms need further validation. See [support status](docs/support.md).
 
-## 能力
+## Features
 
-- H.264 / Opus 各一条轨道，发送、接收或双向；支持本端或远端 offer。
-- IPv4 / UDP、BUNDLE、RTCP mux、trickle ICE、TURN/UDP。
-- DTLS 1.2、SRTP_AES128_CM_SHA1_80；视频 NACK / RTX / PLI。
-- 显式 context 共享 worker，有界队列、背压和会话统计。
-- 独立协议模块、平台适配层和可裁剪后端。
+- One H.264 track and one Opus track, with send-only, receive-only, or bidirectional operation; local and remote offers.
+- IPv4 / UDP, BUNDLE, RTCP mux, trickle ICE, and TURN/UDP.
+- DTLS 1.2 and SRTP_AES128_CM_SHA1_80; video NACK / RTX / PLI.
+- Explicit contexts with shared workers, bounded queues, backpressure, and session statistics.
+- Separate protocol modules, platform adapters, and selectable backends.
 
-目前不支持 IPv6、DataChannel、TURN/TCP、TURN/TLS、自动 ICE restart 或动态码率控制。H.264 使用 Constrained Baseline、无 B 帧，IDR 必须携带 SPS/PPS；应用负责音视频编解码。
+IPv6, DataChannel, TURN/TCP, TURN/TLS, automatic ICE restart, and dynamic bitrate control are not currently supported. H.264 must use Constrained Baseline with no B-frames, and IDR access units must include SPS/PPS. Applications are responsible for audio and video encoding and decoding.
 
-## 快速开始
+## Quick start
 
-以下命令均在克隆后的仓库根目录执行。需要 Linux、C11 编译器、CMake 3.20+、Make、pkg-config、OpenSSL 3.x 和 libSRTP 2.x（构建下限 2.5）。Python 3.10+ 用于架构及开发检查。构建下限不代表其后的每个版本都已验证，版本记录见 [构建说明](docs/building.md)。
+Run all commands from the cloned repository root. The default build requires Linux, a C11 compiler, CMake 3.20+, Make, pkg-config, OpenSSL 3.x, and libSRTP 2.x (minimum build version: 2.5). Python 3.10+ is used for architecture and development checks. Minimum build versions do not imply that every later version has been validated; see the [build guide](docs/building.md) for version records.
 
-Ubuntu / Debian 上安装默认构建依赖：
+Install the default build dependencies on Ubuntu / Debian:
 
 ```bash
 sudo apt-get update
@@ -32,9 +32,9 @@ cmake --build --preset default --parallel
 ctest --preset default
 ```
 
-默认生成 `build-default/libewrtc.a`、Linux PAL 静态库和测试，不需要 Opus、Mbed TLS、Chrome 或下载 libjuice。仅构建库可添加 `-DEWRTC_BUILD_TESTS=OFF`。
+The default build produces `build-default/libewrtc.a`, the Linux PAL static library, and tests. It does not require Opus, Mbed TLS, Chrome, or a libjuice download. Add `-DEWRTC_BUILD_TESTS=OFF` to the configure command to build only the libraries.
 
-安装并运行最小接入示例：
+Install the SDK and run the minimal integration example:
 
 ```bash
 cmake --install build-default --prefix "$PWD/install"
@@ -43,16 +43,16 @@ cmake --build build-minimal --parallel
 ./build-minimal/ewrtc_minimal
 ```
 
-该示例演示 context / session 的创建与释放；实际媒体传输见播放示例。应用通过 CMake 接入：
+This example creates and destroys a context and a session. For actual media transport, use the browser player example below. Link an application with CMake:
 
 ```cmake
 find_package(ewrtc CONFIG REQUIRED COMPONENTS session pal_linux)
 target_link_libraries(my_app PRIVATE ewrtc::session ewrtc::pal_linux)
 ```
 
-## 浏览器播放示例
+## Browser player example
 
-另外安装 `libopus-dev`、FFmpeg（含 libx264）、Python venv 和 Chrome：
+Also install `libopus-dev`, FFmpeg with libx264, Python venv support, and Chrome:
 
 ```bash
 sudo apt-get install libopus-dev ffmpeg python3-venv
@@ -62,38 +62,40 @@ python3 -m pip install -r examples/requirements.txt
 python3 examples/run_player.py
 ```
 
-在 Chrome 打开 [本机播放器](http://127.0.0.1:8080/player/?ws=8765)。脚本自动构建示例并生成测试画面，无需摄像头或外部媒体；Ctrl+C 停止。参数和模块说明见 [播放器文档](examples/player/README.md)。板载摄像头接入见 [Luckfox 示例](examples/luckfox/README.md)。
+Open the [local player](http://127.0.0.1:8080/player/?ws=8765) in Chrome. The script builds the demo and generates a test pattern, so no camera or external media is needed. Press Ctrl+C to stop it. See the [player guide](examples/player/README.md) for options and module details, or the [Luckfox example](examples/luckfox/README.md) for a board camera integration.
 
-## 架构
+## Architecture
 
 ```text
-应用：信令 / 编解码 / 设备采集
-                 │ 公共 API
-              Session ─── Context / 有界任务队列
-                 │
-       SDP / ICE / DTLS / SRTP / Media
-              │                  │
-          STUN / TURN         RTP / RTCP
-                 │
-           PAL 服务契约
-                 │
-       Linux 提供者 / 自定义平台
+Application: signaling / codecs / device capture
+                       | Public API
+                    Session --- Context / bounded task queues
+                       |
+             SDP / ICE / DTLS / SRTP / Media
+                    |                  |
+                STUN / TURN         RTP / RTCP
+                       |
+                 PAL service contracts
+                       |
+              Linux provider / custom platform
 ```
 
-示意图展示分层；精确依赖见 [模块架构](docs/modular-architecture.md)。协议头文件留在 `src/`，外部应用只使用 `include/` 下的公共接口。Linux PAL 与 SDK 分开链接，板卡采集和浏览器信令位于 `examples/`。
+This diagram illustrates the layers; see the [module architecture](docs/modular-architecture.md) for exact dependencies. Protocol headers remain in `src/`; external applications use only the public interfaces in `include/`. The Linux PAL is linked separately from the SDK. Board capture adapters and browser signaling live in `examples/`.
 
-## 文档
+## Documentation
 
-| 需求 | 入口 |
+Most detailed guides are currently available in Simplified Chinese. The quick-start commands above are the same as those in the Chinese README.
+
+| Topic | Guide |
 | --- | --- |
-| 构建选项、后端、交叉编译 | [构建说明](docs/building.md) |
-| API、线程、内存所有权与信令约定 | [接入指南](docs/usage.md)、[context](docs/context.md) |
-| 视频接收、双向媒体和主动 offer | [接收与协商](docs/receiving-and-offers.md) |
-| 模块边界与平台适配 | [架构](docs/modular-architecture.md)、[公开 API](docs/public-api.md) |
-| 支持状态与历史测试证据 | [支持范围](docs/support.md) |
-| 开发、测试与提交修改 | [贡献指南](CONTRIBUTING.md) |
-| 发布变化、安全问题 | [变更记录](CHANGELOG.md)、[安全政策](SECURITY.md) |
+| Build options, backends, and cross-compilation | [Building](docs/building.md) |
+| APIs, threading, ownership, and signaling contracts | [Integration guide](docs/usage.md), [contexts](docs/context.md) |
+| Video reception, bidirectional media, and local offers | [Receiving and negotiation](docs/receiving-and-offers.md) |
+| Module boundaries and platform adaptation | [Architecture](docs/modular-architecture.md), [public API](docs/public-api.md) |
+| Support status and historical test evidence | [Support status](docs/support.md) |
+| Development, testing, and contributing changes | [Contributing](CONTRIBUTING.md) |
+| Release changes and security reports | [Changelog](CHANGELOG.md), [security policy](SECURITY.md) |
 
-## 许可证
+## License
 
-本项目自有代码采用 [MIT License](LICENSE)。第三方依赖、可选媒体和厂商软件分别遵循原许可证，见 [第三方说明](THIRD_PARTY_NOTICES.md)。
+ewrtc-owned code is licensed under the [MIT License](LICENSE). Third-party dependencies, optional media, and vendor software retain their own licenses; see [third-party notices](THIRD_PARTY_NOTICES.md).
