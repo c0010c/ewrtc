@@ -4,7 +4,8 @@
 
 - Prepare the standalone repository: MIT license, contribution guidance, issue templates and CI.
 - Default to native ICE + OpenSSL; disable optional backends and media examples by default.
-- Use system dependency versions by default; retain opt-in historical exact-version checks.
+- Pin OpenSSL to 1.1.1w, with an isolated dependency build script and a PAL-backed datagram BIO for DTLS.
+- Use system versions for other dependencies by default; retain opt-in exact-version checks for Mbed TLS and libSRTP.
 - Add CMake presets, modular build configuration and an installed-package minimal example.
 - Repair former `sdk/` source paths; generate player test media locally.
 - Limit 0.x CMake package compatibility to the same minor version.

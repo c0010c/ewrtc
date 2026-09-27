@@ -15,7 +15,7 @@ DEPS = {
     "media": {"common", "pal", "rtp"},
     "session": {"common", "pal", "crypto", "sdp", "ice", "dtls", "srtp", "rtp", "media"},
 }
-BACKENDS = {"openssl/": {"src/crypto/openssl.c", "src/dtls/openssl.c"},
+BACKENDS = {"openssl/": {"src/crypto/openssl.c", "src/dtls/openssl.c", "src/dtls/openssl_bio.h"},
             "mbedtls/": {"src/crypto/mbedtls.c", "src/dtls/mbedtls.c"},
             "juice/": {"src/ice/juice.c"}, "srtp2/": {"src/srtp/srtp.c"}}
 errors = []

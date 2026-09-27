@@ -4,7 +4,7 @@ The MIT license at the repository root applies to ewrtc-owned code. Dependencies
 
 | Component | Use | Upstream license / source |
 | --- | --- | --- |
-| OpenSSL 3.x | Default crypto and DTLS | [Apache-2.0](https://github.com/openssl/openssl/blob/openssl-3.5.5/LICENSE.txt) |
+| OpenSSL 1.1.1w | Default crypto and DTLS | [OpenSSL License and original SSLeay License](https://github.com/openssl/openssl/blob/OpenSSL_1_1_1w/LICENSE) |
 | libSRTP 2.7.0 | SRTP | [BSD-style 3-clause license](https://github.com/cisco/libsrtp/blob/v2.7.0/LICENSE) |
 | Mbed TLS 3.6.5 | Optional crypto and DTLS | [Apache-2.0 OR GPL-2.0-or-later](https://github.com/Mbed-TLS/mbedtls/blob/mbedtls-3.6.5/LICENSE) |
 | libjuice | Optional ICE; commit `6d0356d092701dcce1f731559d38dc94f52eeb14` | [MPL-2.0](https://github.com/paullouisageneau/libjuice/blob/6d0356d092701dcce1f731559d38dc94f52eeb14/LICENSE) |

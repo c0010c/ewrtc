@@ -34,7 +34,7 @@ ctest --test-dir build-protocols --output-on-failure
 
 ## 构建
 
-验证环境：Ubuntu 26.04 x86_64、GCC 15.2、CMake、pkg-config、OpenSSL 3.5.5、Mbed TLS 3.6.5、libSRTP 2.7.0、libjuice v1.7.3 的提交 `6d0356d092701dcce1f731559d38dc94f52eeb14`。示例另需 Opus 1.6.1；浏览器验证另需 Chrome 152、FFmpeg 8、coturn、Python `websockets` 15.0.1 和 `psutil` 7.1.0。默认构建使用系统依赖；设置 `EWRTC_ENFORCE_DEPENDENCY_LOCK=ON` 可严格检查上述历史验证版本。其他版本需重新验证。libjuice 在 CMake 中固定提交。
+历史验证环境（降级前）：Ubuntu 26.04 x86_64、GCC 15.2、CMake、pkg-config、OpenSSL 3.5.5、Mbed TLS 3.6.5、libSRTP 2.7.0、libjuice v1.7.3 的提交 `6d0356d092701dcce1f731559d38dc94f52eeb14`。示例另需 Opus 1.6.1；浏览器验证另需 Chrome 152、FFmpeg 8、coturn、Python `websockets` 15.0.1 和 `psutil` 7.1.0。当前 OpenSSL 已固定为 1.1.1w，准备步骤见 [构建说明](building.md)，降级验证见 [验证记录](openssl-1.1.1w-validation.md)。设置 `EWRTC_ENFORCE_DEPENDENCY_LOCK=ON` 可额外锁定 Mbed TLS / libSRTP 版本并校验 libjuice 提交。上述浏览器记录仍属于降级前环境。
 
 ```bash
 cmake -S . -B build-native-openssl -DCMAKE_BUILD_TYPE=Release \

@@ -1,4 +1,5 @@
 #include "private.h"
+#include "openssl_bio.h"
 #include <openssl/bio.h>
 #include <openssl/ec.h>
 #include <openssl/evp.h>
@@ -15,6 +16,7 @@ typedef struct {
     dtls_adapter base;
     SSL_CTX *ctx;
     SSL *ssl;
+    BIO_METHOD *bio_method;
     uint8_t pending[2048];
     size_t pending_size;
 } openssl_dtls;
@@ -93,7 +95,7 @@ static int flush_out(openssl_dtls *d) {
 static int finish(openssl_dtls *d) {
     if (!SSL_is_init_finished(d->ssl))
         return 0;
-    X509 *peer = SSL_get1_peer_certificate(d->ssl);
+    X509 *peer = SSL_get_peer_certificate(d->ssl);
     char actual[128];
     if (!peer)
         return EWRTC_SECURITY;
@@ -161,6 +163,7 @@ static void destroy(dtls_adapter *base) {
     openssl_dtls *d = (openssl_dtls *)base;
     SSL_free(d->ssl);
     SSL_CTX_free(d->ctx);
+    BIO_meth_free(d->bio_method);
     ewrtc_free(&d->base.pal, d);
 }
 static int set_client(dtls_adapter *base, bool client) {
@@ -204,15 +207,21 @@ dtls_adapter *dtls_openssl_create(const ewrtc_dtls_config *config, int *error) {
         goto fail;
     SSL_CTX_set_verify(d->ctx, SSL_VERIFY_PEER | SSL_VERIFY_FAIL_IF_NO_PEER_CERT, verify_any);
     d->ssl = SSL_new(d->ctx);
-    BIO *incoming = BIO_new(BIO_s_dgram_mem());
-    BIO *outgoing = BIO_new(BIO_s_dgram_mem());
-    if (!d->ssl || !incoming || !outgoing) {
+    if (!d->ssl)
+        goto fail;
+    d->bio_method = ewrtc_openssl_bio_method();
+    if (!d->bio_method)
+        goto fail;
+    BIO *incoming = ewrtc_openssl_bio_new(d->bio_method, &d->base.pal);
+    BIO *outgoing = ewrtc_openssl_bio_new(d->bio_method, &d->base.pal);
+    if (!incoming || !outgoing) {
         BIO_free(incoming);
         BIO_free(outgoing);
         goto fail;
     }
     SSL_set_bio(d->ssl, incoming, outgoing);
     SSL_set_accept_state(d->ssl);
+    SSL_set_options(d->ssl, SSL_OP_NO_QUERY_MTU);
     SSL_set_mtu(d->ssl, EWRTC_MTU);
     return &d->base;
 fail:

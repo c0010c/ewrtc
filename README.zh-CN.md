@@ -20,7 +20,7 @@
 
 ## 快速开始
 
-以下命令均在克隆后的仓库根目录执行。需要 Linux、C11 编译器、CMake 3.20+、Make、pkg-config、OpenSSL 3.x 和 libSRTP 2.x（构建下限 2.5）。Python 3.10+ 用于架构及开发检查。构建下限不代表其后的每个版本都已验证，版本记录见 [构建说明](docs/building.md)。
+以下命令均在克隆后的仓库根目录执行。需要 Linux、C11 编译器、CMake 3.20+、Make、pkg-config、OpenSSL 1.1.1w（精确版本）和 libSRTP 2.x（构建下限 2.5）。先运行 `bash tools/build_openssl.sh`，再设置 `export OPENSSL_ROOT_DIR="$PWD/.local/openssl-1.1.1w"` 后配置项目。Python 3.10+ 用于架构及开发检查。依赖准备和版本记录见 [构建说明](docs/building.md)。
 
 Ubuntu / Debian 上安装默认构建依赖：
 

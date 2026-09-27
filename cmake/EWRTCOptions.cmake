@@ -6,6 +6,6 @@ option(EWRTC_WITH_OPENSSL "Build OpenSSL crypto/DTLS" ON)
 option(EWRTC_WITH_MBEDTLS "Build Mbed TLS crypto/DTLS" OFF)
 option(EWRTC_BUILD_TESTS "Build enabled component tests" ON)
 option(EWRTC_BUILD_EXAMPLES "Build demo when session is selected" OFF)
-option(EWRTC_ENFORCE_DEPENDENCY_LOCK "Require exact historical validation dependency versions" OFF)
+option(EWRTC_ENFORCE_DEPENDENCY_LOCK "Also pin Mbed TLS/libSRTP validation versions and verify libjuice revision" OFF)
 
 option(EWRTC_WARNINGS_AS_ERRORS "Treat SDK compiler warnings as errors" OFF)

@@ -4,20 +4,33 @@
 
 ## 依赖策略
 
-默认使用已安装的系统库，不强制系统库精确版本；构建最低要求与历史实测版本分别列出。最低要求是 API 使用边界，不表示该范围的所有版本都经过验证。
+OpenSSL 固定为 1.1.1w，包括安装包消费者；其他系统库默认不强制精确版本。构建要求与历史实测版本分别列出，最低要求不表示该范围的所有版本都经过验证。
 
 | 依赖 | 使用场景 | 构建最低要求 | 历史实测版本 |
 | --- | --- | --- | --- |
-| OpenSSL | 默认 Crypto / DTLS | 3.0 | 3.5.5 |
+| OpenSSL | 默认 Crypto / DTLS | 精确 1.1.1w | 1.1.1w；降级前为 3.5.5 |
 | libSRTP | Session 的 SRTP | 2.5 | 2.7.0 |
 | Mbed TLS | 可选 Crypto / DTLS | 3.6 | 3.6.5 |
 | libjuice | 可选 ICE | 固定提交 | v1.7.3 对应 `6d0356d092701dcce1f731559d38dc94f52eeb14` |
 | Opus | 媒体演示程序 | 提供 pkg-config 的 Opus | 1.6.1 |
 | Python | 开发脚本 | 3.10 | 历史环境见各验证报告 |
 
-Mbed TLS 需启用 DTLS-SRTP。通过 pkg-config 提供 `mbedcrypto`、`mbedtls`、`mbedx509`；某些发行版的旧版包不满足要求。OpenSSL / libSRTP 通常由包管理器提供。示例的 Python 依赖保存在 `examples/requirements.txt`，不会成为 C SDK 的运行依赖。
+Mbed TLS 需启用 DTLS-SRTP。通过 pkg-config 提供 `mbedcrypto`、`mbedtls`、`mbedx509`；某些发行版的旧版包不满足要求。libSRTP 通常由包管理器提供。示例的 Python 依赖保存在 `examples/requirements.txt`，不会成为 C SDK 的运行依赖。
 
-`EWRTC_ENFORCE_DEPENDENCY_LOCK=ON` 强制历史实测精确版本，适合复现旧矩阵。libjuice 无论此选项如何都会固定下载提交；严格模式还校验本地 override 的 HEAD。
+`EWRTC_ENFORCE_DEPENDENCY_LOCK=ON` 额外锁定 Mbed TLS 和 libSRTP 为表中的实测版本。OpenSSL 始终精确锁定 1.1.1w；libjuice 始终固定提交，严格模式还校验本地 override 的 HEAD。
+
+### 准备 OpenSSL 1.1.1w
+
+需要 curl、Perl、make 和 C 编译器。脚本校验官方源码包 SHA-256，默认静态安装到仓库的 `.local/openssl-1.1.1w`，也可传入其他安装目录：
+
+```bash
+bash tools/build_openssl.sh
+export OPENSSL_ROOT_DIR="$PWD/.local/openssl-1.1.1w"
+```
+
+后续构建、示例和安装包消费者均应保留该环境变量；也可传入 `-DOPENSSL_ROOT_DIR=/path/to/openssl-1.1.1w`。使用新的构建目录，避免旧缓存继续指定 OpenSSL 3.x 的头文件或库。交叉编译时应指向目标平台的 1.1.1w 安装目录，上述脚本只用于本机构建。
+
+1.1.1w 是 1.1.1 的最后公开版本，已结束公共支持，参见 [官方发布记录](https://mta.openssl.org/pipermail/openssl-announce/2023-September/000274.html)。本次降级的验证范围见 [验证记录](openssl-1.1.1w-validation.md)；旧浏览器和长测记录仍属于 3.5.5 环境。
 
 ## 构建预设
 
@@ -51,7 +64,7 @@ ctest --preset native-openssl
 | `EWRTC_BUILD_TESTS` | ON | 单元测试及架构检查 |
 | `EWRTC_BUILD_EXAMPLES` | OFF | Opus 媒体演示程序 |
 | `EWRTC_BUILD_INTERNAL_EXAMPLES` | OFF | 内部协议示例 |
-| `EWRTC_ENFORCE_DEPENDENCY_LOCK` | OFF | 历史精确版本校验 |
+| `EWRTC_ENFORCE_DEPENDENCY_LOCK` | OFF | 额外锁定 Mbed TLS / libSRTP 并校验 libjuice 提交 |
 | `EWRTC_WARNINGS_AS_ERRORS` | OFF | 开发 / CI 可开启 |
 
 不使用预设时：

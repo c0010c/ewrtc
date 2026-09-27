@@ -20,7 +20,7 @@ IPv6, DataChannel, TURN/TCP, TURN/TLS, automatic ICE restart, and dynamic bitrat
 
 ## Quick start
 
-Run all commands from the cloned repository root. The default build requires Linux, a C11 compiler, CMake 3.20+, Make, pkg-config, OpenSSL 3.x, and libSRTP 2.x (minimum build version: 2.5). Python 3.10+ is used for architecture and development checks. Minimum build versions do not imply that every later version has been validated; see the [build guide](docs/building.md) for version records.
+Run all commands from the cloned repository root. The default build requires Linux, a C11 compiler, CMake 3.20+, Make, pkg-config, OpenSSL 1.1.1w (exact), and libSRTP 2.x (minimum build version: 2.5). Build OpenSSL with `bash tools/build_openssl.sh`, then set `export OPENSSL_ROOT_DIR="$PWD/.local/openssl-1.1.1w"` before configuring. Python 3.10+ is used for architecture and development checks. See the [build guide](docs/building.md) for dependency setup and version records.
 
 Install the default build dependencies on Ubuntu / Debian:
 

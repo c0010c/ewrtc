@@ -48,7 +48,7 @@ static void sdp(ewrtc_session *s, const char *text, void *ctx) {
 #if EWRTC_WITH_OPENSSL
     /* An application's unrelated OpenSSL failure must not poison another
      * session's SSL_get_error on the shared worker. */
-    ERR_raise(ERR_LIB_USER, 1);
+    ERR_put_error(ERR_LIB_USER, 0, 1, __FILE__, __LINE__);
 #endif
 }
 static void candidate(ewrtc_session *s, const char *text, void *ctx) {

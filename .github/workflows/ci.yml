@@ -23,7 +23,11 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential clang cmake pkg-config libssl-dev libsrtp2-dev
+          sudo apt-get install -y build-essential clang cmake pkg-config curl perl libsrtp2-dev
+      - name: Build OpenSSL 1.1.1w
+        run: |
+          bash tools/build_openssl.sh "$RUNNER_TEMP/openssl-1.1.1w"
+          echo "OPENSSL_ROOT_DIR=$RUNNER_TEMP/openssl-1.1.1w" >> "$GITHUB_ENV"
       - name: Check documentation
         run: python3 tests/check_docs.py
       - name: Configure

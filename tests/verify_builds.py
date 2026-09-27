@@ -59,7 +59,7 @@ def main():
     parser.add_argument("--output", type=Path, default=ROOT / "build-component-validation")
     parser.add_argument("--juice-source", type=Path)
     parser.add_argument("--no-dependency-lock", action="store_true",
-                        help="Use installed dependency versions instead of the historical exact lock")
+                        help="Relax Mbed TLS/libSRTP version locks; OpenSSL remains pinned to 1.1.1w")
     args = parser.parse_args()
     args.output = args.output.resolve()
     args.output.mkdir(parents=True, exist_ok=True)
