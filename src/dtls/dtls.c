@@ -1,11 +1,36 @@
 #include "private.h"
 #include <string.h>
 #include <ctype.h>
+#include <stdio.h>
+
+void dtls_adapter_init(dtls_adapter *base, const ewrtc_dtls_config *config, const dtls_ops *ops) {
+    base->pal = config->pal;
+    base->ops = ops;
+    base->send = config->send;
+    base->send_user = config->user;
+    if (config->remote_fingerprint)
+        memcpy(base->remote_fingerprint, config->remote_fingerprint, DTLS_FINGERPRINT_SIZE);
+}
+
+int dtls_format_fingerprint(const uint8_t digest[DTLS_SHA256_SIZE], char *out, size_t size) {
+    if (size < DTLS_FINGERPRINT_SIZE)
+        return EWRTC_SECURITY;
+    size_t offset = 0;
+    for (unsigned i = 0; i < DTLS_SHA256_SIZE; ++i) {
+        int written = snprintf(out + offset, size - offset, "%s%02X", i ? ":" : "", digest[i]);
+        if (written < 0 || (size_t)written >= size - offset)
+            return EWRTC_SECURITY;
+        offset += (size_t)written;
+    }
+    return EWRTC_OK;
+}
+
 int ewrtc_dtls_create(const ewrtc_dtls_config *c, ewrtc_dtls **out) {
     if (!out)
         return EWRTC_INVALID;
     *out = NULL;
-    if (!c || !c->send || (c->remote_fingerprint && strlen(c->remote_fingerprint) != 95) ||
+    if (!c || !c->send ||
+        (c->remote_fingerprint && strlen(c->remote_fingerprint) != DTLS_FINGERPRINT_SIZE - 1) ||
         ewrtc_pal_validate(&c->pal, EWRTC_PAL_ALLOCATOR | EWRTC_PAL_UTC | EWRTC_PAL_MONOTONIC))
         return EWRTC_INVALID;
     int error = EWRTC_SECURITY;
@@ -26,16 +51,16 @@ int ewrtc_dtls_create(const ewrtc_dtls_config *c, ewrtc_dtls **out) {
     return *out ? 0 : error;
 }
 int ewrtc_dtls_set_peer(ewrtc_dtls *s, const char *fingerprint, bool client) {
-    if (!s || !fingerprint || strlen(fingerprint) != 95)
+    if (!s || !fingerprint || strlen(fingerprint) != DTLS_FINGERPRINT_SIZE - 1)
         return EWRTC_INVALID;
     if (s->started)
         return EWRTC_STATE;
-    for (unsigned i = 0; i < 95; ++i)
+    for (unsigned i = 0; i < DTLS_FINGERPRINT_SIZE - 1; ++i)
         if ((i + 1) % 3 == 0 ? fingerprint[i] != ':' : !isxdigit((unsigned char)fingerprint[i]))
             return EWRTC_INVALID;
     int result = s->ops->set_client(s, client);
     if (!result)
-        memcpy(s->remote_fingerprint, fingerprint, 96);
+        memcpy(s->remote_fingerprint, fingerprint, DTLS_FINGERPRINT_SIZE);
     return result;
 }
 static int drive_result(ewrtc_dtls *s, int result) {
@@ -44,8 +69,10 @@ static int drive_result(ewrtc_dtls *s, int result) {
     return result;
 }
 uint64_t ewrtc_dtls_next_deadline(ewrtc_dtls *s) {
-    if (!s || !s->started || s->connected) return UINT64_MAX;
-    if (s->retry_at) return s->retry_at;
+    if (!s || !s->started || s->connected)
+        return UINT64_MAX;
+    if (s->retry_at)
+        return s->retry_at;
     return s->ops->deadline(s);
 }
 int ewrtc_dtls_start(ewrtc_dtls *s) {
@@ -57,12 +84,18 @@ int ewrtc_dtls_start(ewrtc_dtls *s) {
     return drive_result(s, s->ops->start(s));
 }
 int ewrtc_dtls_receive(ewrtc_dtls *s, const uint8_t *d, size_t n) {
-    return !s || !d || !n ? EWRTC_INVALID
-           : !s->started  ? EWRTC_STATE
-                          : drive_result(s, s->ops->receive(s, d, n));
+    if (!s || !d || !n)
+        return EWRTC_INVALID;
+    if (!s->started)
+        return EWRTC_STATE;
+    return drive_result(s, s->ops->receive(s, d, n));
 }
 int ewrtc_dtls_tick(ewrtc_dtls *s) {
-    return !s ? EWRTC_INVALID : !s->started ? EWRTC_STATE : drive_result(s, s->ops->tick(s));
+    if (!s)
+        return EWRTC_INVALID;
+    if (!s->started)
+        return EWRTC_STATE;
+    return drive_result(s, s->ops->tick(s));
 }
 const char *ewrtc_dtls_fingerprint(const ewrtc_dtls *s) {
     return s ? s->fingerprint : NULL;

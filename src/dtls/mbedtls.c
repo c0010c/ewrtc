@@ -8,8 +8,6 @@
 #include <mbedtls/ssl.h>
 #include <mbedtls/ssl_cookie.h>
 #include <mbedtls/x509_crt.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 typedef struct {
@@ -100,17 +98,10 @@ static int verify_cb(void *ctx, mbedtls_x509_crt *cert, int depth, uint32_t *fla
     return 0;
 }
 static int fingerprint(const mbedtls_x509_crt *cert, char *out, size_t size) {
-    uint8_t digest[32];
-    if (size < 96 || mbedtls_sha256(cert->raw.p, cert->raw.len, digest, 0))
+    uint8_t digest[DTLS_SHA256_SIZE];
+    if (mbedtls_sha256(cert->raw.p, cert->raw.len, digest, 0))
         return EWRTC_SECURITY;
-    size_t off = 0;
-    for (size_t i = 0; i < sizeof(digest); ++i) {
-        int n = snprintf(out + off, size - off, "%s%02X", i ? ":" : "", digest[i]);
-        if (n < 0 || (size_t)n >= size - off)
-            return EWRTC_SECURITY;
-        off += (size_t)n;
-    }
-    return 0;
+    return dtls_format_fingerprint(digest, out, size);
 }
 
 static int make_certificate(mbed_dtls *d) {
@@ -284,22 +275,12 @@ static const dtls_ops ops = {start, receive, tick, destroy, set_client, deadline
 
 dtls_adapter *dtls_mbedtls_create(const ewrtc_dtls_config *config, int *error) {
     *error = EWRTC_SECURITY;
-    const char *remote_fingerprint = config->remote_fingerprint;
-    int (*send_packet)(void *, const uint8_t *, size_t) = config->send;
-    void *user = config->user;
-    if (!send_packet || (remote_fingerprint && strlen(remote_fingerprint) >= 128))
-        return NULL;
     mbed_dtls *d = ewrtc_zalloc(&config->pal, sizeof(*d));
     if (!d) {
         *error = EWRTC_NOMEM;
         return NULL;
     }
-    d->base.pal = config->pal;
-    d->base.ops = &ops;
-    d->base.send = send_packet;
-    d->base.send_user = user;
-    snprintf(d->base.remote_fingerprint, sizeof(d->base.remote_fingerprint), "%s",
-             remote_fingerprint ? remote_fingerprint : "");
+    dtls_adapter_init(&d->base, config, &ops);
     mbedtls_entropy_init(&d->entropy);
     mbedtls_ctr_drbg_init(&d->rng);
     mbedtls_pk_init(&d->key);

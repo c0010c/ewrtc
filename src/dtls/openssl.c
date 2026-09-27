@@ -7,8 +7,6 @@
 #include <openssl/ssl.h>
 #include <openssl/x509.h>
 #include <openssl/x509v3.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <sys/time.h>
 
@@ -31,16 +29,9 @@ static int verify_any(int ok, X509_STORE_CTX *ctx) {
 static int format_fingerprint(X509 *cert, char *out, size_t size) {
     uint8_t digest[EVP_MAX_MD_SIZE];
     unsigned int length = 0;
-    if (!X509_digest(cert, EVP_sha256(), digest, &length) || length != 32 || size < 96)
+    if (!X509_digest(cert, EVP_sha256(), digest, &length) || length != DTLS_SHA256_SIZE)
         return EWRTC_SECURITY;
-    size_t off = 0;
-    for (unsigned i = 0; i < length; ++i) {
-        int n = snprintf(out + off, size - off, "%s%02X", i ? ":" : "", digest[i]);
-        if (n < 0 || (size_t)n >= size - off)
-            return EWRTC_SECURITY;
-        off += (size_t)n;
-    }
-    return 0;
+    return dtls_format_fingerprint(digest, out, size);
 }
 
 static int make_certificate(const ewrtc_pal *pal, SSL_CTX *ctx, char *fingerprint, size_t size) {
@@ -168,14 +159,17 @@ static void destroy(dtls_adapter *base) {
 }
 static int set_client(dtls_adapter *base, bool client) {
     openssl_dtls *d = (openssl_dtls *)base;
-    if (client) SSL_set_connect_state(d->ssl);
-    else SSL_set_accept_state(d->ssl);
+    if (client)
+        SSL_set_connect_state(d->ssl);
+    else
+        SSL_set_accept_state(d->ssl);
     return 0;
 }
 static uint64_t deadline(dtls_adapter *base) {
     openssl_dtls *d = (openssl_dtls *)base;
     struct timeval wait;
-    if (DTLSv1_get_timeout(d->ssl, &wait) != 1) return UINT64_MAX;
+    if (DTLSv1_get_timeout(d->ssl, &wait) != 1)
+        return UINT64_MAX;
     return ewrtc_now_ms(&base->pal) + (uint64_t)wait.tv_sec * 1000 +
            ((uint64_t)wait.tv_usec + 999) / 1000;
 }
@@ -183,22 +177,12 @@ static const dtls_ops ops = {start, receive, tick, destroy, set_client, deadline
 
 dtls_adapter *dtls_openssl_create(const ewrtc_dtls_config *config, int *error) {
     *error = EWRTC_SECURITY;
-    const char *remote_fingerprint = config->remote_fingerprint;
-    int (*send_packet)(void *, const uint8_t *, size_t) = config->send;
-    void *user = config->user;
-    if (!send_packet || (remote_fingerprint && strlen(remote_fingerprint) >= 128))
-        return NULL;
     openssl_dtls *d = ewrtc_zalloc(&config->pal, sizeof(*d));
     if (!d) {
         *error = EWRTC_NOMEM;
         return NULL;
     }
-    d->base.pal = config->pal;
-    d->base.ops = &ops;
-    d->base.send = send_packet;
-    d->base.send_user = user;
-    snprintf(d->base.remote_fingerprint, sizeof(d->base.remote_fingerprint), "%s",
-             remote_fingerprint ? remote_fingerprint : "");
+    dtls_adapter_init(&d->base, config, &ops);
     d->ctx = SSL_CTX_new(DTLS_method());
     if (!d->ctx || SSL_CTX_set_min_proto_version(d->ctx, DTLS1_2_VERSION) != 1 ||
         SSL_CTX_set_max_proto_version(d->ctx, DTLS1_2_VERSION) != 1 ||
