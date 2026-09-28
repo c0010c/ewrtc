@@ -1,17 +1,25 @@
 #include "private.h"
 #include <stdio.h>
+#include <inttypes.h>
 #include <string.h>
 
 void session_set_state(ewrtc_session *s, ewrtc_state state) {
     session_lock(s);
-    bool changed = s->stats.state != state;
+    ewrtc_state previous = s->stats.state;
+    bool changed = previous != state;
     s->stats.state = state;
     session_unlock(s);
+    if (changed)
+        SESSION_LOG(s, state == EWRTC_DISCONNECTED ? EWRTC_LOG_WARN : EWRTC_LOG_INFO,
+                    "SESSION", "state %s -> %s age=%" PRIu64 "ms",
+                    session_state_name(previous), session_state_name(state),
+                    ewrtc_now_ms(&s->context->pal) - s->created_ms);
     if (changed && s->cb.on_state)
         SESSION_CALLBACK(s, s->cb.on_state(s, state, s->user));
 }
 
 void session_error(ewrtc_session *s, ewrtc_result code, const char *detail) {
+    SESSION_LOG(s, EWRTC_LOG_ERROR, "SESSION", "%s code=%d", detail, code);
     if (s->cb.on_error)
         SESSION_CALLBACK(s, s->cb.on_error(s, code, detail, s->user));
 }
@@ -96,15 +104,17 @@ static void media_video(void *user, const uint8_t *data, size_t size, uint32_t t
 }
 static void negotiation_error(ewrtc_session *s, int result, const char *detail) {
     session_error(s, (ewrtc_result)result, detail);
-    session_fail(s, result);
+    session_fail_at(s, result, detail);
     session_set_state(s, EWRTC_FAILED);
 }
 int session_prepare_transport(ewrtc_session *s, bool controlling) {
     uint32_t ids[3];
+    s->prepare_detail = "transport random generation failed";
     if (ewrtc_random_bytes(&s->context->pal, ids, sizeof(ids))) return EWRTC_SECURITY;
     s->video_ssrc = ids[0]; s->rtx_ssrc = ids[1]; s->audio_ssrc = ids[2];
     ewrtc_dtls_config dc = {.pal = s->context->pal, .backend = s->cfg.dtls_backend,
                             .send = dtls_send, .user = s};
+    s->prepare_detail = "DTLS creation failed";
     int result = ewrtc_dtls_create(&dc, &s->dtls);
     if (result) return result;
     ewrtc_ice_events events = {ice_state, ice_candidate, ice_done, ice_recv, s};
@@ -116,6 +126,7 @@ int session_prepare_transport(ewrtc_session *s, bool controlling) {
         .controlling = controlling,
         .delivery = {.user = s, .allocate = session_delivery_allocate, .release = session_release,
                      .notify = session_notify, .stopped = session_stopped, .yield = session_yield}};
+    s->prepare_detail = "ICE creation failed (backend, socket or server resolution)";
     return ewrtc_ice_create(&ic, &events, &s->ice);
 }
 static ewrtc_direction negotiate_direction(ewrtc_direction local, ewrtc_direction remote) {
@@ -163,6 +174,8 @@ static int emit_description(ewrtc_session *s, const ewrtc_sdp_offer *description
     result = ewrtc_sdp_make_description(description, &local, s->video_ssrc, s->rtx_ssrc,
                                         s->audio_ssrc, sdp, sizeof(sdp));
     if (result) return result;
+    SESSION_LOG(s, EWRTC_LOG_INFO, "SDP", "%s ready video_pt=%d audio_pt=%d",
+                offer ? "offer" : "answer", description->video_pt, description->audio_pt);
     if (offer) {
         session_lock(s);
         s->local_offer_ready = true;
@@ -203,10 +216,12 @@ static void handle_offer(ewrtc_session *s, const char *text) {
     local.video_direction = negotiate_direction(s->cfg.video_direction, s->offer.video_direction);
     local.audio_direction = negotiate_direction(s->cfg.audio_direction, s->offer.audio_direction);
     local.setup = s->offer.setup == EWRTC_SETUP_PASSIVE ? EWRTC_SETUP_ACTIVE : EWRTC_SETUP_PASSIVE;
-    if ((result = set_remote(s, &s->offer, &local)) ||
-        (result = apply_sdp_candidates(s, text)) ||
-        (result = emit_description(s, &local, false)))
-        negotiation_error(s, result, "Remote offer initialization failed");
+    result = set_remote(s, &s->offer, &local);
+    if (result) { negotiation_error(s, result, "Remote transport configuration failed"); return; }
+    result = apply_sdp_candidates(s, text);
+    if (result) { negotiation_error(s, result, "Embedded ICE candidate application failed"); return; }
+    result = emit_description(s, &local, false);
+    if (result) negotiation_error(s, result, "Local answer or ICE gathering failed");
 }
 static void handle_create_offer(ewrtc_session *s) {
     ewrtc_sdp_offer *o = &s->local_offer;
@@ -240,12 +255,14 @@ static void handle_ice_state(ewrtc_session *s, ewrtc_state state) {
         if (s->cfg.relay_only && s->cfg.ice_backend == EWRTC_ICE_LIBJUICE &&
             !strstr(s->stats.local_candidate, " typ relay") &&
             !strstr(s->stats.remote_candidate, " typ relay")) {
-            session_error(s, EWRTC_IO, "TURN path was not selected");
-            session_set_state(s, EWRTC_FAILED);
+            negotiation_error(s, EWRTC_IO, "TURN path was not selected");
             return;
         }
         if (!s->dtls_started && s->dtls) {
             s->dtls_started = true;
+            s->dtls_started_ms = ewrtc_now_ms(&s->context->pal);
+            SESSION_LOG(s, EWRTC_LOG_INFO, "DTLS", "handshake started role=%s",
+                        s->dtls_client ? "client" : "server");
             session_set_state(s, EWRTC_CONNECTING);
             int result = ewrtc_dtls_start(s->dtls);
             if (result && result != EWRTC_AGAIN && result != EWRTC_BACKPRESSURE) {
@@ -254,7 +271,10 @@ static void handle_ice_state(ewrtc_session *s, ewrtc_state state) {
         }
     } else if (state == EWRTC_FAILED || state == EWRTC_DISCONNECTED) {
         session_set_state(s, state);
-        if (state == EWRTC_FAILED) session_fail(s, EWRTC_IO);
+        if (state == EWRTC_FAILED) {
+            SESSION_LOG(s, EWRTC_LOG_ERROR, "ICE", "connectivity failed code=%d", EWRTC_IO);
+            session_fail_at(s, EWRTC_IO, "ICE connectivity failed");
+        }
     } else if (state == EWRTC_GATHERING && s->stats.state == EWRTC_NEW) {
         session_set_state(s, state);
     }
@@ -273,17 +293,22 @@ void session_handle_wire(ewrtc_session *s, const uint8_t *data, size_t len) {
         uint8_t plain[2048];
         bool rtcp = len >= 2 && data[1] >= 192 && data[1] <= 223;
         int result = EWRTC_INVALID;
+        enum session_log_counter failure = LOG_WIRE_SIZE;
         if (len <= sizeof(plain)) {
             memcpy(plain, data, len);
+            failure = LOG_SRTP_RECEIVE;
             result = ewrtc_srtp_unprotect(s->srtp, rtcp, plain, &len);
-            if (!result)
+            if (!result) {
+                failure = LOG_MEDIA_RECEIVE;
                 result = ewrtc_media_receive(s->media, plain, len, rtcp);
+            }
         }
         if (result) {
             session_lock(s);
             s->stats.dropped_packets++;
+            ++s->log_counts[failure];
             session_unlock(s);
-            if (result == EWRTC_NOMEM) session_fail(s, result);
+            if (result == EWRTC_NOMEM) session_fail_at(s, result, "media receive allocation failed");
         } else {
             session_lock(s);
             s->stats.received_bytes += len;
@@ -300,7 +325,11 @@ void session_finish_dtls(ewrtc_session *s) {
     int result = ewrtc_dtls_export_keys(s->dtls, keys);
     if (!result) result = ewrtc_srtp_create(&s->context->pal, keys, !s->dtls_client, &s->srtp);
     if (result) negotiation_error(s, result, "SRTP initialization failed");
-    else session_set_state(s, EWRTC_CONNECTED);
+    else {
+        SESSION_LOG(s, EWRTC_LOG_INFO, "DTLS", "handshake completed elapsed=%" PRIu64 "ms srtp=ready",
+                    ewrtc_now_ms(&s->context->pal) - s->dtls_started_ms);
+        session_set_state(s, EWRTC_CONNECTED);
+    }
 }
 
 void session_report_send(ewrtc_session *s, int result) {
@@ -308,13 +337,19 @@ void session_report_send(ewrtc_session *s, int result) {
         return;
     session_lock(s);
     ++s->stats.dropped_packets;
-    if (result == EWRTC_AGAIN || result == EWRTC_BACKPRESSURE)
-        ++s->stats.backpressure_count;
+    bool temporary = result == EWRTC_AGAIN || result == EWRTC_BACKPRESSURE;
+    if (temporary) ++s->stats.backpressure_count;
+    if (temporary || result == EWRTC_INVALID)
+        ++s->log_counts[temporary ? LOG_SEND_PRESSURE : LOG_SEND_INVALID];
     session_unlock(s);
-    session_error(s, (ewrtc_result)result, "media send failed");
+    if (temporary || result == EWRTC_INVALID) {
+        /* Preserve business callbacks while bounding diagnostic output. */
+        if (s->cb.on_error)
+            SESSION_CALLBACK(s, s->cb.on_error(s, (ewrtc_result)result, "media send failed", s->user));
+    } else session_error(s, (ewrtc_result)result, "media send failed");
     /* Partially emitted frames are not replayed; temporary pressure is nonfatal. */
     if (result != EWRTC_AGAIN && result != EWRTC_BACKPRESSURE && result != EWRTC_INVALID) {
-        session_fail(s, result);
+        session_fail_at(s, result, "media send failed");
         session_set_state(s, EWRTC_FAILED);
     }
 }

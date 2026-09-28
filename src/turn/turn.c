@@ -45,6 +45,7 @@ static void notify(ewrtc_turn *t) {
 }
 static int fail(ewrtc_turn *t, int error) {
     if (t->status.state != EWRTC_TURN_FAILED) {
+        EWRTC_LOG(&t->cfg.pal, EWRTC_LOG_ERROR, "TURN", "failed state=%d code=%d", t->status.state, error);
         t->status.state = EWRTC_TURN_FAILED;
         t->status.error = (ewrtc_result)error;
         clear_transaction(t, &t->allocation);
@@ -231,6 +232,8 @@ int ewrtc_turn_receive(ewrtc_turn *t, const ewrtc_address *from, const uint8_t *
         ewrtc_stun_verify_integrity(&packet, tx->key, sizeof(tx->key), t->cfg.crypto_backend))
         return EWRTC_SECURITY;
     if (error && (code == 401 || code == 438)) {
+        EWRTC_LOG(&t->cfg.pal, EWRTC_LOG_DEBUG, "TURN", "challenge method=0x%04x status=%u attempt=%u",
+                  (unsigned)tx->method, code, tx->challenges + 1);
         if ((code == 401 && tx->authenticated) || tx->challenges >= 2)
             return fail(t, EWRTC_SECURITY);
         char realm[128], nonce[256];

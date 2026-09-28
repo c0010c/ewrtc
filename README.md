@@ -91,6 +91,7 @@ Most detailed guides are currently available in Simplified Chinese. The quick-st
 
 | Topic | Guide |
 | --- | --- |
+| Log levels, formatting and output callbacks | [Diagnostic logging](docs/logging.md) |
 | Build options, backends, and cross-compilation | [Building](docs/building.md) |
 | APIs, threading, ownership, and signaling contracts | [Integration guide](docs/usage.md), [contexts](docs/context.md) |
 | Video reception, bidirectional media, and local offers | [Receiving and negotiation](docs/receiving-and-offers.md) |

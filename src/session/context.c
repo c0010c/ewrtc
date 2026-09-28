@@ -1,5 +1,8 @@
 #include "private.h"
 #include <string.h>
+#include <stdatomic.h>
+
+static atomic_uint next_log_id;
 
 _Thread_local unsigned ewrtc_callback_depth;
 void context_lock(ewrtc_context *c) { c->pal.threads.mutex_lock(c->pal.threads.ctx, c->mu); }
@@ -51,6 +54,7 @@ ewrtc_result ewrtc_context_create(const ewrtc_context_config *cfg, ewrtc_context
     ewrtc_context *c = ewrtc_zalloc(&cfg->pal, sizeof(*c));
     if (!c) return EWRTC_NOMEM;
     c->pal = cfg->pal;
+    c->log_id = atomic_fetch_add_explicit(&next_log_id, 1, memory_order_relaxed) + 1;
     c->worker_count = workers; c->max_sessions = sessions; c->control_slots = slots;
     c->queue_limit = cfg->queue_limit_bytes ? cfg->queue_limit_bytes : 8 * 1024 * 1024;
     c->stats.workers = workers;

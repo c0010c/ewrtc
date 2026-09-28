@@ -54,6 +54,7 @@ ewrtc_result ewrtc_session_create(ewrtc_context *c, const ewrtc_session_config *
     }
     s->context = c; s->cfg = *config; s->cb = *callbacks; s->user = user;
     s->deadline = UINT64_MAX;
+    s->created_ms = ewrtc_now_ms(&c->pal);
     s->queue_limit = config->send_queue_limit_bytes ? config->send_queue_limit_bytes : 1024 * 1024;
     int result = c->pal.threads.condition_create(c->pal.threads.ctx, &s->cv);
     if (result) goto fail;
@@ -86,7 +87,11 @@ ewrtc_result ewrtc_session_create(ewrtc_context *c, const ewrtc_session_config *
     s->token = ++c->next_token;
     if (!s->token) s->token = ++c->next_token;
     c->sessions[slot] = s;
-    context_unlock(c); *out = s; return EWRTC_OK;
+    context_unlock(c);
+    SESSION_LOG(s, EWRTC_LOG_INFO, "SESSION", "created ice=%s dtls=%s worker=%zu",
+                config->ice_backend == EWRTC_ICE_NATIVE ? "native" : "libjuice",
+                config->dtls_backend == EWRTC_DTLS_OPENSSL ? "openssl" : "mbedtls", worker);
+    *out = s; return EWRTC_OK;
 fail:
     release_session(s);
     context_lock(c); --c->stats.sessions; c->stats.control_reserved_bytes -= reserved;

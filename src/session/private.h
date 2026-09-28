@@ -50,6 +50,11 @@ struct session_worker {
     ewrtc_waiter waiter;
     size_t index, cursor;
 };
+enum session_log_counter {
+    LOG_QUEUE_SESSION, LOG_QUEUE_CONTEXT, LOG_QUEUE_ITEMS, LOG_QUEUE_CONTROL,
+    LOG_QUEUE_CONTROL_SIZE, LOG_SEND_PRESSURE, LOG_SEND_INVALID,
+    LOG_SRTP_RECEIVE, LOG_MEDIA_RECEIVE, LOG_WIRE_SIZE, LOG_COUNTER_COUNT
+};
 struct ewrtc_context {
     ewrtc_pal pal;
     ewrtc_mutex mu;
@@ -60,6 +65,7 @@ struct ewrtc_context {
     size_t worker_count, max_sessions, queue_limit, control_slots;
     bool stopping;
     uint64_t next_token;
+    unsigned log_id;
     ewrtc_context_stats stats;
 };
 struct ewrtc_session {
@@ -89,6 +95,9 @@ struct ewrtc_session {
     void *user;
     ewrtc_stats stats;
     ewrtc_result critical_error;
+    const char *critical_detail, *prepare_detail;
+    uint64_t created_ms, dtls_started_ms, log_next_summary;
+    uint64_t log_counts[LOG_COUNTER_COUNT]; /* protected by context mutex */
     ewrtc_sdp_offer offer;
     ewrtc_ice *ice;
     ewrtc_dtls *dtls;
@@ -120,6 +129,14 @@ int session_prepare_transport(ewrtc_session *, bool);
 void session_cleanup_transport(ewrtc_session *);
 void session_handle_wire(ewrtc_session *, const uint8_t *, size_t);
 void session_fail(ewrtc_session *, int);
+void session_fail_at(ewrtc_session *, int, const char *);
+void session_log_write(ewrtc_session *, int, const char *, const char *, ...) EWRTC_PRINTF(4, 5);
+void session_log_summary(ewrtc_session *, bool);
+const char *session_state_name(ewrtc_state);
+#define SESSION_LOG(s, level, module, ...) do { \
+    if (ewrtc_log_enabled(&(s)->context->pal, (level))) \
+        session_log_write((s), (level), (module), __VA_ARGS__); \
+} while (0)
 extern _Thread_local unsigned ewrtc_callback_depth;
 uint64_t session_callback_begin(ewrtc_session *);
 void session_callback_end(ewrtc_session *, uint64_t);
