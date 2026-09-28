@@ -20,19 +20,22 @@ IPv6, DataChannel, TURN/TCP, TURN/TLS, automatic ICE restart, and dynamic bitrat
 
 ## Quick start
 
-Run all commands from the cloned repository root. The default build requires Linux, a C11 compiler, CMake 3.20+, Make, pkg-config, OpenSSL 1.1.1w (exact), and libSRTP 2.x (minimum build version: 2.5). Build OpenSSL with `bash tools/build_openssl.sh`, then set `export OPENSSL_ROOT_DIR="$PWD/.local/openssl-1.1.1w"` before configuring. Python 3.10+ is used for architecture and development checks. See the [build guide](docs/building.md) for dependency setup and version records.
+Run all commands from the cloned repository root. Building the pinned dependencies requires Linux, a C11 compiler, CMake 3.21+, Make, Git, Perl, pkg-config and Python 3.10+. Third-party sources are Git submodules; initialize only the libraries you need. See the [build guide](docs/building.md) for optional backends, external installations and cross-compilation.
 
-Install the default build dependencies on Ubuntu / Debian:
+On Ubuntu / Debian:
 
 ```bash
 sudo apt-get update
-sudo apt-get install build-essential cmake pkg-config libssl-dev libsrtp2-dev python3
+sudo apt-get install build-essential cmake git perl pkg-config python3
+git submodule update --init third_party/openssl third_party/libsrtp
+bash tools/build_dependencies.sh
+source .local/deps/env.sh
 cmake --preset default
 cmake --build --preset default --parallel
 ctest --preset default
 ```
 
-The default build produces `build-default/libewrtc.a`, the Linux PAL static library, and tests. It does not require Opus, Mbed TLS, Chrome, or a libjuice download. Add `-DEWRTC_BUILD_TESTS=OFF` to the configure command to build only the libraries.
+The default build produces `build-default/libewrtc.a`, the Linux PAL static library, and tests. It does not require Opus, Mbed TLS, Chrome, or libjuice. Configuration and compilation do not download dependencies. Add `-DEWRTC_BUILD_TESTS=OFF` to build only the libraries.
 
 Install the SDK and run the minimal integration example:
 

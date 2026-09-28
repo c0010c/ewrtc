@@ -80,14 +80,11 @@ LD_LIBRARY_PATH=/oem/usr/lib LD_PRELOAD=/userdata/ewrtc/libewrtc_idr.so \
 
 ## 构建和验证
 
-将以下官方工具链和源码解压到 `build-luckfox/`：
-
-- [Rockchip GCC 8.3 uClibc 工具链](https://files.luckfox.com/wiki/Luckfox-Pico/Software/arm-rockchip830-linux-uclibcgnueabihf.tar.gz)
-- [Mbed TLS 3.6.5 release](https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-3.6.5/mbedtls-3.6.5.tar.bz2)
-- [libSRTP 2.7.0](https://codeload.github.com/cisco/libsrtp/tar.gz/refs/tags/v2.7.0)
-- [Opus 1.6.1](https://downloads.xiph.org/releases/opus/opus-1.6.1.tar.gz)
+将 [Rockchip GCC 8.3 uClibc 工具链](https://files.luckfox.com/wiki/Luckfox-Pico/Software/arm-rockchip830-linux-uclibcgnueabihf.tar.gz) 解压到 `build-luckfox/`，或通过 `LUCKFOX_TOOLCHAIN` 指定其目录。依赖源码从主仓库锁定的 submodule 读取，不再手工下载压缩包。需要 CMake 3.21+、Git、Python 3、tar 和 make。
 
 ```bash
+git submodule update --init third_party/libsrtp third_party/opus
+git submodule update --init --recursive third_party/mbedtls
 bash examples/luckfox/build.sh
 python3 examples/luckfox/configure_camera.py original.ini camera.ini
 cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined \

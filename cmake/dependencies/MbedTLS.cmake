@@ -1,0 +1,12 @@
+find_package(PkgConfig REQUIRED)
+if(EWRTC_ENFORCE_DEPENDENCY_LOCK)
+  pkg_check_modules(MBEDCRYPTO REQUIRED IMPORTED_TARGET mbedcrypto=3.6.5)
+else()
+  pkg_check_modules(MBEDCRYPTO REQUIRED IMPORTED_TARGET mbedcrypto>=3.6)
+endif()
+list(APPEND crypto_libs PkgConfig::MBEDCRYPTO)
+if(dtls IN_LIST enabled)
+  # One pkg-config target preserves TLS -> X509 -> crypto archive order.
+  pkg_check_modules(MBEDTLS REQUIRED IMPORTED_TARGET mbedtls mbedx509 mbedcrypto)
+  list(APPEND dtls_libs PkgConfig::MBEDTLS)
+endif()

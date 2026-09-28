@@ -66,7 +66,7 @@ def main():
     extra = [f"-DEWRTC_ENFORCE_DEPENDENCY_LOCK={'OFF' if args.no_dependency_lock else 'ON'}",
              "-DEWRTC_WARNINGS_AS_ERRORS=ON"]
     if args.juice_source:
-        extra.append(f"-DFETCHCONTENT_SOURCE_DIR_LIBJUICE={args.juice_source.resolve()}")
+        extra.append(f"-DEWRTC_LIBJUICE_SOURCE_DIR={args.juice_source.resolve()}")
     for ice in ("native", "juice"):
         for tls in ("openssl", "mbedtls"):
             build = args.output / f"{ice}-{tls}"
@@ -93,7 +93,7 @@ def main():
             assert not (build / "ewrtcConfig.cmake").exists(), "Internal-only build must not publish a package"
         if component in ("common", "pal", "sdp", "rtp"):
             cache = (build / "CMakeCache.txt").read_text()
-            assert not any(s in cache for s in ("OPENSSL_CRYPTO_LIBRARY:", "SRTP_LIBRARY_DIRS:", "CMAKE_HAVE_LIBC_PTHREAD:", "libjuice_SOURCE_DIR:"))
+            assert not any(s in cache for s in ("OPENSSL_CRYPTO_LIBRARY:", "SRTP_LIBRARY_DIRS:", "CMAKE_HAVE_LIBC_PTHREAD:", "EWRTC_LIBJUICE_SOURCE_DIR:"))
     build = args.output / "custom-pal"
     run("cmake", "-S", ROOT, "-B", build, "-DEWRTC_COMPONENTS=session",
         "-DEWRTC_WITH_LINUX_PAL=OFF", "-DEWRTC_WITH_LIBJUICE=OFF", "-DEWRTC_WITH_MBEDTLS=OFF",

@@ -1,6 +1,6 @@
 # Third-party dependencies and media
 
-The MIT license at the repository root applies to ewrtc-owned code. Dependencies and external assets retain their own licenses. This source repository does not vendor the libraries, toolchains or firmware listed below; CMake downloads libjuice into an ignored build directory when that backend is enabled.
+The MIT license at the repository root applies to ewrtc-owned code. Dependencies and external assets retain their own licenses. The C/C++ libraries below are tracked as pinned Git submodules under `third_party/`. Their source trees and licenses are obtained during explicit submodule initialization; configuration and compilation do not download dependencies. Toolchains, firmware and Python packages remain separately installed. See [dependency management](third_party/README.md).
 
 | Component | Use | Upstream license / source |
 | --- | --- | --- |

@@ -1,0 +1,11 @@
+set(openssl_components Crypto)
+if(dtls IN_LIST enabled)
+  list(APPEND openssl_components SSL)
+endif()
+find_package(OpenSSL 1.1.1 EXACT REQUIRED COMPONENTS ${openssl_components})
+# CMake's numeric version comparison does not distinguish letter patches.
+if(NOT OPENSSL_VERSION STREQUAL "1.1.1w")
+  message(FATAL_ERROR "OpenSSL 1.1.1w is required; found ${OPENSSL_VERSION}. Set OPENSSL_ROOT_DIR to the 1.1.1w installation and use a fresh build directory.")
+endif()
+list(APPEND crypto_libs OpenSSL::Crypto)
+list(APPEND dtls_libs OpenSSL::SSL OpenSSL::Crypto)

@@ -1,0 +1,15 @@
+[submodule "third_party/openssl"]
+	path = third_party/openssl
+	url = https://github.com/openssl/openssl.git
+[submodule "third_party/libsrtp"]
+	path = third_party/libsrtp
+	url = https://github.com/cisco/libsrtp.git
+[submodule "third_party/mbedtls"]
+	path = third_party/mbedtls
+	url = https://github.com/Mbed-TLS/mbedtls.git
+[submodule "third_party/libjuice"]
+	path = third_party/libjuice
+	url = https://github.com/paullouisageneau/libjuice.git
+[submodule "third_party/opus"]
+	path = third_party/opus
+	url = https://github.com/xiph/opus.git

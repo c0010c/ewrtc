@@ -1,0 +1,7 @@
+find_package(PkgConfig REQUIRED)
+if(EWRTC_ENFORCE_DEPENDENCY_LOCK)
+  pkg_check_modules(SRTP REQUIRED IMPORTED_TARGET libsrtp2=2.7.0)
+else()
+  pkg_check_modules(SRTP REQUIRED IMPORTED_TARGET libsrtp2>=2.5)
+endif()
+set(srtp_libs PkgConfig::SRTP)

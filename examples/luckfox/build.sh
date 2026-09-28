@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Source archives are unpacked into build-luckfox; see README.md.
+# Dependencies come from pinned third_party submodules; see README.md.
 set -euo pipefail
 root=$(cd "$(dirname "$0")/../.." && pwd)
 build=${EWRTC_LUCKFOX_BUILD:-"$root/build-luckfox"}
@@ -8,33 +8,10 @@ stage="$build/staging"
 common=(-DCMAKE_TOOLCHAIN_FILE="$root/cmake/luckfox-rv1103.cmake"
         -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_INSTALL_PREFIX="$stage"
         -DCMAKE_POLICY_VERSION_MINIMUM=3.5)
-build_dependency() {
-    local source=$1 destination=$2
-    shift 2
-    cmake -S "$source" -B "$destination" "${common[@]}" "$@"
-    cmake --build "$destination" -j8
-    cmake --install "$destination"
-}
-python3 "$build/mbedtls-3.6.5/scripts/config.py" \
-    -f "$build/mbedtls-3.6.5/include/mbedtls/mbedtls_config.h" set MBEDTLS_SSL_DTLS_SRTP
-build_dependency "$build/mbedtls-3.6.5" "$build/mbedtls-release-build" \
-    -DENABLE_PROGRAMS=OFF -DENABLE_TESTING=OFF -DUSE_SHARED_MBEDTLS_LIBRARY=OFF
-build_dependency "$build/libsrtp-2.7.0" "$build/srtp-build" \
-    -DLIBSRTP_TEST_APPS=OFF -DENABLE_WARNINGS_AS_ERRORS=OFF
-build_dependency "$build/opus-1.6.1" "$build/opus-build" \
-    -DOPUS_BUILD_TESTING=OFF -DOPUS_BUILD_PROGRAMS=OFF -DOPUS_FIXED_POINT=ON \
-    -DOPUS_DNN=OFF -DOPUS_USE_NEON=OFF -DOPUS_MAY_HAVE_NEON=OFF
-# libSRTP's CMake install doesn't generate its pkg-config file.
-cat > "$stage/lib/pkgconfig/libsrtp2.pc" <<EOF
-prefix=$stage
-libdir=\${prefix}/lib
-includedir=\${prefix}/include
-Name: libsrtp2
-Description: Secure RTP library
-Version: 2.7.0
-Libs: -L\${libdir} -lsrtp2
-Cflags: -I\${includedir}
-EOF
+EWRTC_DEPS_BUILD_DIR="$build/dependencies" \
+EWRTC_DEPS_TOOLCHAIN_FILE="$root/cmake/luckfox-rv1103.cmake" \
+EWRTC_DEPS_BUILD_TYPE=MinSizeRel EWRTC_OPUS_FIXED_POINT=ON \
+bash "$root/tools/build_dependencies.sh" "$stage" mbedtls libsrtp opus
 export PKG_CONFIG_LIBDIR="$stage/lib/pkgconfig"
 export PKG_CONFIG_PATH=
 # Rescan the mutually dependent archives at the end of the static link.

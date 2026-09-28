@@ -20,19 +20,22 @@
 
 ## 快速开始
 
-以下命令均在克隆后的仓库根目录执行。需要 Linux、C11 编译器、CMake 3.20+、Make、pkg-config、OpenSSL 1.1.1w（精确版本）和 libSRTP 2.x（构建下限 2.5）。先运行 `bash tools/build_openssl.sh`，再设置 `export OPENSSL_ROOT_DIR="$PWD/.local/openssl-1.1.1w"` 后配置项目。Python 3.10+ 用于架构及开发检查。依赖准备和版本记录见 [构建说明](docs/building.md)。
+以下命令均在克隆后的仓库根目录执行。从固定源码构建依赖需要 Linux、C11 编译器、CMake 3.21+、Make、Git、Perl、pkg-config 和 Python 3.10+。第三方源码使用 Git submodule 管理，按需初始化。可选后端、外部依赖和交叉编译见 [构建说明](docs/building.md)。
 
-Ubuntu / Debian 上安装默认构建依赖：
+Ubuntu / Debian：
 
 ```bash
 sudo apt-get update
-sudo apt-get install build-essential cmake pkg-config libssl-dev libsrtp2-dev python3
+sudo apt-get install build-essential cmake git perl pkg-config python3
+git submodule update --init third_party/openssl third_party/libsrtp
+bash tools/build_dependencies.sh
+source .local/deps/env.sh
 cmake --preset default
 cmake --build --preset default --parallel
 ctest --preset default
 ```
 
-默认生成 `build-default/libewrtc.a`、Linux PAL 静态库和测试，不需要 Opus、Mbed TLS、Chrome 或下载 libjuice。仅构建库可添加 `-DEWRTC_BUILD_TESTS=OFF`。
+默认生成 `build-default/libewrtc.a`、Linux PAL 静态库和测试，不需要 Opus、Mbed TLS、Chrome 或 libjuice。配置与编译阶段不会下载依赖。仅构建库可添加 `-DEWRTC_BUILD_TESTS=OFF`。
 
 安装并运行最小接入示例：
 

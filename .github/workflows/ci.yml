@@ -11,7 +11,7 @@ permissions:
 jobs:
   linux:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
@@ -20,32 +20,35 @@ jobs:
       CC: ${{ matrix.compiler }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Initialize Mbed TLS framework
+        run: git submodule update --init --recursive --depth 1 third_party/mbedtls
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential clang cmake pkg-config curl perl libsrtp2-dev
-      - name: Build OpenSSL 1.1.1w
+          sudo apt-get install -y build-essential clang cmake pkg-config perl python3
+      - name: Build pinned dependencies
         run: |
-          bash tools/build_openssl.sh "$RUNNER_TEMP/openssl-1.1.1w"
-          echo "OPENSSL_ROOT_DIR=$RUNNER_TEMP/openssl-1.1.1w" >> "$GITHUB_ENV"
+          JOBS=2 bash tools/build_dependencies.sh "$RUNNER_TEMP/ewrtc-deps" openssl libsrtp mbedtls opus
+          echo "OPENSSL_ROOT_DIR=$RUNNER_TEMP/ewrtc-deps" >> "$GITHUB_ENV"
+          echo "PKG_CONFIG_PATH=$RUNNER_TEMP/ewrtc-deps/lib/pkgconfig" >> "$GITHUB_ENV"
       - name: Check documentation
         run: python3 tests/check_docs.py
+      - name: Check dependency source handling
+        run: python3 tests/check_dependencies.py
       - name: Configure
         run: cmake --preset default -DEWRTC_WARNINGS_AS_ERRORS=ON
       - name: Build
         run: cmake --build --preset default --parallel 2
       - name: Test
         run: ctest --preset default
-      - name: Verify installed API boundary
+      - name: Verify all backends, components and installed consumers
+        run: python3 tests/verify_builds.py --output build-matrix
+      - name: Verify dependency sources stayed clean
         run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          import sys
-          sys.path.insert(0, 'tests')
-          from verify_builds import check_package
-          check_package(Path('build-default').resolve(), Path('build-default').resolve(),
-                        ['session', 'ewrtc', 'pal_linux'], session=True, linux=True)
-          PY
+          git diff --exit-code --submodule=diff
+          git submodule foreach --recursive 'test -z "$(git status --porcelain)"'
       - name: Run standalone example
         run: |
           cmake --install build-default --prefix "$RUNNER_TEMP/ewrtc-install"

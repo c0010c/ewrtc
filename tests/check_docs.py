@@ -10,6 +10,7 @@ LINK = re.compile(r'\[[^\]\n]*\]\(([^\s)]+)(?:\s+"[^"\n]*")?\)')
 
 def main():
     paths = list(ROOT.glob('*.md'))
+    paths.append(ROOT / 'third_party/README.md')
     for name in ('docs', 'examples', 'test_samples', '.github'):
         paths.extend((ROOT / name).rglob('*.md'))
     errors = []
