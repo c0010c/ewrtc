@@ -42,6 +42,8 @@ source .local/deps/env.sh
 
 Mbed TLS 需要嵌套的 `framework` 子模块；OpenSSL 的嵌套测试仓库不参与本项目构建，无需初始化。Mbed TLS 的 DTLS-SRTP 配置只应用于构建目录内的源码副本，安装的配置头与库保持一致。Opus 仅供示例使用，关闭可选神经网络功能。libjuice 由启用它的 SDK 构建直接编译，无需单独安装。
 
+Opus 构建脚本在校验固定 submodule 提交后显式提供对应的发布版本，避免无 Git 标签的浅克隆将版本识别为 `0`；升级 Opus 提交时需同步更新该版本及 CMake 的版本锁定值。
+
 `env.sh` 设置 `OPENSSL_ROOT_DIR`、`PKG_CONFIG_PATH` 和 `CMAKE_PREFIX_PATH`。运行安装包消费者时也要保留该环境。切换编译器、目标平台或静态/动态配置时，使用独立的构建目录和安装目录。
 
 ### 使用外部安装的依赖
