@@ -91,6 +91,7 @@ python3 examples/run_player.py
 | --- | --- |
 | 构建选项、后端、交叉编译 | [构建说明](docs/building.md) |
 | API、线程、内存所有权与信令约定 | [接入指南](docs/usage.md)、[context](docs/context.md) |
+| 日志格式、等级、输出回调与限频 | [诊断日志](docs/logging.md) |
 | 视频接收、双向媒体和主动 offer | [接收与协商](docs/receiving-and-offers.md) |
 | 模块边界与平台适配 | [架构](docs/modular-architecture.md)、[公开 API](docs/public-api.md) |
 | 支持状态与历史测试证据 | [支持范围](docs/support.md) |

@@ -435,11 +435,13 @@ static int native_timers(ice_adapter *base) {
         n->last_consent_ms = now;
     }
     if (n->selected && now - n->last_response_ms > 30000) {
+        EWRTC_LOG(&base->pal, EWRTC_LOG_WARN, "ICE", "native consent timeout limit=30000ms");
         n->selected = false;
         n->base.events.state(n->base.events.user, EWRTC_DISCONNECTED);
     }
     if (!n->ever_selected && !n->failed && n->base.started && now - n->gather_started_ms >= 30000) {
         n->failed = true;
+        EWRTC_LOG(&base->pal, EWRTC_LOG_ERROR, "ICE", "native connectivity timeout limit=30000ms candidates=%zu", n->remote_count);
         n->base.events.state(n->base.events.user, EWRTC_FAILED);
     }
     return 0;
@@ -483,6 +485,7 @@ ice_adapter *ice_native_create(const ewrtc_ice_config *config, const ewrtc_ice_e
     if (!n)
         return NULL;
     *error = EWRTC_INVALID;
+    const char *stage = "configuration";
     n->base.pal = config->pal;
     n->base.delivery = config->delivery;
     n->base.ops = &ops;
@@ -493,24 +496,31 @@ ice_adapter *ice_native_create(const ewrtc_ice_config *config, const ewrtc_ice_e
         goto fail;
     n->controlling = config->controlling;
     *error = EWRTC_SECURITY;
+    stage = "random generation";
     if (random_text(n, n->base.ufrag, 8) || random_text(n, n->base.pwd, 24) ||
         ewrtc_random_bytes(&n->base.pal, &n->tie_breaker, sizeof(n->tie_breaker)))
         goto fail;
     ewrtc_address bind_addr = {0};
-    if ((*error = n->base.pal.network.udp_open(n->base.pal.network.ctx, &bind_addr, &n->fd)) ||
-        (*error = n->base.pal.network.udp_local(n->base.pal.network.ctx, n->fd, &bind_addr)))
+    stage = "UDP open";
+    if ((*error = n->base.pal.network.udp_open(n->base.pal.network.ctx, &bind_addr, &n->fd)))
+        goto fail;
+    stage = "UDP local address";
+    if ((*error = n->base.pal.network.udp_local(n->base.pal.network.ctx, n->fd, &bind_addr)))
         goto fail;
     ewrtc_address addresses[16];
     size_t count = 0;
+    stage = "interface enumeration";
     if ((*error = n->base.pal.network.interfaces(n->base.pal.network.ctx, addresses, 16, &count)))
         goto fail;
     if (!count) {
+        stage = "no IPv4 interfaces";
         *error = EWRTC_IO;
         goto fail;
     }
     n->host_addr = addresses[0];
     n->host_addr.port = bind_addr.port;
     if (config->stun_host) {
+        stage = "STUN server resolution";
         if ((*error = resolve_ipv4(n, config->stun_host, config->stun_port, &n->stun_addr)))
             goto fail;
         n->has_stun = true;
@@ -520,6 +530,7 @@ ice_adapter *ice_native_create(const ewrtc_ice_config *config, const ewrtc_ice_e
             .socket = n->fd, .server_host = config->turn_host, .server_port = config->turn_port,
             .username = config->turn_username, .password = config->turn_password,
             .state = turn_state, .recv = turn_recv, .user = n};
+        stage = "TURN initialization";
         *error = ewrtc_turn_create(&tc, &n->turn);
         if (*error)
             goto fail;
@@ -528,6 +539,7 @@ ice_adapter *ice_native_create(const ewrtc_ice_config *config, const ewrtc_ice_e
     *error = EWRTC_OK;
     return &n->base;
 fail:
+    EWRTC_LOG(&config->pal, EWRTC_LOG_ERROR, "ICE", "native creation failed stage=%s code=%d", stage, *error);
     native_destroy(&n->base);
     return NULL;
 }

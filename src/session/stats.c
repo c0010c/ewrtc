@@ -28,9 +28,12 @@ void session_update_path(ewrtc_session *s) {
     char local[256] = {0}, remote[256] = {0};
     if (s->ice && ewrtc_ice_selected(s->ice, local, sizeof(local), remote, sizeof(remote)) == 0) {
         session_lock(s);
+        bool changed = strcmp(s->stats.local_candidate, local) || strcmp(s->stats.remote_candidate, remote);
         snprintf(s->stats.local_candidate, sizeof(s->stats.local_candidate), "%s", local);
         snprintf(s->stats.remote_candidate, sizeof(s->stats.remote_candidate), "%s", remote);
         session_unlock(s);
+        if (changed)
+            SESSION_LOG(s, EWRTC_LOG_INFO, "ICE", "selected local=[%s] remote=[%s]", local, remote);
     }
 }
 

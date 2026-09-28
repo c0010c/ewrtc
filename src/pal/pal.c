@@ -59,7 +59,3 @@ char *ewrtc_strdup(const ewrtc_pal *p, const char *s) {
         memcpy(r, s, n);
     return r;
 }
-void ewrtc_log(const ewrtc_pal *p, int level, const char *s) {
-    if (p->log.write)
-        p->log.write(p->log.ctx, level, s);
-}

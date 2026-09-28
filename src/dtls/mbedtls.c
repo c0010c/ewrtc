@@ -145,17 +145,19 @@ static int finish(mbed_dtls *d) {
     char actual[128];
     if (!peer || fingerprint(peer, actual, sizeof(actual)) ||
         ewrtc_ascii_casecmp(actual, d->base.remote_fingerprint)) {
-        ewrtc_log(&d->base.pal, 3, "Mbed TLS peer fingerprint mismatch or missing");
+        EWRTC_LOG(&d->base.pal, EWRTC_LOG_ERROR, "DTLS", "mbedtls peer fingerprint mismatch or missing");
         return EWRTC_SECURITY;
     }
     mbedtls_dtls_srtp_info info;
     mbedtls_ssl_get_dtls_srtp_negotiation_result(&d->ssl, &info);
     if (info.MBEDTLS_PRIVATE(chosen_dtls_srtp_profile) != MBEDTLS_TLS_SRTP_AES128_CM_HMAC_SHA1_80) {
-        ewrtc_log(&d->base.pal, 3, "Mbed TLS did not negotiate SRTP AES128 SHA1 80");
+        EWRTC_LOG(&d->base.pal, EWRTC_LOG_ERROR, "DTLS", "mbedtls SRTP profile negotiation failed");
         return EWRTC_SECURITY;
     }
-    if (!d->key_exported)
+    if (!d->key_exported) {
+        EWRTC_LOG(&d->base.pal, EWRTC_LOG_ERROR, "DTLS", "mbedtls SRTP key export failed");
         return EWRTC_SECURITY;
+    }
     d->base.connected = true;
     return 0;
 }
@@ -174,9 +176,11 @@ static int advance(mbed_dtls *d) {
     }
     if (ret == MBEDTLS_ERR_SSL_WANT_READ || ret == MBEDTLS_ERR_SSL_WANT_WRITE)
         return 0;
-    char detail[256];
-    mbedtls_strerror(ret, detail, sizeof(detail));
-    ewrtc_log(&d->base.pal, 3, detail);
+    if (ewrtc_log_enabled(&d->base.pal, EWRTC_LOG_ERROR)) {
+        char detail[256];
+        mbedtls_strerror(ret, detail, sizeof(detail));
+        EWRTC_LOG(&d->base.pal, EWRTC_LOG_ERROR, "DTLS", "mbedtls handshake failed code=%d detail=%s", ret, detail);
+    }
     return EWRTC_SECURITY;
 }
 static int start(dtls_adapter *base) {

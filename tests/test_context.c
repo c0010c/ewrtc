@@ -12,6 +12,24 @@
 #include <sys/resource.h>
 #include <time.h>
 
+/* Track every PAL mutex, including the libjuice adapter's outer delivery lock. */
+static _Thread_local unsigned log_lock_depth;
+static void log_test_lock(void *ctx, ewrtc_mutex mutex) {
+    (void)ctx;
+    ewrtc_pal_linux()->threads.mutex_lock(NULL, mutex);
+    ++log_lock_depth;
+}
+static void log_test_unlock(void *ctx, ewrtc_mutex mutex) {
+    (void)ctx;
+    assert(log_lock_depth);
+    --log_lock_depth;
+    ewrtc_pal_linux()->threads.mutex_unlock(NULL, mutex);
+}
+static void checked_log(void *ctx, int level, const char *text) {
+    (void)ctx;
+    assert(!log_lock_depth);
+    ewrtc_pal_linux()->log.write(NULL, level, text);
+}
 static void pause_ms(unsigned ms) {
     struct timespec t = {ms / 1000, (long)(ms % 1000) * 1000000}; nanosleep(&t, NULL);
 }
@@ -79,6 +97,8 @@ static ewrtc_context_config config(services *s) {
     ewrtc_context_config c; ewrtc_context_config_init(&c); c.pal = *ewrtc_pal_linux();
     c.pal.memory = (ewrtc_allocator){s, test_alloc, test_resize, test_free};
     c.pal.threads.ctx = s; c.pal.threads.thread_create = test_thread; c.pal.threads.thread_join = test_join;
+    c.pal.threads.mutex_lock = log_test_lock; c.pal.threads.mutex_unlock = log_test_unlock;
+    c.pal.log = (ewrtc_logger){NULL, checked_log};
     c.pal.events.ctx = s; c.pal.events.wait = test_wait;
     c.pal.events.create = test_event_create; c.pal.events.add = test_event_add;
     return c;

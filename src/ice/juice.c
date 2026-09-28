@@ -268,6 +268,7 @@ ice_adapter *ice_juice_create(const ewrtc_ice_config *config, const ewrtc_ice_ev
     jc.user_ptr = j;
     j->agent = juice_create(&jc);
     if (!j->agent) {
+        EWRTC_LOG(&config->pal, EWRTC_LOG_ERROR, "ICE", "libjuice agent creation failed");
         juice_close(&j->base);
         return NULL;
     }
@@ -275,6 +276,7 @@ ice_adapter *ice_juice_create(const ewrtc_ice_config *config, const ewrtc_ice_ev
     if (juice_get_local_description(j->agent, description, sizeof(description)) < 0 ||
         get_credential(description, "a=ice-ufrag:", j->base.ufrag, sizeof(j->base.ufrag)) ||
         get_credential(description, "a=ice-pwd:", j->base.pwd, sizeof(j->base.pwd))) {
+        EWRTC_LOG(&config->pal, EWRTC_LOG_ERROR, "ICE", "libjuice local credential retrieval failed");
         juice_close(&j->base);
         return NULL;
     }

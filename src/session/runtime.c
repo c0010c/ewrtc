@@ -20,13 +20,18 @@ static void close_step(ewrtc_session *s) {
     session_lock(s);
     bool report = !s->closing && s->critical_error && s->stats.state != EWRTC_FAILED;
     int critical = s->critical_error;
+    const char *detail = s->critical_detail ? s->critical_detail :
+        critical ? "session delivery or protocol failure" : "application requested";
+    bool first_close = !s->closing;
     s->closing = true;
     enum prepare_state state = s->prepare_state;
     bool cleanup = s->cleanup;
     s->deadline = UINT64_MAX;
     session_unlock(s);
+    if (first_close)
+        SESSION_LOG(s, EWRTC_LOG_INFO, "SESSION", "closing reason=%s code=%d", detail, critical);
     if (report) {
-        session_error(s, (ewrtc_result)critical, "session delivery or protocol failure");
+        session_error(s, (ewrtc_result)critical, detail);
         session_set_state(s, EWRTC_FAILED);
     }
     if (s->registered_socket) {
@@ -36,6 +41,7 @@ static void close_step(ewrtc_session *s) {
     }
     if (state == PREP_QUEUED || state == PREP_RUNNING) return;
     if (state == PREP_DONE && cleanup) {
+        session_log_summary(s, true);
         session_set_state(s, EWRTC_CLOSED);
         session_lock(s); s->closed = true; s->prepare_state = PREP_NONE; session_unlock(s);
         return;
@@ -46,9 +52,9 @@ static void close_step(ewrtc_session *s) {
     }
     queue_prepare(s, true, NULL);
 }
-static void drive_error(ewrtc_session *s, int result) {
+static void drive_error(ewrtc_session *s, int result, const char *detail) {
     if (!result || result == EWRTC_AGAIN) return;
-    session_fail(s, result);
+    session_fail_at(s, result, detail);
 }
 static uint64_t next_deadline(ewrtc_session *s) {
     uint64_t next = ewrtc_ice_next_deadline(s->ice);
@@ -64,6 +70,7 @@ static void drive_session(ewrtc_session *s) {
     bool stopping = s->stopping;
     enum prepare_state state = s->prepare_state;
     session_unlock(s);
+    session_log_summary(s, false);
     if (stopping) { close_step(s); return; }
     if ((state == PREP_QUEUED || state == PREP_RUNNING) && !s->remote_set) return;
     unsigned commands = 32, packets = 64;
@@ -73,7 +80,7 @@ static void drive_session(ewrtc_session *s) {
         session_lock(s); s->prepare_state = PREP_NONE; s->prepare_item = NULL; session_unlock(s);
         if (result && item->type == WORK_REMOTE_CANDIDATE && result != EWRTC_NOMEM)
             session_error(s, EWRTC_INVALID, "remote ICE candidate resolution failed");
-        else if (result) session_fail(s, result);
+        else if (result) session_fail_at(s, result, s->prepare_detail);
         else { session_process(s, item); --commands; }
         session_release(s, item);
     }
@@ -101,14 +108,14 @@ static void drive_session(ewrtc_session *s) {
         if (socket) {
             int result = s->context->pal.events.add(s->context->pal.events.ctx,
                 s->worker->waiter, socket, s->token);
-            if (result) { session_fail(s, result); return; }
+            if (result) { session_fail_at(s, result, "socket registration failed"); return; }
             s->registered_socket = socket;
         }
     }
     bool more = false;
     if (s->ice) {
-        drive_error(s, ewrtc_ice_drain(s->ice, &packets, &commands, &more));
-        if (!session_stopped(s)) drive_error(s, ewrtc_ice_timers(s->ice));
+        drive_error(s, ewrtc_ice_drain(s->ice, &packets, &commands, &more), "ICE receive or delivery failed");
+        if (!session_stopped(s)) drive_error(s, ewrtc_ice_timers(s->ice), "ICE timer failed");
     }
     /* Native synchronous state events are deferred until the component returns. */
     while (commands && !session_stopped(s)) {
@@ -119,7 +126,7 @@ static void drive_session(ewrtc_session *s) {
     if (!session_stopped(s)) {
         if (s->dtls_started && s->dtls && !ewrtc_dtls_connected(s->dtls)) {
             int result = ewrtc_dtls_tick(s->dtls);
-            if (result != EWRTC_BACKPRESSURE) drive_error(s, result);
+            if (result != EWRTC_BACKPRESSURE) drive_error(s, result, "DTLS timer failed");
         }
         session_finish_dtls(s);
         if (s->stats.state == EWRTC_CONNECTED) session_report_send(s, ewrtc_media_tick(s->media));
@@ -179,7 +186,13 @@ void *session_worker_main(void *arg) {
         for (size_t i = 0; i < c->max_sessions; ++i) {
             ewrtc_session *s = c->sessions[i];
             if (!s || s->worker != w || s->closed) continue;
-            if (result) { if (!s->critical_error) s->critical_error = (ewrtc_result)result; session_wake_locked(s); }
+            if (result) {
+                if (!s->critical_error) {
+                    s->critical_error = (ewrtc_result)result;
+                    s->critical_detail = "event wait failed";
+                }
+                session_wake_locked(s);
+            }
             for (size_t j = 0; j < count; ++j) if (tokens[j] == s->token && !s->closing) {
                 if (!s->notified) s->ready_at = ewrtc_now_ms(&c->pal);
                 s->notified = true;

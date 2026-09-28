@@ -8,4 +8,10 @@ option(EWRTC_BUILD_TESTS "Build enabled component tests" ON)
 option(EWRTC_BUILD_EXAMPLES "Build demo when session is selected" OFF)
 option(EWRTC_ENFORCE_DEPENDENCY_LOCK "Also pin Mbed TLS/libSRTP validation versions and verify libjuice revision" OFF)
 
+set(EWRTC_LOG_MIN_LEVEL "1" CACHE STRING "SDK log threshold: 0=DEBUG, 1=INFO, 2=WARN, 3=ERROR, 4=OFF")
+set_property(CACHE EWRTC_LOG_MIN_LEVEL PROPERTY STRINGS 0 1 2 3 4)
+if(NOT EWRTC_LOG_MIN_LEVEL MATCHES "^[0-4]$")
+  message(FATAL_ERROR "EWRTC_LOG_MIN_LEVEL must be 0, 1, 2, 3 or 4")
+endif()
+
 option(EWRTC_WARNINGS_AS_ERRORS "Treat SDK compiler warnings as errors" OFF)

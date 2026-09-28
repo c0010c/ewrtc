@@ -91,7 +91,10 @@ void *session_prepare_main(void *arg) {
             int result = c->pal.threads.condition_wait(c->pal.threads.ctx, c->prepare_cv, c->mu, UINT32_MAX);
             if (result && result != EWRTC_TIMEOUT) {
                 for (size_t i = 0; i < c->max_sessions; ++i) if (c->sessions[i]) {
-                    c->sessions[i]->critical_error = (ewrtc_result)result;
+                    if (!c->sessions[i]->critical_error) {
+                        c->sessions[i]->critical_error = (ewrtc_result)result;
+                        c->sessions[i]->critical_detail = "preparation condition wait failed";
+                    }
                     session_wake_locked(c->sessions[i]);
                 }
             }
@@ -104,6 +107,7 @@ void *session_prepare_main(void *arg) {
         int result = 0;
         if (cleanup) session_cleanup_transport(s);
         else if (!stopped) {
+            s->prepare_detail = "candidate resolution or normalization failed";
             result = normalize_input(s, item);
             if (!result && !session_stopped(s) &&
                 (item->type == WORK_CREATE_OFFER || item->type == WORK_OFFER))

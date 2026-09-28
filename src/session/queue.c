@@ -22,8 +22,14 @@ void session_notify(void *user) {
     session_unlock(s);
 }
 void session_fail(ewrtc_session *s, int result) {
+    session_fail_at(s, result, "session delivery or protocol failure");
+}
+void session_fail_at(ewrtc_session *s, int result, const char *detail) {
     session_lock(s);
-    if (!s->critical_error) s->critical_error = (ewrtc_result)result;
+    if (!s->critical_error) {
+        s->critical_error = (ewrtc_result)result;
+        s->critical_detail = detail; /* static diagnostic string */
+    }
     s->stopping = true;
     session_wake_locked(s);
     session_unlock(s);
@@ -39,6 +45,7 @@ void *session_allocate(void *user, size_t size, bool control, int *error) {
     if (control) {
         control_slot *slot = s->control_free;
         if (!slot || size > sizeof(slot->data)) {
+            ++s->log_counts[!slot ? LOG_QUEUE_CONTROL : LOG_QUEUE_CONTROL_SIZE];
             *error = EWRTC_BACKPRESSURE;
             session_unlock(s); return NULL;
         }
@@ -49,6 +56,8 @@ void *session_allocate(void *user, size_t size, bool control, int *error) {
     }
     if (s->ordinary_items >= EWRTC_MAX_WORK_ITEMS || bytes > s->queue_limit - s->ordinary_bytes ||
         bytes > c->queue_limit - c->stats.control_reserved_bytes - c->stats.queue_bytes) {
+        ++s->log_counts[s->ordinary_items >= EWRTC_MAX_WORK_ITEMS ? LOG_QUEUE_ITEMS :
+            bytes > s->queue_limit - s->ordinary_bytes ? LOG_QUEUE_SESSION : LOG_QUEUE_CONTEXT];
         ++c->stats.backpressure_count; ++s->stats.backpressure_count;
         *error = EWRTC_BACKPRESSURE; session_unlock(s); return NULL;
     }
@@ -113,7 +122,7 @@ ewrtc_result session_enqueue(ewrtc_session *s, enum work_type type, const void *
 void session_internal_event(ewrtc_session *s, enum work_type type, const void *data,
                            size_t size, ewrtc_state state) {
     int result = session_enqueue(s, type, data, size, 0, state, 0);
-    if (result && result != EWRTC_STATE) session_fail(s, result);
+    if (result && result != EWRTC_STATE) session_fail_at(s, result, "internal event enqueue failed");
 }
 void session_discard_queue(ewrtc_session *s) {
     work_item *p = s->head;

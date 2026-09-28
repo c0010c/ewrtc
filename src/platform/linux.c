@@ -62,7 +62,8 @@ static int random_bytes(void *ctx, void *out, size_t n) {
 }
 static void log_write(void *ctx, int level, const char *s) {
     (void)ctx;
-    fprintf(stderr, "ewrtc[%d]: %s\n", level, s);
+    (void)level;
+    fprintf(stderr, "%s\n", s);
 }
 static int thread_create(void *ctx, void *(*fn)(void *), void *arg, ewrtc_thread *out) {
     (void)ctx;

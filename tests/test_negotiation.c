@@ -78,6 +78,17 @@ static void audio(ewrtc_session *s, const uint8_t *p, size_t n, uint32_t ts, uin
     (void)s; (void)ts; (void)seq;
     assert(n == 3 && p[0] == 0xf8); atomic_fetch_add(&((peer *)ctx)->audios, 1);
 }
+typedef struct { atomic_uint started, completed, selected, closed, writes; } log_capture;
+static void capture_log(void *ctx, int level, const char *text) {
+    log_capture *c = ctx;
+    ++c->writes;
+    if (strstr(text, "handshake started")) ++c->started;
+    if (strstr(text, "handshake completed")) ++c->completed;
+    if (strstr(text, "selected local=")) ++c->selected;
+    if (strstr(text, " -> closed")) ++c->closed;
+    assert(!strstr(text, "a=ice-pwd:") && !strstr(text, "a=fingerprint:"));
+    ewrtc_pal_linux()->log.write(NULL, level, text);
+}
 static void run_pair(int ice_a, int tls_a, int ice_b, int tls_b, bool passive, bool one_way, bool embedded, int invalid) {
     printf("connecting ICE/DTLS %d/%d -> %d/%d passive=%d invalid=%d\n", ice_a, tls_a, ice_b, tls_b, passive, invalid);
     peer a = {.offerer = true, .passive_offer = passive, .embedded = embedded},
@@ -87,6 +98,7 @@ static void run_pair(int ice_a, int tls_a, int ice_b, int tls_b, bool passive, b
         .on_gathering_done = done, .on_error = error, .on_video = video, .on_audio = audio};
     ewrtc_session_config c; ewrtc_session_config_init(&c); ewrtc_context_config cc; ewrtc_context_config_init(&cc);
     cc.pal = *ewrtc_pal_linux();
+    log_capture logs = {0}; cc.pal.log = (ewrtc_logger){&logs, capture_log};
     ewrtc_context *context;
     assert(!ewrtc_context_create(&cc, &context));
     c.ice_backend = ice_a; c.dtls_backend = tls_a; c.crypto_backend = tls_a;
@@ -146,6 +158,11 @@ static void run_pair(int ice_a, int tls_a, int ice_b, int tls_b, bool passive, b
                     (atomic_load(&b.videos) && atomic_load(&b.audios)));
     assert(!ewrtc_session_destroy(a.session)); assert(!ewrtc_session_destroy(b.session));
     assert(!ewrtc_context_destroy(context));
+    if (EWRTC_LOG_MIN_LEVEL <= 1) {
+        assert(logs.started == 2 && logs.completed == 2 && logs.closed == 2);
+        assert(logs.selected >= 2);
+    }
+    if (EWRTC_LOG_MIN_LEVEL == 4) assert(!logs.writes);
     printf("pair ICE/DTLS %d/%d -> %d/%d, offer passive=%d passed\n", ice_a, tls_a, ice_b, tls_b, passive);
 }
 int main(void) {

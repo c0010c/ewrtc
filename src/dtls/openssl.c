@@ -88,19 +88,27 @@ static int finish(openssl_dtls *d) {
         return 0;
     X509 *peer = SSL_get_peer_certificate(d->ssl);
     char actual[128];
-    if (!peer)
+    if (!peer) {
+        EWRTC_LOG(&d->base.pal, EWRTC_LOG_ERROR, "DTLS", "openssl peer certificate missing");
         return EWRTC_SECURITY;
+    }
     int valid = format_fingerprint(peer, actual, sizeof(actual)) == 0 &&
                 ewrtc_ascii_casecmp(actual, d->base.remote_fingerprint) == 0;
     X509_free(peer);
-    if (!valid)
+    if (!valid) {
+        EWRTC_LOG(&d->base.pal, EWRTC_LOG_ERROR, "DTLS", "openssl peer fingerprint mismatch");
         return EWRTC_SECURITY;
+    }
     const SRTP_PROTECTION_PROFILE *profile = SSL_get_selected_srtp_profile(d->ssl);
-    if (!profile || strcmp(profile->name, "SRTP_AES128_CM_SHA1_80"))
+    if (!profile || strcmp(profile->name, "SRTP_AES128_CM_SHA1_80")) {
+        EWRTC_LOG(&d->base.pal, EWRTC_LOG_ERROR, "DTLS", "openssl SRTP profile negotiation failed");
         return EWRTC_SECURITY;
+    }
     if (SSL_export_keying_material(d->ssl, d->base.key_material, sizeof(d->base.key_material),
-                                   "EXTRACTOR-dtls_srtp", 19, NULL, 0, 0) != 1)
+                                   "EXTRACTOR-dtls_srtp", 19, NULL, 0, 0) != 1) {
+        EWRTC_LOG(&d->base.pal, EWRTC_LOG_ERROR, "DTLS", "openssl SRTP key export failed");
         return EWRTC_SECURITY;
+    }
     d->base.connected = true;
     return 0;
 }
@@ -119,9 +127,11 @@ static int advance(openssl_dtls *d) {
         return finish(d);
     if (err == SSL_ERROR_WANT_READ || err == SSL_ERROR_WANT_WRITE)
         return 0;
-    char detail[256];
-    ERR_error_string_n(ERR_peek_last_error(), detail, sizeof(detail));
-    ewrtc_log(&d->base.pal, 3, detail);
+    if (ewrtc_log_enabled(&d->base.pal, EWRTC_LOG_ERROR)) {
+        char detail[256];
+        ERR_error_string_n(ERR_peek_last_error(), detail, sizeof(detail));
+        EWRTC_LOG(&d->base.pal, EWRTC_LOG_ERROR, "DTLS", "openssl handshake failed ssl_error=%d detail=%s", err, detail);
+    }
     return EWRTC_SECURITY;
 }
 static int start(dtls_adapter *base) {

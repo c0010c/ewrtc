@@ -9,7 +9,8 @@
 #include <threads.h>
 #include <time.h>
 
-typedef struct { atomic_size_t live; atomic_uint opened, closed, answers, callbacks, threads; } harness;
+static _Thread_local unsigned lock_depth;
+typedef struct { atomic_uint logs; atomic_size_t live; atomic_uint opened, closed, answers, callbacks, threads; } harness;
 static void *allocate(void *ctx, size_t n) {
     void *p = malloc(n); if (p) ++((harness *)ctx)->live; return p;
 }
@@ -43,8 +44,8 @@ static int mutex_create(void *ctx, ewrtc_mutex *out) {
     assert(mtx_init(m, mtx_plain) == thrd_success); *out = m; return 0;
 }
 static void mutex_destroy(void *ctx, ewrtc_mutex m) { mtx_destroy(m); release(ctx, m); }
-static void lock(void *ctx, ewrtc_mutex m) { (void)ctx; assert(mtx_lock(m) == thrd_success); }
-static void unlock(void *ctx, ewrtc_mutex m) { (void)ctx; assert(mtx_unlock(m) == thrd_success); }
+static void lock(void *ctx, ewrtc_mutex m) { (void)ctx; assert(mtx_lock(m) == thrd_success); ++lock_depth; }
+static void unlock(void *ctx, ewrtc_mutex m) { (void)ctx; --lock_depth; assert(mtx_unlock(m) == thrd_success); }
 static int condition_create(void *ctx, ewrtc_condition *out) {
     cnd_t *c = allocate(ctx, sizeof(*c)); if (!c) return EWRTC_NOMEM;
     assert(cnd_init(c) == thrd_success); *out = c; return 0;
@@ -112,7 +113,12 @@ static void state(ewrtc_session *s, ewrtc_state value, void *ctx) {
     ewrtc_stats stats; assert(!ewrtc_session_get_stats(s, &stats));
     assert(ewrtc_session_destroy(s) == EWRTC_STATE);
 }
-int main(void) {
+static void log_write(void *ctx, int level, const char *text) {
+    (void)level;
+    assert(!lock_depth && !strchr(text, '\n'));
+    ++((harness *)ctx)->logs;
+}
+static void run(bool logging) {
     harness h = {0}; ewrtc_context_config cc; ewrtc_context_config_init(&cc);
     assert(!cc.pal.memory.allocate);
     cc.pal = (ewrtc_pal){.memory = {&h, allocate, resize, release}, .clock = {&h, mono, utc},
@@ -121,6 +127,7 @@ int main(void) {
                     condition_create, condition_destroy, signal_condition, wait_condition},
         .network = {&h, udp_open, udp_close, udp_local, udp_send, udp_receive, resolve, interfaces},
         .events = {&h, event_create, event_destroy, event_add, event_remove, event_wait, event_wake}};
+    if (logging) cc.pal.log = (ewrtc_logger){&h, log_write};
     ewrtc_context *context; assert(!ewrtc_context_create(&cc, &context));
     ewrtc_session_config cfg; ewrtc_session_config_init(&cfg);
     ewrtc_callbacks cb = {.on_local_sdp = answer, .on_state = state}; ewrtc_session *a, *b;
@@ -136,5 +143,8 @@ int main(void) {
     assert(h.opened == h.closed);
     unsigned callbacks = h.callbacks;
     assert(!ewrtc_context_destroy(context) && !h.live && !h.threads && h.callbacks == callbacks);
+    if (!logging) assert(!h.logs);
     puts("Shared context with application C11 PAL passed");
 }
+
+int main(void) { run(false); run(true); }
